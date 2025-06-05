@@ -1,0 +1,2 @@
+class UserDog < ApplicationRecord
+end
