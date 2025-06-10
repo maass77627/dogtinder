@@ -1,9 +1,42 @@
 .App {
   text-align: center;
-  background-color: blue;
+  background-color: white;
 }
 
+#active{
+  width: 150px;
+  background-color: rgb(155, 212, 155);
+  border-radius: 25px;
+  color: darkgreen;
+  margin: auto;
+}
 
+#name {
+  color: white;
+  background-color: rgb(10, 10, 10);
+  width: 500px;
+  margin: auto;
+}
+
+#age{
+  color: white;
+  background-color: rgb(10, 10, 10);
+  width: 500px;
+  margin: auto;
+}
+
+#image{
+  height: 500px;
+  width: 500px;
+
+}
+
+#description {
+  color: white;
+  background-color: rgb(10, 10, 10);
+  width: 500px;
+  margin: auto;
+}
 
 
 
