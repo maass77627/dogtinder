@@ -5,11 +5,13 @@ import React from "react";
 import './App.css';
 import { useState } from "react";
 import { useEffect } from "react";
-// import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
  
 
 function App() {
 
+  const [toggle, setToggle] = useState(false)
+  const [toggler, setToggler] = useState(false)
 
   const [ user, setUser ] = useState(null);
   const [dogs, setDogs] = useState([])
@@ -54,8 +56,11 @@ function App() {
 
 const Home = () => (
   <div id="home">
+    <button id="homebtn2">Log in</button>
       {user ? <h2>Welcome, {user.username}!</h2> : <Login setUser={setUser} />}
       
+      <h1 id="title">Swipe Right</h1>
+      <button id="homebutton">Create account</button>
       <Signup setUser={setUser}></Signup>
 
       <button onClick={handleClick}>Logout</button>
@@ -68,13 +73,13 @@ const Home = () => (
   return (
     <div className="App">
 
-       {/* <BrowserRouter>
+       <BrowserRouter>
         <Routes>
           <Route path="/" element={Home()}>
             <Route path="/dogs" element={<DogContainer dogs={dogs} />} />
           </Route>
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
 
           {/* {user ? <h2>Welcome, {user.username}!</h2> : <Login setUser={setUser} />}
       
@@ -83,7 +88,7 @@ const Home = () => (
       <button onClick={handleClick}>Logout</button> */}
 
 
-       <DogContainer dogs={dogs}></DogContainer> 
+       {/* <DogContainer dogs={dogs}></DogContainer>  */}
      
     </div>
   );

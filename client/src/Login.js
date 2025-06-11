@@ -25,7 +25,7 @@ function Login({ setUser }) {
       }
 
     return (
-        <div>
+        <div id="login">
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
         <label >Username</label>
@@ -42,6 +42,7 @@ function Login({ setUser }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <br></br>
         <button type="submit">Login</button>
       </form>
     </div>

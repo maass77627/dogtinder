@@ -6,10 +6,14 @@ function DogContainer({ dogs }) {
 
 
     return (
+
+        <div id="background">
         
 
         <div>
                 {dogs ? dogs.map((dog) => <Dog dog={dog} ></Dog>) : null}
+
+        </div>
 
         </div>
     )

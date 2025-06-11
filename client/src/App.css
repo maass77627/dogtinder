@@ -5,7 +5,7 @@
 
 #active{
   width: 150px;
-  background-color: rgb(155, 212, 155);
+  background-color: rgb(8, 37, 8);
   border-radius: 25px;
   color: darkgreen;
   margin: auto;
@@ -31,6 +31,57 @@
 
 }
 
+#homebtn2 {
+  position: absolute;
+  font-size: large;
+  font-weight: bolder;
+  right: 0;
+  border-radius: 25px;
+  height: 50px;
+  width: 100px;
+}
+
+#title {
+  color: white;
+  font-size: bolder; 
+  font-weight: bolder;
+}
+
+#homebutton {
+  background-color: rgb(212, 93, 93);
+  border-radius: 25px;
+  height: 50px;
+  width: 200px;
+  font-size: large;
+  color: white;
+  font-weight: bolder;
+
+}
+
+#login {
+  background-color: antiquewhite;
+  height: 400px;
+  width: 300px;
+  border-radius: 25px;
+  position: absolute;
+  left: 800px;
+  top: 300px;
+
+}
+
+#signup {
+  background-color: antiquewhite;
+  height: 400px;
+  width: 300px;
+  border-radius: 25px;
+  position: absolute;
+  left: 800px;
+  top: 300px;
+
+}
+
+
+
 #description {
   color: white;
   background-color: rgb(10, 10, 10);
@@ -38,6 +89,15 @@
   margin: auto;
 }
 
+#home {
+  background-image: url('dogdatertwo.webp');
+  /* background-image: url("cellphone.jpg");  */
+  /* background-size: cover; 
+  background-repeat: no-repeat;  */
+  height: 700px;
+  width: 2000px;
+  background-color: aquamarine;
+}
 
 
 /* .App-header {

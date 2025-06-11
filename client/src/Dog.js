@@ -18,7 +18,7 @@ function Dog({ dog }) {
             <h1 id="name">{dog.name}</h1>
             <p id="age">{dog.age}</p>
             <img id="image" src={dog.image} alt="dog"></img>
-            <p id="description">{dog.description}</p>
+            <p id="description">{dog.details}</p>
             <button>back</button>
             <button>delete</button>
             <button>like</button>
