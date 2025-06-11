@@ -55,13 +55,17 @@ function App() {
 
 
 const Home = () => (
-  <div id="home">
+  
+  <div id="home"   style={{ backgroundImage: "url(/dogdatetr.jpg)" }}>
+    <img id="logo" src="/tinderlogo.webp"></img>
     <button id="homebtn2">Log in</button>
-      {user ? <h2>Welcome, {user.username}!</h2> : <Login setUser={setUser} />}
+      {/* {user ? <h2>Welcome, {user.username}!</h2> : <Login setUser={setUser} />} */}
+      {user ? <h2>Welcome, {user.username}!</h2> : null }
+      { toggler ? <Login setUser={setUser} /> : null}
       
       <h1 id="title">Swipe Right</h1>
       <button id="homebutton">Create account</button>
-      <Signup setUser={setUser}></Signup>
+     { toggle ? <Signup setUser={setUser}></Signup> : null}
 
       <button onClick={handleClick}>Logout</button>
 

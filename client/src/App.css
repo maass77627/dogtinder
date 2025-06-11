@@ -18,6 +18,11 @@
   margin: auto;
 }
 
+#logo{
+  position: absolute;
+  left: 0px;
+}
+
 #age{
   color: white;
   background-color: rgb(10, 10, 10);
@@ -42,12 +47,20 @@
 }
 
 #title {
+  background-color: black;
+  position: absolute;
+  top: 200px;
+  left: 450px;
   color: white;
-  font-size: bolder; 
+  font-size: 200px; 
   font-weight: bolder;
+  border-radius: 25px;
 }
 
 #homebutton {
+  position: absolute;
+  left: 900px;
+  top: 600px;
   background-color: rgb(212, 93, 93);
   border-radius: 25px;
   height: 50px;
@@ -90,11 +103,12 @@
 }
 
 #home {
-  background-image: url('dogdatertwo.webp');
+  
+  /* background-image: url('bassett.jpg');  */
   /* background-image: url("cellphone.jpg");  */
   /* background-size: cover; 
   background-repeat: no-repeat;  */
-  height: 700px;
+  height: 900px;
   width: 2000px;
   background-color: aquamarine;
 }
