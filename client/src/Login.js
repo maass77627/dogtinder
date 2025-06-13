@@ -6,6 +6,9 @@ function Login({ setUser }) {
     const [password, setPassword] = useState("");
 
     function handleSubmit(e) {
+      console.log(e.target)
+      let form = e.target.parentNode
+      form.className = "hidden"
 
         e.preventDefault();
         console.log(username)

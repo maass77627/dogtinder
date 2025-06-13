@@ -21,6 +21,9 @@
 #logo{
   position: absolute;
   left: 0px;
+  width: 100px;
+  height: 100px;
+ 
 }
 
 #age{
@@ -33,6 +36,7 @@
 #image{
   height: 500px;
   width: 500px;
+  margin: auto;
 
 }
 
@@ -60,7 +64,7 @@
 #homebutton {
   position: absolute;
   left: 900px;
-  top: 600px;
+  top: 800px;
   background-color: rgb(212, 93, 93);
   border-radius: 25px;
   height: 50px;
@@ -71,6 +75,15 @@
 
 }
 
+#logotext {
+  position: absolute;
+  left: 150px;
+  font-weight: bolder;
+  font-size: 50px;
+  color: rgb(240, 8, 8);
+  /* background-color: antiquewhite; */
+}
+
 #login {
   background-color: antiquewhite;
   height: 400px;
@@ -79,6 +92,7 @@
   position: absolute;
   left: 800px;
   top: 300px;
+  z-index: 1;
 
 }
 
@@ -113,6 +127,31 @@
   background-color: aquamarine;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
+.unhidden {
+  visibility: visible;
+}
+
+#dog {
+  position: absolute;
+  left: 600px;
+  top: 200px;
+  bottom: 300px;
+  margin: auto;
+  height: 700px;
+  width: 600px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#info {
+  position: absolute;
+  left: 50px;
+  top: 600px;
+}
 
 /* .App-header {
   background-color: #282c34;
@@ -126,5 +165,12 @@
 } */
 
 
+#background{
+  height: 2000px;
+  background-color: black;
+}
 
-
+#header {
+  background-color: white;
+  height: 100px;
+}

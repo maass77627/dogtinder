@@ -18,6 +18,17 @@ class DogsController < ApplicationController
 
     end
 
+    def destroy
+        dog = Dog.find_by(id: params[:id])
+        if dog
+            dog.destroy
+            head :no_content
+        else
+            render json: { error: "Dog not found"}, status: :not_found
+
+        end
+    end
+
     private
 
     def dog_params

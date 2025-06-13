@@ -1,19 +1,22 @@
 import React from "react";
 import Dog from "./Dog"
+import { NavLink } from "react-router-dom";
+// import TinderCard from "react-tinder-card";
 
 function DogContainer({ dogs }) {
     console.log(dogs)
 
 
     return (
-
-        <div id="background">
         
 
-        <div>
-                {dogs ? dogs.map((dog) => <Dog dog={dog} ></Dog>) : null}
+        <div id="background">
+        <NavLink id="links" to="/">Home Page</NavLink>
 
-        </div>
+        
+                {dogs ? dogs.map((dog) => <Dog key={dog.name} preventSwipe={['up', 'down']} className="swipe" dog={dog}   ></Dog>) : null}
+
+        
 
         </div>
     )

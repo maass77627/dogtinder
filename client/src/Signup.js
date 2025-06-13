@@ -8,6 +8,8 @@ function Signup({ setUser }) {
 
 
   function handleSubmit(e) {
+    let form = e.target.parentNode
+    form.className = "hidden"
     e.preventDefault();
     fetch("/signup", {
       method: "POST",
@@ -33,13 +35,16 @@ function Signup({ setUser }) {
         <form onSubmit={handleSubmit}>
           <h1>Sign Up</h1>
           <label htmlFor="username">Username</label>
+          <br></br>
           <input
             type="text"
             id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
+          <br></br>
           <label htmlFor="password">Password</label>
+          <br></br>
           <input
             type="password"
             id="password"
@@ -47,6 +52,7 @@ function Signup({ setUser }) {
             onChange={(e) => setPassword(e.target.value)}
         
           />
+          <br></br>
           <label htmlFor="password">Password Confirmation</label>
           <input
             type="password"
@@ -55,6 +61,7 @@ function Signup({ setUser }) {
             onChange={(e) => setPasswordConfirmation(e.target.value)}
             
           />
+          <br></br>
           <button type="submit">Sign Up</button>
         </form>
       </div>

@@ -1,11 +1,15 @@
 import Login from "./Login";
 import Signup from "./Signup";
 import DogContainer from "./DogContainer";
+import Header from "./Header";
 import React from "react";
 import './App.css';
 import { useState } from "react";
 import { useEffect } from "react";
+// import { BrowserRouter as Router, Switch, Route, Link }
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { NavLink } from "react-router-dom";
+
  
 
 function App() {
@@ -38,6 +42,14 @@ function App() {
     });
   }, []);
 
+  function handleSignup() {
+    setToggle(!toggle)
+  }
+
+  function handleLogin() {
+    setToggler(!toggler)
+  }
+
 
 
 
@@ -57,17 +69,20 @@ function App() {
 const Home = () => (
   
   <div id="home"   style={{ backgroundImage: "url(/dogdatetr.jpg)" }}>
-    <img id="logo" src="/tinderlogo.webp"></img>
-    <button id="homebtn2">Log in</button>
+    <img id="logo" src="/tinderflame.png" alt="logo"></img>
+    <p id="logotext">Scoundrel</p>
+    <button onClick={handleLogin} id="homebtn2">Log in</button>
       {/* {user ? <h2>Welcome, {user.username}!</h2> : <Login setUser={setUser} />} */}
-      {user ? <h2>Welcome, {user.username}!</h2> : null }
+      {user ? <h2>Welcome, {user.username}! </h2> : null }
+      {user ? <NavLink id="links" to="/dogs">UserPage</NavLink> : null}
+      {/* {user ? <DogContainer dogs={dogs} /> : null } */}
       { toggler ? <Login setUser={setUser} /> : null}
       
       <h1 id="title">Swipe Right</h1>
-      <button id="homebutton">Create account</button>
+      <button onClick={handleSignup} id="homebutton">Create account</button>
      { toggle ? <Signup setUser={setUser}></Signup> : null}
 
-      <button onClick={handleClick}>Logout</button>
+      { user ? <button onClick={handleClick}>Logout</button> : null }
 
   </div>
 );
@@ -76,23 +91,16 @@ const Home = () => (
 
   return (
     <div className="App">
-
+        <Header></Header>
        <BrowserRouter>
         <Routes>
-          <Route path="/" element={Home()}>
+            <Route path="/" element={Home()}/>
             <Route path="/dogs" element={<DogContainer dogs={dogs} />} />
-          </Route>
+          
         </Routes>
       </BrowserRouter>
 
-          {/* {user ? <h2>Welcome, {user.username}!</h2> : <Login setUser={setUser} />}
-      
-      <Signup setUser={setUser}></Signup>
-
-      <button onClick={handleClick}>Logout</button> */}
-
-
-       {/* <DogContainer dogs={dogs}></DogContainer>  */}
+         
      
     </div>
   );
