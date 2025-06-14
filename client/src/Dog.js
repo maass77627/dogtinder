@@ -7,18 +7,16 @@ function Dog({ dog }) {
 
     return (
          <div id="dog" style={{ backgroundImage: `url(${dog.image})` }}>
-        {/* <div id="dog"> */}
-            {/* <img id="image" src={dog.image} alt="dog"></img> */}
+        
            <div id="info">
             <p id="active">Recently Active</p>
             <h1 id="name">{dog.name}</h1>
             <p id="age">{dog.age}</p>
-              
             <p id="description">{dog.details}</p>
-            <button>back</button>
+            {/* <button>back</button>
             <button>delete</button>
             <button>like</button>
-            <button>comment</button>
+            <button>comment</button> */}
             </div>
         </div>
 

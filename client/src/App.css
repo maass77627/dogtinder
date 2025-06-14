@@ -20,6 +20,7 @@
 
 #logo{
   position: absolute;
+  top: 20px;
   left: 0px;
   width: 100px;
   height: 100px;
@@ -51,7 +52,7 @@
 }
 
 #title {
-  background-color: black;
+  /* background-color: black; */
   position: absolute;
   top: 200px;
   left: 450px;
@@ -75,12 +76,17 @@
 
 }
 
+#greet {
+  color: white;
+}
+
 #logotext {
   position: absolute;
-  left: 150px;
+  top: 0px;
+  left: 100px;
   font-weight: bolder;
   font-size: 50px;
-  color: rgb(240, 8, 8);
+  color: rgb(206, 44, 44);
   /* background-color: antiquewhite; */
 }
 
@@ -167,7 +173,7 @@
 
 #background{
   height: 2000px;
-  background-color: black;
+  background-color: black; 
 }
 
 #header {

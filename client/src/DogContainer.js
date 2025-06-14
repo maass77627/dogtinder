@@ -1,7 +1,8 @@
 import React from "react";
-import Dog from "./Dog"
+// import Dog from "./Dog"
 import { NavLink } from "react-router-dom";
-// import TinderCard from "react-tinder-card";
+import TinderCard from "react-tinder-card";
+import './TinderCards.css';
 
 function DogContainer({ dogs }) {
     console.log(dogs)
@@ -12,9 +13,25 @@ function DogContainer({ dogs }) {
 
         <div id="background">
         <NavLink id="links" to="/">Home Page</NavLink>
+            <div className="tinderCards_cardContainer">
 
-        
-                {dogs ? dogs.map((dog) => <Dog key={dog.name} preventSwipe={['up', 'down']} className="swipe" dog={dog}   ></Dog>) : null}
+                {dogs.map((dog) => <TinderCard 
+                key={dog.name} 
+                preventSwipe={['up', 'down']} 
+                className="swipe" 
+                dog={dog}>
+                <div
+                style={{ backgroundImage: `url(${dog.image})`}}
+                className="card"
+                >
+                    <h3>{dog.name}</h3>
+
+                </div>
+
+
+                </TinderCard>)}
+
+                </div>
 
         
 

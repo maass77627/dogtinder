@@ -1,7 +1,6 @@
 import Login from "./Login";
 import Signup from "./Signup";
 import DogContainer from "./DogContainer";
-import Header from "./Header";
 import React from "react";
 import './App.css';
 import { useState } from "react";
@@ -68,17 +67,17 @@ function App() {
 
 const Home = () => (
   
-  <div id="home"   style={{ backgroundImage: "url(/dogdatetr.jpg)" }}>
+  <div id="home"   style={{ backgroundImage: "url(/dogdaterdark.jpg)" }}>
     <img id="logo" src="/tinderflame.png" alt="logo"></img>
     <p id="logotext">Scoundrel</p>
     <button onClick={handleLogin} id="homebtn2">Log in</button>
-      {/* {user ? <h2>Welcome, {user.username}!</h2> : <Login setUser={setUser} />} */}
-      {user ? <h2>Welcome, {user.username}! </h2> : null }
+     
+      {user ? <h2 id="greet">Welcome, {user.username}! </h2> : null }
       {user ? <NavLink id="links" to="/dogs">UserPage</NavLink> : null}
-      {/* {user ? <DogContainer dogs={dogs} /> : null } */}
+      
       { toggler ? <Login setUser={setUser} /> : null}
       
-      <h1 id="title">Swipe Right</h1>
+      <h1 id="title">Swipe Right.</h1>
       <button onClick={handleSignup} id="homebutton">Create account</button>
      { toggle ? <Signup setUser={setUser}></Signup> : null}
 
@@ -91,7 +90,7 @@ const Home = () => (
 
   return (
     <div className="App">
-        <Header></Header>
+        
        <BrowserRouter>
         <Routes>
             <Route path="/" element={Home()}/>
