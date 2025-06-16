@@ -1,9 +1,19 @@
 class DogsController < ApplicationController
 
     def index
-        dogs = Dog.all
-        render json: dogs 
-    end
+        if params[:user_id]
+          user = User.find(params[:user_id])
+          dogs = user.dogs
+        else
+          dogs = Dog.all
+        end
+        render json: dogs, include: :user
+      end 
+
+    # def index
+    #     dogs = Dog.all
+    #     render json: dogs 
+    # end
 
     def create
         dog = Dog.create!(dog_params)

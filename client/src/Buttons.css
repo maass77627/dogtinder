@@ -1,0 +1,12 @@
+#one {
+    width: 50px; /* Set equal width and height */
+    height: 50px;
+    border-radius: 50%;
+    
+}
+
+#buttons {
+    
+    position: absolute;
+    top: 650px;
+}

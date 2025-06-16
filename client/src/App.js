@@ -8,6 +8,8 @@ import { useEffect } from "react";
 // import { BrowserRouter as Router, Switch, Route, Link }
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import { NavLink } from "react-router-dom";
+import Likes from "./Likes";
+
 
  
 
@@ -18,7 +20,7 @@ function App() {
 
   const [ user, setUser ] = useState(null);
   const [dogs, setDogs] = useState([])
-
+  const [userdogs, setUserDogs] = useState([])
   
   useEffect(() => {
     fetch("/dogs")
@@ -94,7 +96,8 @@ const Home = () => (
        <BrowserRouter>
         <Routes>
             <Route path="/" element={Home()}/>
-            <Route path="/dogs" element={<DogContainer dogs={dogs} />} />
+            <Route path="/dogs" element={<DogContainer user={user} dogs={dogs} />} />
+            <Route path="/likes" element={<Likes />} />
           
         </Routes>
       </BrowserRouter>

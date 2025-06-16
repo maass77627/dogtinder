@@ -13,7 +13,8 @@
 
 #name {
   color: white;
-  background-color: rgb(10, 10, 10);
+  font-size: 40px;
+   background-color: rgb(10, 10, 10); 
   width: 500px;
   margin: auto;
 }
@@ -28,8 +29,12 @@
 }
 
 #age{
+  /* position: absolute; */
+
   color: white;
-  background-color: rgb(10, 10, 10);
+  font-size: 30px;
+  font-weight: lighter;
+   background-color: rgb(10, 10, 10); 
   width: 500px;
   margin: auto;
 }
@@ -154,9 +159,10 @@
 }
 
 #info {
+ /* background-color: black; */
   position: absolute;
   left: 50px;
-  top: 600px;
+  top: 400px;
 }
 
 /* .App-header {
@@ -173,7 +179,7 @@
 
 #background{
   height: 2000px;
-  background-color: black; 
+  background-color: white; 
 }
 
 #header {

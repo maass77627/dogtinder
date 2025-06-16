@@ -3,9 +3,16 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import TinderCard from "react-tinder-card";
 import './TinderCards.css';
+import Buttons from "./Buttons"
+import Footer from "./Footer";
 
-function DogContainer({ dogs }) {
+function DogContainer({ dogs, user }) {
     console.log(dogs)
+    console.log(user)
+
+    const onSwipe = (direction) => {
+        console.log('You swiped: ' + direction)
+      }
 
 
     return (
@@ -18,23 +25,28 @@ function DogContainer({ dogs }) {
                 {dogs.map((dog) => <TinderCard 
                 key={dog.name} 
                 preventSwipe={['up', 'down']} 
+                onSwipe={onSwipe}
                 className="swipe" 
                 dog={dog}>
                 <div
                 style={{ backgroundImage: `url(${dog.image})`}}
                 className="card"
                 >
-                    <h3>{dog.name}</h3>
-
+                    <div id="info">
+                    <p id="active">Recently Active</p>
+                    <h3 id="name">{dog.name}</h3>
+                    <p id="age">{dog.age}</p>
+                    <p id="description">{dog.details}</p>
+                    </div>
                 </div>
 
 
                 </TinderCard>)}
-
+                <Buttons dogs={dogs} user={user}></Buttons>  
                 </div>
 
         
-
+                    <Footer></Footer>
         </div>
     )
 
