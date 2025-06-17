@@ -8,14 +8,18 @@ import "./Buttons.css";
 
 function Buttons({ user, dogs}) {
     console.log(dogs)
+  console.log(user)
+
 
     function handleLike(e) {
+        console.log(user)
         console.log(e.target.parentNode.parentNode.childNodes[0].childNodes[0].childNodes[0].childNodes[1].innerText)
         let name = e.target.parentNode.parentNode.childNodes[0].childNodes[0].childNodes[0].childNodes[1].innerText
         console.log(name)
         console.log(dogs)
          let doggy = dogs.find((dog) => dog.name === name)
         console.log(doggy)
+        console.log(user.id)
 
         fetch(`/users/${user.id}/dogs`, {
             method: "POST",

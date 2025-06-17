@@ -20,7 +20,7 @@ function App() {
 
   const [ user, setUser ] = useState(null);
   const [dogs, setDogs] = useState([])
-  const [userdogs, setUserDogs] = useState([])
+  // const [userdogs, setUserDogs] = useState([])
   
   useEffect(() => {
     fetch("/dogs")

@@ -1,9 +1,11 @@
 class DogsController < ApplicationController
 
     def index
+        
         if params[:user_id]
           user = User.find(params[:user_id])
           dogs = user.dogs
+          
         else
           dogs = Dog.all
         end
@@ -16,7 +18,12 @@ class DogsController < ApplicationController
     # end
 
     def create
+        if params[:user_id]
+            user = User.find(params[:user_id])
+            dog =  user.dogs.new(dog_params)
+        else
         dog = Dog.create!(dog_params)
+        end
         render json: dog
 
     end
