@@ -20,6 +20,7 @@ function App() {
 
   const [ user, setUser ] = useState(null);
   const [dogs, setDogs] = useState([])
+  const [likes, setLikes] = useState([])
   // const [userdogs, setUserDogs] = useState([])
   
   useEffect(() => {
@@ -29,6 +30,16 @@ function App() {
       setDogs(json)
       console.log(json)})
       
+  }, [])
+
+  useEffect(() => {
+    fetch("/likes")
+    .then((response) => response.json())
+    .then((json) => {
+      setLikes(json)
+      console.log(json)
+    })
+
   }, [])
 
 
@@ -96,8 +107,8 @@ const Home = () => (
        <BrowserRouter>
         <Routes>
             <Route path="/" element={Home()}/>
-            <Route path="/dogs" element={<DogContainer user={user} dogs={dogs} />} />
-            <Route path="/likes" element={<Likes />} />
+            <Route path="/dogs" element={<DogContainer user={user} dogs={dogs} setDogs={setDogs}/>} />
+            <Route path="/likes" element={<Likes user={user} likes={likes} />} />
           
         </Routes>
       </BrowserRouter>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  
     resources :users, only: [:show] do 
     resources :dogs, only: [:show, :index, :create]
   end
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
   delete "/logout", to: "sessions#destroy"
   
+   resources :likes
    resources :dogs
    resources :users
   # get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

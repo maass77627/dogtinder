@@ -14,4 +14,9 @@ end
         session.delete :user_id
         head :no_content
     end
+
+
+    private
+
+    
 end

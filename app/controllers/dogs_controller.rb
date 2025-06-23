@@ -1,3 +1,4 @@
+
 class DogsController < ApplicationController
 
     def index
@@ -12,15 +13,15 @@ class DogsController < ApplicationController
         render json: dogs, include: :user
       end 
 
-    # def index
-    #     dogs = Dog.all
-    #     render json: dogs 
-    # end
+   
 
     def create
+        # console.log("im in the create")
+        # byebug
         if params[:user_id]
             user = User.find(params[:user_id])
             dog =  user.dogs.new(dog_params)
+            
         else
         dog = Dog.create!(dog_params)
         end
@@ -49,7 +50,7 @@ class DogsController < ApplicationController
     private
 
     def dog_params
-        params.permit(:name, :age, :interests, :details, :image)
+        params.permit(:id, :dog, :name, :age, :interests, :details, :image, :user_id)
 
 
     end

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    # wrap_parameters false
     # before_action :authorize
     # skip_before_action :authorize, only: [:index]
 
@@ -6,7 +7,6 @@ class UsersController < ApplicationController
         users = User.all
         render json: users
         #  render json: users, include: dogs
-        # render json: reviews, include: :dog_house
     end
 
     def create
@@ -17,10 +17,7 @@ class UsersController < ApplicationController
         else
             render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
-
-
-
-    end
+     end
 
 
     
@@ -38,7 +35,6 @@ class UsersController < ApplicationController
 
     def user_params
         params.permit(:username, :password, :password_confirmation)
-
     end
 
     # def authorize

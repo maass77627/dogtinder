@@ -14,7 +14,7 @@
 #name {
   color: white;
   font-size: 40px;
-   background-color: rgb(10, 10, 10); 
+  background-color: rgb(10, 10, 10); 
   width: 500px;
   margin: auto;
 }
@@ -34,7 +34,7 @@
   color: white;
   font-size: 30px;
   font-weight: lighter;
-   background-color: rgb(10, 10, 10); 
+  background-color: rgb(10, 10, 10); 
   width: 500px;
   margin: auto;
 }
@@ -58,13 +58,13 @@
 
 #title {
   /* background-color: black; */
-  position: absolute;
-  top: 200px;
-  left: 450px;
-  color: white;
-  font-size: 200px; 
-  font-weight: bolder;
-  border-radius: 25px;
+   position: absolute;
+   top: 200px;
+   left: 450px;
+   color: white;
+   font-size: 200px; 
+   font-weight: bolder;
+   border-radius: 25px;
 }
 
 #homebutton {
