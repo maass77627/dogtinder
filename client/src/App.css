@@ -29,8 +29,6 @@
 }
 
 #age{
-  /* position: absolute; */
-
   color: white;
   font-size: 30px;
   font-weight: lighter;
@@ -57,7 +55,6 @@
 }
 
 #title {
-  /* background-color: black; */
    position: absolute;
    top: 200px;
    left: 450px;
@@ -92,7 +89,6 @@
   font-weight: bolder;
   font-size: 50px;
   color: rgb(206, 44, 44);
-  /* background-color: antiquewhite; */
 }
 
 #login {
@@ -115,7 +111,6 @@
   position: absolute;
   left: 800px;
   top: 300px;
-
 }
 
 
@@ -128,11 +123,6 @@
 }
 
 #home {
-  
-  /* background-image: url('bassett.jpg');  */
-  /* background-image: url("cellphone.jpg");  */
-  /* background-size: cover; 
-  background-repeat: no-repeat;  */
   height: 900px;
   width: 2000px;
   background-color: aquamarine;
@@ -159,22 +149,10 @@
 }
 
 #info {
- /* background-color: black; */
   position: absolute;
   left: 50px;
   top: 400px;
 }
-
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
 
 
 #background{

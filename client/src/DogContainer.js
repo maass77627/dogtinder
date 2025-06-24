@@ -1,58 +1,54 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import TinderCard from "react-tinder-card";
- import './TinderCards.css';
-// import Buttons from "./Buttons";
+import './TinderCards.css';
 import Footer from "./Footer";
 import { useState } from "react"
+import Buttons from "./Buttons"
 
 function DogContainer ({ dogs, user, setDogs }) {
     console.log(dogs)
     console.log(user)
-     const [currentDogName, setCurrentDogName] = useState()
-    //  const [direction, setDirection] = useState()
+    
+    //  const [currentDogName, setCurrentDogName] = useState("spot")
+    //  const [direction, setDirection] = useState("not set")
     
 
-        const onSwipe = (direction, name) => {
-            // console.log(direction)
-            console.log(name)
-            // console.log(dog)
-            let newdog = dogs.find((dog) => dog.name === name)
-            let id = user.id
-            let idtwo = newdog.id
-            console.log(newdog)
-            setCurrentDogName(name)
-            // setDirection(direction)
-            
+        function onSwipe(direction, dog, e) {
+            console.log(e)
+            console.log(direction)
+            console.log(user)
+            // console.log(name)
+            console.log(dog)
+        //     let newdog = dogs.find((doggy) => doggy.name === dog.name)
+        //     let id = user.id
+        //     let idtwo = newdog.id
+        //     setCurrentDogName(name)
+        //     setDirection(direction)
+        //     console.log(newdog)
+        //     console.log(id)
+        //     console.log(idtwo)
 
-         if (direction === "left") {
-            fetch(`/dogs/${newdog.id}`, {
-                method: "DELETE",
-              
-             })
+        //     if (direction === "left") {
+        //     fetch(`/dogs/${newdog.id}`, {
+        //         method: "DELETE",
+        //       })
 
-             let newdogs = dogs.filter((doggy) => doggy.id !== newdog.id)
-             setDogs(newdogs)
-             console.log('You swiped: ' + direction)
-         } else {
+        //      let newdogs = dogs.filter((doggy) => doggy.id !== newdog.id)
+        //      setDogs(newdogs)
+        //      console.log('You swiped: ' + direction)
 
-            fetch(`/likes`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                }, 
-                body: JSON.stringify({user_id: id, dog_id: idtwo})
-            })
-            
-
-            console.log('You swiped: ' + direction)
-
+        //  } else {
+        //         fetch(`/likes`, {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         }, 
+        //         body: JSON.stringify({user_id: id, dog_id: idtwo})
+        //     })
+        //     console.log('You swiped: ' + direction)
+        //  }
          }
-        //  console.log(direction)
-         console.log(currentDogName)
-         
-         
-        }
 
 
 
@@ -64,30 +60,36 @@ function DogContainer ({ dogs, user, setDogs }) {
             <div className="tinderCards_cardContainer">
 
                 {dogs.map((dog) => (
-                    <div>
+                    <div key={dog.name} >
                         <TinderCard 
-                            key={dog.id} 
+                            // key={dog.name} 
                             //   currentDogName={currentDogName}
-                            //  direction={direction}
-                            // dog={dog}
-                            // user={user}
-                            // setDogs={setDogs}
-                            preventSwipe={['up', 'down']} 
-                            // onSwipe={(dir) => }
-                            // onSwipe={(dir) => swiped(dir, character.name)}
-                            onSwipe={onSwipe}
-                            className="swipe" 
+                            //   direction={direction}
+                              dog={dog}
+                              user={user}
+                              setDogs={setDogs}
+                              preventSwipe={['up', 'down']} 
+                              onSwipe={(direction, e) => onSwipe(direction, dog, e)}
+                              className="swipe" 
                             >
+                                <div
+        style={{ backgroundImage: `url(${dog.image})`}}
+        className="card"
+        >
+        <div id="info">
+        <p id="active">Recently Active</p>
+        <h3 id="name">{dog.name}</h3>
+        <p id="age">{dog.age}</p>
+        <p id="description">{dog.details}</p>
+        </div>
+            <Buttons dog={dog} dogs={dogs} user={user} setDogs={setDogs}></Buttons>
+        </div>
                         </TinderCard>
                         
                     </div>
                 ))}
-                
-                   {/* <Buttons  dogs={dogs} user={user} setDogs={setDogs}></Buttons>     */}
                 </div>
-
-        
-                    <Footer></Footer>
+            <Footer></Footer>
         </div>
     )
 
