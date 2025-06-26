@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import Likes from "./Likes";
+import Chats from "./Chats";
 
 
  
@@ -21,6 +22,7 @@ function App() {
   const [ user, setUser ] = useState(null);
   const [dogs, setDogs] = useState([])
   const [likes, setLikes] = useState([])
+  const [comments, setComments] = useState([])
   // const [userdogs, setUserDogs] = useState([])
   
   useEffect(() => {
@@ -42,25 +44,32 @@ function App() {
 
   }, [])
 
+  useEffect(() => {
+    fetch("/comments")
+    .then((response) => response.json())
+    .then((json) => {
+      setComments(json)
+      console.log(json)
+    })
+  }, [])
+
 
 
   useEffect(() => {
-
     fetch("/me").then((response) => {
       if (response.ok) {
-        response.json().then((user) => setUser(user));
-       
-      }
+     response.json().then((user) => setUser(user));
+        }
     });
   }, []);
 
-  function handleSignup() {
-    setToggle(!toggle)
-  }
+      function handleSignup() {
+         setToggle(!toggle)
+        }
 
-  function handleLogin() {
-    setToggler(!toggler)
-  }
+      function handleLogin() {
+         setToggler(!toggler)
+        }
 
 
 
@@ -74,7 +83,6 @@ function App() {
         setUser(null)
        }
        })
-
         }
 
 
@@ -109,7 +117,7 @@ const Home = () => (
             <Route path="/" element={Home()}/>
             <Route path="/dogs" element={<DogContainer user={user} dogs={dogs} setDogs={setDogs}/>} />
             <Route path="/likes" element={<Likes user={user} likes={likes} />} />
-          
+            <Route path="/chat" element={<Chats comments={comments}/>}/>
         </Routes>
       </BrowserRouter>
 

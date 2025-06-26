@@ -113,9 +113,12 @@
   top: 300px;
 }
 
-
+/* #password {
+   height: 50px; 
+} */
 
 #description {
+  /* left: 100px; */
   color: white;
   background-color: rgb(10, 10, 10);
   width: 500px;
@@ -156,6 +159,8 @@
 
 
 #background{
+  /* position: absolute; */
+  /* left: 900px; */
   height: 2000px;
   background-color: white; 
 }
@@ -164,3 +169,7 @@
   background-color: white;
   height: 100px;
 }
+
+/* #likepage {
+  /* background-color: ; */
+/* } */

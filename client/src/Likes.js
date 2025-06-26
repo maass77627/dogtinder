@@ -1,7 +1,8 @@
 import React from "react";
 import LikePage from "./LikePage";
+import { NavLink } from "react-router-dom";
 
-// import './LikePage.css';
+ import './LikePage.css';
 
 function Likes({likes, user}) {
     console.log(likes)
@@ -15,7 +16,8 @@ function Likes({likes, user}) {
 
 
     return(
-        <div id="likepage">
+        <div id="likepagecont">
+            <NavLink id="links" to="/">Home Page</NavLink>
              { user ? newlikes.map((like) => <LikePage key={like.id} like={like}/>) : null }
 
         </div>

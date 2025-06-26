@@ -21,7 +21,7 @@ function Footer() {
             likes
             </button>
             </Link>
-            <Link to="chat">
+            <Link to="/chat">
             <button id="two">
             <img id="icon" src="chat.png" alt="flame"></img>
             chat
