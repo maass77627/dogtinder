@@ -14,7 +14,7 @@ function Footer() {
                 home
             </button>
             </Link>
-            <button id="two">Explore</button>
+            {/* <button id="two">Explore</button> */}
             <Link to="/likes">
             <button id="two">
             <img id="icon" src="heart.png" alt="flame"></img>

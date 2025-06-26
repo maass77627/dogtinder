@@ -93,14 +93,18 @@
 
 #login {
   background-color: antiquewhite;
-  height: 400px;
+  height: 200px;
   width: 300px;
   border-radius: 25px;
   position: absolute;
-  left: 800px;
-  top: 300px;
+  left: 820px;
+  top: 200px;
   z-index: 1;
 
+}
+
+#label {
+  font-weight: bold;
 }
 
 #signup {
@@ -113,12 +117,8 @@
   top: 300px;
 }
 
-/* #password {
-   height: 50px; 
-} */
 
 #description {
-  /* left: 100px; */
   color: white;
   background-color: rgb(10, 10, 10);
   width: 500px;
@@ -153,14 +153,12 @@
 
 #info {
   position: absolute;
-  left: 50px;
+  left: 65px;
   top: 400px;
 }
 
 
 #background{
-  /* position: absolute; */
-  /* left: 900px; */
   height: 2000px;
   background-color: white; 
 }
@@ -169,7 +167,3 @@
   background-color: white;
   height: 100px;
 }
-
-/* #likepage {
-  /* background-color: ; */
-/* } */

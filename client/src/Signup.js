@@ -2,12 +2,14 @@ import { useState } from "react";
 import React from "react";
 
 function Signup({ setUser }) {
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
 
   function handleSubmit(e) {
+    
     let form = e.target.parentNode
     form.className = "hidden"
     e.preventDefault();

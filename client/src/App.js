@@ -30,7 +30,7 @@ function App() {
     .then((response) => response.json())
     .then((json) => {
       setDogs(json)
-      console.log(json)})
+     })
       
   }, [])
 
@@ -39,7 +39,7 @@ function App() {
     .then((response) => response.json())
     .then((json) => {
       setLikes(json)
-      console.log(json)
+      
     })
 
   }, [])
@@ -49,7 +49,7 @@ function App() {
     .then((response) => response.json())
     .then((json) => {
       setComments(json)
-      console.log(json)
+      
     })
   }, [])
 

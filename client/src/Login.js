@@ -31,14 +31,15 @@ function Login({ setUser }) {
         <div id="login">
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
-        <label >Username</label>
+        <label id="label" >Username </label> 
         <input
           type="text"
           id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-        />
-        <label htmlFor="password">Password</label>
+        /> <br></br>
+        
+        <label id="label" htmlFor="password">Password </label> 
         <input
           type="password"
           id="password"

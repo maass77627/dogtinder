@@ -17,7 +17,7 @@ function Likes({likes, user}) {
 
     return(
         <div id="likepagecont">
-            <NavLink id="links" to="/">Home Page</NavLink>
+            <NavLink id="lin" to="/">Home Page</NavLink>
              { user ? newlikes.map((like) => <LikePage key={like.id} like={like}/>) : null }
 
         </div>
