@@ -1,22 +1,22 @@
 import React from "react";
 import "./Buttons.css";
+import ChatForm from "./ChatForm"
 // import ReplayIcon from '@mui/icons-material/Replay';
-
+import { useState } from "react";
 
  function Buttons({ dog, user, dogs, setDogs}) {
-    // console.log(dog)
-    // console.log(user)
+
+    const [toggle, setToggle] = useState(false)
+
+    function handleChat() {
+        setToggle(!toggle)
+
+    }
+    
 
         
     
     function handleDelete(e) {
-        // console.log(dog)
-        // console.log(user)
-            // console.log(e.target)
-            // console.log(e.target.parentNode.parentNode.childNodes[0].childNodes[0].childNodes[0].childNodes[1].innerText)
-            // let name = e.target.parentNode.parentNode.childNodes[0].childNodes[0].childNodes[0].childNodes[1].innerText
-            // let doggy = dogs.find((dogg) => dogg.id === dog.id)
-            // let id = doggy.id
 
           fetch(`/dogs/${dog.id}`, {
              method: "DELETE",
@@ -28,17 +28,7 @@ import "./Buttons.css";
 
 
     function handleLike(e) {
-        // console.log(dog)
-        // console.log(user)
-        // console.log(e.target.parentNode.parentNode)
-        // console.log(e.target.parentNode.parentNode.childNodes[0].childNodes[0].childNodes[0].childNodes[1].innerText)
-         let id = user.id
-        //  let name = e.target.parentNode.parentNode.childNodes[0].childNodes[0].childNodes[0].childNodes[1].innerText
-         // console.log(name)
-        //  console.log(dog)
-        //  let doggy = dogs.find((dogg) => dogg.id === dog.id)
-        //  let idtwo = doggy.id
-         
+        let id = user.id
         fetch(`/likes`, {
             method: "POST",
             headers: {
@@ -59,11 +49,12 @@ import "./Buttons.css";
             {/* <button id="one">back</button> */}
             {/* <button onClick={handleDelete} id="one">delete</button> */}
             <img src="back.png" alt="back" id="btnimg"></img>
-            <img src="chatnew.png" alt="back" id="btnimg"></img>
+            <img onClick={handleChat} src="chatnew.png" alt="back" id="btnimg"></img>
             <img onClick={handleDelete} src="delete.png" alt="back" id="btnimg"></img>
             <img onClick={handleLike} src="likeicon.png" alt="back" id="btnimg"></img>
             {/* <button id="one" onClick={handleLike}>like</button> */}
             {/* <button id="one">comment</button> */}
+            { toggle ? <ChatForm dog={dog} user={user} /> : null}
         </div>
     )
 }
