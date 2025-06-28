@@ -1,0 +1,12 @@
+
+
+#chat {
+    position: relative;
+    margin-bottom: 100px;;
+    border-width: 2px;
+    border-style: solid;
+    width: 400px;
+    height: 150px;
+    left: 100px;
+
+}

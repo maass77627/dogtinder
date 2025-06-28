@@ -10,7 +10,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import Likes from "./Likes";
 import Chats from "./Chats";
-
+import Owner from "./Owner";
 
  
 
@@ -23,6 +23,7 @@ function App() {
   const [dogs, setDogs] = useState([])
   const [likes, setLikes] = useState([])
   const [comments, setComments] = useState([])
+  const [role, setRole] = useState("")
   // const [userdogs, setUserDogs] = useState([])
   
   useEffect(() => {
@@ -92,18 +93,14 @@ const Home = () => (
     <img id="logo" src="/tinderflame.png" alt="logo"></img>
     <p id="logotext">Scoundrel</p>
     <button onClick={handleLogin} id="homebtn2">Log in</button>
-     
       {user ? <h2 id="greet">Welcome, {user.username}! </h2> : null }
-      {user ? <NavLink id="links" to="/dogs">UserPage</NavLink> : null}
-      
+      {user && user.role === "buyer" ? <NavLink id="links" to="/dogs">UserPage</NavLink> : null}
+      {user && user.role === "owner" ? <NavLink id="links" to="/owners">UserPage</NavLink> : null}
       { toggler ? <Login setUser={setUser} /> : null}
-      
       <h1 id="title">Swipe Right.</h1>
       <button onClick={handleSignup} id="homebutton">Create account</button>
-     { toggle ? <Signup setUser={setUser}></Signup> : null}
-
-      { user ? <button onClick={handleClick}>Logout</button> : null }
-
+     { toggle ? <Signup role={role} setRole={setRole} setUser={setUser}></Signup> : null}
+    { user ? <button onClick={handleClick}>Logout</button> : null }
   </div>
 );
 
@@ -116,8 +113,9 @@ const Home = () => (
         <Routes>
             <Route path="/" element={Home()}/>
             <Route path="/dogs" element={<DogContainer user={user} dogs={dogs} setDogs={setDogs}/>} />
+            <Route path="/owners" element={<Owner />} />
             <Route path="/likes" element={<Likes user={user} likes={likes} />} />
-            <Route path="/chat" element={<Chats comments={comments}/>}/>
+            <Route path="/chat" element={<Chats user={user} comments={comments}/>}/>
         </Routes>
       </BrowserRouter>
 

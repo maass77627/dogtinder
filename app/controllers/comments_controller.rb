@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     def create
         comment = Comment.create(comment_params)
         if comment.save
-        render json: comment
+        render json: comment 
          else
         render json: { errors: comment.errors.full_messages }, status: :unprocessable_entity
          end
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.permit(:context, :title, :user_id, :dog_id)
+        params.permit(:context, :title, :user_id, :dog_id, :user)
 
     end
 end

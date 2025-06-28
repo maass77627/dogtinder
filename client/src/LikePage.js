@@ -11,8 +11,6 @@ console.log(like)
         <div id="likepage">
             <h1>{like.dog.name}</h1>
             <img id="likeimage" src={like.dog.image} alt="dog"></img>
-        
-        
         </div>
     )
 }

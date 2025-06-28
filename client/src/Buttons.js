@@ -8,15 +8,13 @@ import { useState } from "react";
 
     const [toggle, setToggle] = useState(false)
 
-    function handleChat() {
-        setToggle(!toggle)
+        function handleChat() {
+             setToggle(!toggle)
 
-    }
+        }
     
 
-        
-    
-    function handleDelete(e) {
+        function handleDelete(e) {
 
           fetch(`/dogs/${dog.id}`, {
              method: "DELETE",
@@ -44,16 +42,12 @@ import { useState } from "react";
 
     return (
         <div id="buttons">
-               {/* <ReplayIcon  />    */}
-           
-            {/* <button id="one">back</button> */}
-            {/* <button onClick={handleDelete} id="one">delete</button> */}
+             
             <img src="back.png" alt="back" id="btnimg"></img>
             <img onClick={handleChat} src="chatnew.png" alt="back" id="btnimg"></img>
             <img onClick={handleDelete} src="delete.png" alt="back" id="btnimg"></img>
             <img onClick={handleLike} src="likeicon.png" alt="back" id="btnimg"></img>
-            {/* <button id="one" onClick={handleLike}>like</button> */}
-            {/* <button id="one">comment</button> */}
+            
             { toggle ? <ChatForm dog={dog} user={user} /> : null}
         </div>
     )

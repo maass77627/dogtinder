@@ -29,8 +29,8 @@ function Login({ setUser }) {
 
     return (
         <div id="login">
-      <form onSubmit={handleSubmit}>
-        <h1>Login</h1>
+         <form onSubmit={handleSubmit}>
+         <h1>Login</h1>
         <label id="label" >Username </label> 
         <input
           type="text"

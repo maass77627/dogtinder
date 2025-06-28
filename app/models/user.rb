@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     # validates :name, presence: true, uniqueness: true;
+    enum role: [:buyer, :owner, :not_set]
      validates :username, presence: true, uniqueness: true
     
 
