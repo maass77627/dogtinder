@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
   
-  resources :owners
+    resources :user_dogs
+    resources :owners
     resources :users, only: [:show] do 
     resources :dogs, only: [:show, :index, :create]
   end

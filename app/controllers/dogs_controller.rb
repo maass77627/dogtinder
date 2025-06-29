@@ -18,17 +18,21 @@ class DogsController < ApplicationController
     def create
         # console.log("im in the create")
         # byebug
-        if params[:user_id]
-            user = User.find(params[:user_id])
-            dog =  user.dogs.new(dog_params)
+        # if params[:user_id]
+        #     user = User.find(params[:user_id])
+        #     dog =  user.dogs.new(dog_params)
             
+        # else
+        # dog = Dog.create!(dog_params)
+        # end
+        # render json: dog
+        dog = Dog.create(dog_params)
+        if dog.save
+            render json: dog
         else
-        dog = Dog.create!(dog_params)
-        end
-        render json: dog
-
+            render json: { errors: dog.errors.full_messages }, status: :unprocessable_entity
     end
-    
+    end
 
     def show
         dog = Dog.find_by(id: params[:id])
@@ -50,7 +54,7 @@ class DogsController < ApplicationController
     private
 
     def dog_params
-        params.permit(:id, :dog, :name, :age, :interests, :details, :image, :user_id)
+        params.permit(:id, :name, :age, :interests, :details, :image, :user_id)
 
 
     end

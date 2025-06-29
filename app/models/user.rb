@@ -3,6 +3,8 @@ class User < ApplicationRecord
     enum role: [:buyer, :owner, :not_set]
      validates :username, presence: true, uniqueness: true
     
+     has_many :dogs
+     
 
     has_secure_password
     # has_many :dogs

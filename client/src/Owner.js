@@ -1,12 +1,14 @@
 import React from "react";
+import DogForm from "./DogForm";
 
-function Owner() {
+function Owner({ user }) {
 
 
 
     return(
         <div>
-            <h1>This is the owner Page</h1>
+            <h1>{user.username}</h1>
+            <DogForm user={user}></DogForm>
 
 
 

@@ -12,7 +12,7 @@ function Chats({ comments, user }) {
         <div id="chats">
             <NavLink id="links" to="/">Home Page</NavLink>
             <h1>Chat Page</h1>
-               {user ? newcomments.map((comment) => <Chat user={user} comment={comment}></Chat>) : null} 
+               {user && newcomments ? newcomments.map((comment) => <Chat key={comment.id} user={user} comment={comment}></Chat>) : null} 
         </div>
     )
 }
