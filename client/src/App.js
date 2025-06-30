@@ -113,7 +113,7 @@ const Home = () => (
         <Routes>
             <Route path="/" element={Home()}/>
             <Route path="/dogs" element={<DogContainer user={user} dogs={dogs} setDogs={setDogs}/>} />
-            <Route path="/owners" element={<Owner user={user} />} />
+            <Route path="/owners" element={<Owner dogs={dogs} user={user} />} />
             <Route path="/likes" element={<Likes user={user} likes={likes} />} />
             <Route path="/chat" element={<Chats user={user} comments={comments}/>}/>
         </Routes>

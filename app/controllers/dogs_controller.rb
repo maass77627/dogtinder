@@ -18,20 +18,20 @@ class DogsController < ApplicationController
     def create
         # console.log("im in the create")
         # byebug
-        # if params[:user_id]
-        #     user = User.find(params[:user_id])
-        #     dog =  user.dogs.new(dog_params)
-            
-        # else
-        # dog = Dog.create!(dog_params)
-        # end
-        # render json: dog
-        dog = Dog.create(dog_params)
-        if dog.save
-            render json: dog
+        if params[:user_id]
+            user = User.find(params[:user_id])
+            dog =  user.dogs.new(dog_params)
+            dog.save
+            byebug
         else
-            render json: { errors: dog.errors.full_messages }, status: :unprocessable_entity
-    end
+        dog = Dog.create!(dog_params)
+        end
+        # byebug
+        render json: dog
+    
+    #     else
+    #         render json: { errors: dog.errors.full_messages }, status: :unprocessable_entity
+    # end
     end
 
     def show
