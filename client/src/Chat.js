@@ -1,5 +1,6 @@
 import React from "react";
 // import ReplyForm from "./ReplyForm";
+import "./Chats.css"
 
 function Chat({comment, user}) {
     console.log(user)

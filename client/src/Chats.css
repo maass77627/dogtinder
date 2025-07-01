@@ -5,8 +5,10 @@
     margin-bottom: 100px;;
     border-width: 2px;
     border-style: solid;
+    border-color: black;
     width: 400px;
     height: 150px;
     left: 100px;
 
 }
+

@@ -4,14 +4,13 @@ import ChatForm from "./ChatForm"
 // import ReplayIcon from '@mui/icons-material/Replay';
 import { useState } from "react";
 
- function Buttons({ dog, user, dogs, setDogs}) {
+ function Buttons({ dog, user, dogs, setDogs, comments, setComments}) {
 
     const [toggle, setToggle] = useState(false)
 
         function handleChat() {
              setToggle(!toggle)
-
-        }
+            }
     
 
         function handleDelete(e) {
@@ -48,7 +47,7 @@ import { useState } from "react";
             <img onClick={handleDelete} src="delete.png" alt="back" id="btnimg"></img>
             <img onClick={handleLike} src="likeicon.png" alt="back" id="btnimg"></img>
             
-            { toggle ? <ChatForm dog={dog} user={user} /> : null}
+            { toggle ? <ChatForm comments={comments} setComments={setComments} dog={dog} user={user} /> : null}
         </div>
     )
 }

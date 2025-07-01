@@ -1,9 +1,8 @@
-// import { StepContext } from "@mui/material";
+
 import React from "react";
-// import { json } from "react-router-dom";
 import { useState } from "react";
 
-function ChatForm({ user, dog }) {
+function ChatForm({ user, dog, comments, setComments }) {
 const [context, setContext] = useState("")
     
 
@@ -23,18 +22,18 @@ const [context, setContext] = useState("")
             body: JSON.stringify({context: context, user_id: id, dog_id: idtwo })
         })
          .then((response) => response.json())
-         .then((json) => console.log(json))
+         .then((json) => {
+            let updatedcoms = [...comments, json]
+            setComments(updatedcoms)
+            console.log(json)})
 
     }
 
 
     return (
         <form id="chatform" onSubmit={handleSubmit}>
-            
             <input type="text" value={context} onChange={(e) => setContext(e.target.value)}></input>
-            
-            <input type="submit" value="submit"></input>
-
+             <input type="submit" value="submit"></input>
         </form>
     )
 }

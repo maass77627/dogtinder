@@ -2,7 +2,8 @@
 import React from "react";
 import { useState } from "react";
 
-function ReplyForm({user, comment}) {
+
+function ReplyForm({user, comment, setComments, comments}) {
 
     const [reply, setReply] = useState("")
 
@@ -17,6 +18,11 @@ function ReplyForm({user, comment}) {
             },
             body: JSON.stringify({context: reply, user_id: user.id, dog_id: idtwo })
         })
+        .then((response) => response.json())
+        .then((json) => {
+        let updatedcoms = [...comments, json]
+        setComments(updatedcoms)
+        console.log(json)})
     }
 
 

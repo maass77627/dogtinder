@@ -4,7 +4,7 @@ import "./Chats.css"
 import Chat from "./Chat";
 
 
-function Chats({ comments, user }) {
+function Chats({ comments, user, setComments }) {
     console.log(comments)
     console.log(user.id)
 
@@ -15,7 +15,7 @@ function Chats({ comments, user }) {
         <div id="chats">
             <NavLink id="links" to="/">Home Page</NavLink>
             <h1>Chat Page</h1>
-                {user && newcomments ? newcomments.map((comment) => <Chat key={comment.id} user={user} comment={comment}></Chat>) : null} 
+                {user && newcomments ? newcomments.map((comment) => <Chat setComments={setComments} key={comment.id} user={user} comment={comment}></Chat>) : null} 
               
         </div>
     )

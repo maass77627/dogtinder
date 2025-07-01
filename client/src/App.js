@@ -26,6 +26,14 @@ function App() {
   const [comments, setComments] = useState([])
   const [role, setRole] = useState("")
   // const [userdogs, setUserDogs] = useState([])
+
+  useEffect(() => {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+     response.json().then((user) => setUser(user));
+        }
+    });
+  }, []);
   
   useEffect(() => {
     fetch("/dogs")
@@ -57,13 +65,8 @@ function App() {
 
 
 
-  useEffect(() => {
-    fetch("/me").then((response) => {
-      if (response.ok) {
-     response.json().then((user) => setUser(user));
-        }
-    });
-  }, []);
+  
+
 
       function handleSignup() {
          setToggle(!toggle)
@@ -113,12 +116,12 @@ const Home = () => (
        <BrowserRouter>
         <Routes>
             <Route path="/" element={Home()}/>
-            <Route path="/dogs" element={<DogContainer user={user} dogs={dogs} setDogs={setDogs}/>} />
+            <Route path="/dogs" element={<DogContainer comments={comments} setComments={setComments} user={user} dogs={dogs} setDogs={setDogs}/>} />
             <Route path="/owners" element={<Owner comments={comments} dogs={dogs} user={user} />} />
             <Route path="/likes" element={<Likes user={user} likes={likes} />} />
-            <Route path="/chat" element={<Chats user={user} comments={comments}/>}/>
+            <Route path="/chat" element={<Chats setComments={setComments} user={user} comments={comments}/>}/>
             <Route path="/form" element={<DogForm user={user} />}/>
-            <Route path="/ownerchat" element={<OwnerComments comments={comments} user={user} />}/>
+            <Route path="/ownerchat" element={<OwnerComments setComments={setComments} comments={comments} user={user} />}/>
         </Routes>
       </BrowserRouter>
 

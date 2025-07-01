@@ -3,7 +3,7 @@ import React from "react";
 import Comment from "./Comment";
 import { NavLink } from "react-router-dom";
 
-function OwnerComments({comments, user}) {
+function OwnerComments({comments, user, setComments}) {
     console.log(comments)
 
 
@@ -17,7 +17,7 @@ function OwnerComments({comments, user}) {
         <div id="ownercomments">
              <NavLink id="links" to="/owners">Home Page</NavLink>
            
-            {ownercomments ? ownercomments.map((comment) => <Comment user={user} comment={comment}></Comment>) : null }
+            {ownercomments ? ownercomments.map((comment) => <Comment comments={comments} setComments={setComments} key={comment.id} user={user} comment={comment}></Comment>) : null }
             
 
         </div>
