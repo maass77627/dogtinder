@@ -5,13 +5,14 @@ import React from "react";
 import './App.css';
 import { useState } from "react";
 import { useEffect } from "react";
-// import { BrowserRouter as Router, Switch, Route, Link }
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import Likes from "./Likes";
 import Chats from "./Chats";
 import Owner from "./Owner";
-
+import DogForm from "./DogForm";
+import OwnerComments from "./OwnerComments";
+// import Footer from "./Footer";
  
 
 function App() {
@@ -113,14 +114,16 @@ const Home = () => (
         <Routes>
             <Route path="/" element={Home()}/>
             <Route path="/dogs" element={<DogContainer user={user} dogs={dogs} setDogs={setDogs}/>} />
-            <Route path="/owners" element={<Owner dogs={dogs} user={user} />} />
+            <Route path="/owners" element={<Owner comments={comments} dogs={dogs} user={user} />} />
             <Route path="/likes" element={<Likes user={user} likes={likes} />} />
             <Route path="/chat" element={<Chats user={user} comments={comments}/>}/>
+            <Route path="/form" element={<DogForm user={user} />}/>
+            <Route path="/ownerchat" element={<OwnerComments comments={comments} user={user} />}/>
         </Routes>
       </BrowserRouter>
 
          
-     
+      {/* <Footer></Footer> */}
     </div>
   );
 }

@@ -1,4 +1,6 @@
 #dogform{
+    position: absolute;
+    left: 700px;
     height: 250px;
     width: 400px;
     background-color: rgb(99, 184, 144);

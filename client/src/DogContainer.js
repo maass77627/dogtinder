@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import TinderCard from "react-tinder-card";
 import './TinderCards.css';
-import Footer from "./Footer";
+ import Footer from "./Footer";
  import { useState } from "react"
 import Buttons from "./Buttons"
 
@@ -89,7 +89,7 @@ function DogContainer ({ dogs, user, setDogs }) {
                     </div>
                 ))}
                 </div>
-            <Footer></Footer>
+             <Footer user={user}></Footer> 
         </div>
     )
 

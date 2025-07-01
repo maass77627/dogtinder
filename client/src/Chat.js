@@ -1,5 +1,5 @@
 import React from "react";
-import ReplyForm from "./ReplyForm";
+// import ReplyForm from "./ReplyForm";
 
 function Chat({comment, user}) {
     console.log(user)
@@ -9,7 +9,7 @@ function Chat({comment, user}) {
         <div id="chat">
              <h1>{comment.user.username}</h1>  
             <p>{comment ? comment.context : null}</p> 
-            <ReplyForm></ReplyForm>
+            {/* <ReplyForm></ReplyForm> */}
         </div>
     )
 }

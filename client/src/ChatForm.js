@@ -11,6 +11,8 @@ const [context, setContext] = useState("")
     function handleSubmit(e) {
         let id = user.id
         let idtwo = dog.id
+        console.log(id)
+        console.log(idtwo)
         e.preventDefault()
         console.log(e)
         fetch("/comments", {

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./DogForm.css"
 import "./Owner.css"
+import { NavLink } from "react-router-dom";
 
 
 function DogForm({ user }) {
@@ -11,67 +12,6 @@ function DogForm({ user }) {
     const[details, setDetails] = useState("")
     const[image, setImage] = useState("")
 
-    // const [formData, setFormData] = useState({
-    //     name: "betty",
-    //     age: 7,
-    //     interests: "fetch, swimming, sleeping", 
-    //     details: "currently being fostered, love cats and kids", 
-    //     image: "dog5.jpg"
-    // })
-
-    // function handleNameChange(e) {
-    //     console.log(e)
-    //     setFormData({
-    //         ...formData, 
-    //       name: e.target.value
-    //     })
-
-    // }
-
-    // function handleAgeChange(e) {
-    //     console.log(e)
-    //     setFormData({
-    //         ...formData, 
-    //       age: e.target.value
-    //     })
-
-    // }
-
-    // function handleInterestsChange(e) {
-    //     console.log(e)
-    //     setFormData({
-    //         ...formData, 
-    //       interests: e.target.value
-    //     })
-
-    // }
-
-    // function handleDetailsChange(e) {
-    //     console.log(e)
-    //     setFormData({
-    //         ...formData, 
-    //       details: e.target.value
-    //     })
-
-    // }
-
-    // function handleImageChange(e) {
-    //     console.log(e)
-    //     setFormData({
-    //         ...formData, 
-    //       image: e.target.value
-    //     })
-
-    // }
-
-    // function handleIdChange(e) {
-    //     console.log(e)
-    //     setFormData({
-    //         ...formData, 
-    //       user_id: e.target.value
-    //     })
-
-    // }
 
     function handleSubmit(e) {
        
@@ -95,6 +35,7 @@ function DogForm({ user }) {
 
 
         <div id="dogform">
+            <NavLink id="links" to="/owners">Home Page</NavLink>
             <h2>Add your Pet</h2>
             <form  onSubmit={handleSubmit}>
                 <label>Name: </label>

@@ -1,22 +1,26 @@
 import React from "react";
-import DogForm from "./DogForm";
+// import DogForm from "./DogForm";
 import OwnerDog from "./OwnerDog";
 import "./Owner.css"
 import { NavLink } from "react-router-dom";
+// import OwnerComments from "./OwnerComments";
+import Footer from "./Footer";
 
 function Owner({ user, dogs }) {
 
     let ownerdogs = dogs.filter((doggy) => doggy.user_id === user.id)
+    // let ownercomments = comments.filter((comment) => comment.user_id === user.id)
 
     return(
         <div id="owner">
             <NavLink id="links" to="/">Home Page</NavLink>
             <h1>{user.username}</h1>
-            <DogForm user={user}></DogForm>
+            {/* <DogForm user={user}></DogForm> */}
             {ownerdogs ? ownerdogs.map((dog) => <OwnerDog key={dog.id} dog={dog}></OwnerDog>) : null}
+            {/* {ownercomments ? ownercomments.map((comment) => <OwnerComments key={comment.id} comment={comment}></OwnerComments>) : null} */}
 
 
-
+            <Footer user={user}></Footer>
         </div>
     )
 }
