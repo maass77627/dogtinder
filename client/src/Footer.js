@@ -53,8 +53,8 @@ function Footer({ user }) {
             </button>
             </Link>
             }
-            
-            <Link to="profile">
+
+            <Link to="/profile">
             <button id="two">
             <img id="icon" src="profile.png" alt="flame"></img>
             profile

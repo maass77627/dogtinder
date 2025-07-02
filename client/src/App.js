@@ -12,6 +12,7 @@ import Chats from "./Chats";
 import Owner from "./Owner";
 import DogForm from "./DogForm";
 import OwnerComments from "./OwnerComments";
+import Profile from "./Profile";
 // import Footer from "./Footer";
  
 
@@ -63,7 +64,7 @@ function App() {
     })
   }, [])
 
-
+  console.log(dogs)
 
   
 
@@ -122,6 +123,7 @@ const Home = () => (
             <Route path="/chat" element={<Chats setComments={setComments} user={user} comments={comments}/>}/>
             <Route path="/form" element={<DogForm user={user} />}/>
             <Route path="/ownerchat" element={<OwnerComments setComments={setComments} comments={comments} user={user} />}/>
+            <Route path="/profile" element={<Profile user={user} />}/>
         </Routes>
       </BrowserRouter>
 

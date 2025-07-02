@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.permit(:context, :title, :user_id, :dog_id, :user)
+        params.permit(:context, :title, :user_id, :dog_id, :items, :user)
 
     end
 end

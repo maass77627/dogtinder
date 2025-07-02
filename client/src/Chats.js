@@ -15,6 +15,7 @@ function Chats({ comments, user, setComments }) {
         <div id="chats">
             <NavLink id="links" to="/">Home Page</NavLink>
             <h1>Chat Page</h1>
+            
                 {user && newcomments ? newcomments.map((comment) => <Chat setComments={setComments} key={comment.id} user={user} comment={comment}></Chat>) : null} 
               
         </div>

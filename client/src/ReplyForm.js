@@ -9,6 +9,7 @@ function ReplyForm({user, comment, setComments, comments}) {
 
     function handleSubmit(e) {
         e.preventDefault()
+        console.log(comment)
         let idtwo = comment.dog.id
         console.log(e)
         fetch("/comments", {
@@ -20,6 +21,7 @@ function ReplyForm({user, comment, setComments, comments}) {
         })
         .then((response) => response.json())
         .then((json) => {
+            comment.items.push(json)
         let updatedcoms = [...comments, json]
         setComments(updatedcoms)
         console.log(json)})

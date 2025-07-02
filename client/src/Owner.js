@@ -1,5 +1,5 @@
 import React from "react";
-import OwnerDog from "./OwnerDog";
+import OwnerDog from './OwnerDog';
 import "./Owner.css"
 import { NavLink } from "react-router-dom";
 import Footer from "./Footer";

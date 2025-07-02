@@ -6,6 +6,7 @@ function Signup({ setUser, setRole, role }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [image, setImage] = useState("")
   // const [userType, setUserType] = useState("")
 
 
@@ -25,6 +26,7 @@ function Signup({ setUser, setRole, role }) {
         username,
         password,
         password_confirmation: passwordConfirmation,
+        image: image,
         role: role,
       }),
     }).then((r) => {
@@ -65,6 +67,15 @@ function Signup({ setUser, setRole, role }) {
             id="password_confirmation"
             value={passwordConfirmation}
             onChange={(e) => setPasswordConfirmation(e.target.value)}
+            
+          />
+          <br></br>
+          <label>Image URL</label>
+          <input
+            type="text"
+            id="img"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
             
           />
           <br></br>

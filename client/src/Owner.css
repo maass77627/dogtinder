@@ -4,9 +4,12 @@
 }
 
 #ownerdog{
-    position: absolute;
+    /* position: absolute; */
+   float: right; 
+   margin-right:100px;
+   /* padding: 20px; */
     top: 100px;
-    left: 755px;
+    left: 0px;
 }
 
 #dogform{

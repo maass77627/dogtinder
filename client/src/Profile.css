@@ -1,0 +1,14 @@
+#profileimage{
+    position: absolute;
+    left: 0px;
+    height: 400px;
+    width: 400px;
+
+}
+
+#proname{
+    position: absolute;
+    left: 300px;
+    top: 200px;
+    font-size: xx-large;
+}
