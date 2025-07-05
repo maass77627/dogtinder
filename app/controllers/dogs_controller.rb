@@ -13,6 +13,18 @@ class DogsController < ApplicationController
         render json: dogs, include: :user
       end 
 
+      
+      def update
+        dog = Dog.find_by(id: params[:id])
+        if dog
+            dog.update(dog_params)
+            render json: dog
+        else
+            render json: { error: "Dog not found"}, status: :not_found
+
+        end
+      end
+
    
 
     def create

@@ -3,19 +3,18 @@ import { NavLink } from "react-router-dom";
 import TinderCard from "react-tinder-card";
 import './TinderCards.css';
 import Footer from "./Footer";
-// import { useState } from "react"
 import Buttons from "./Buttons"
 
 
-function DogContainer ({ dogs, user, setDogs, comments, setComments }) {
-    console.log(dogs)
-    console.log(user)
+
+function DogContainer ({ dogs, user, setDogs, comments, setComments, likes, setLikes }) {
     
-    
+    // const [hidden, setHidden] = useState(true)
    
     
 
         function onSwipe(direction, dog, e) {
+            console.log(e)
             let newdog = dogs.find((doggy) => doggy.name === dog.name)
             let id = user.id
             let idtwo = newdog.id
@@ -37,20 +36,25 @@ function DogContainer ({ dogs, user, setDogs, comments, setComments }) {
                 }, 
                 body: JSON.stringify({user_id: id, dog_id: idtwo})
             })
+            .then((response) => response.json())
+            .then((json) => {
+                let newlikes = [...likes, json]
+                setLikes(newlikes)
+                console.log(likes)
+            })
+
+
+
             console.log('You swiped: ' + direction)
          }
          }
 
+        return (
 
-
-
-    return (
-
-       <div id="background">
-        <NavLink id="links" to="/">Home Page</NavLink>
-            <div className="tinderCards_cardContainer">
-
-                {dogs.map((dog) => (
+            <div id="background">
+                <NavLink id="links" to="/">Home Page</NavLink>
+                 <div className="tinderCards_cardContainer">
+                    {dogs.map((dog) => (
                     <div key={dog.id} >
                         <TinderCard 
                               dog={dog}
@@ -60,6 +64,8 @@ function DogContainer ({ dogs, user, setDogs, comments, setComments }) {
                               onSwipe={(direction, e) => onSwipe(direction, dog, e)}
                               className="swipe" 
                             >
+                                <img id="swipeimg" className="hidden" src="yes.png" alt="yes"></img>
+                                <img id="swipeimgn" className="hidden" src="nope.png" alt="no"></img>
                                 <div
         style={{ backgroundImage: `url(${dog.image})`}}
         className="card"

@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./DogForm.css"
 import "./Owner.css"
-import { NavLink } from "react-router-dom";
 
 
 function DogForm({ user }) {
+    
     const [name, setName] = useState("")
     const[age, setAge] = useState("")
     const[interests, setInterests] = useState("")
@@ -14,11 +15,7 @@ function DogForm({ user }) {
 
 
     function handleSubmit(e) {
-       
-        e.preventDefault()
-        // console.log(formData)
-        console.log(user.id)
-        // fetch(`/dogs`, {
+       e.preventDefault()
          fetch(`/users/${user.id}/dogs`, {
             method: "POST", 
             headers: {
@@ -52,6 +49,7 @@ function DogForm({ user }) {
                 {/* <input type="text" value={formData.user_id} onChange={((e) => handleIdChange(e))}></input><br></br> */}
                 <input type="submit" value="submit" ></input>
             </form>
+
         </div>
     )
 }

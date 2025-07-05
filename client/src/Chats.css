@@ -13,7 +13,25 @@
 }
 
 #userchatimage{
-    height: 50px;
-    width: 50px;
+    position: absolute;
+    left: 0px;
+    height: 100px;
+    width: 100px;
     border-radius: 50px;
+}
+
+#userchatname{
+    position: absolute;
+    left: 70px;
+}
+
+#userchatcontext{
+    position: absolute;
+    top: 20px;
+    left: 200px;
+}
+
+#replyform{
+    position: absolute;
+    top: 100px;
 }

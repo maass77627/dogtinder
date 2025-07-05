@@ -6,13 +6,9 @@ import { NavLink } from "react-router-dom";
 function OwnerComments({comments, user, setComments}) {
     console.log(comments)
 
+    let ownercomments = comments.filter((comment) => comment.dog.user_id === user.id)
 
-
-     let ownercomments = comments.filter((comment) => comment.dog.user_id === user.id)
-
-
-
-    return(
+  return(
 
         <div id="ownercomments">
              <NavLink id="links" to="/owners">Home Page</NavLink>

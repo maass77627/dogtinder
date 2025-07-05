@@ -1,7 +1,6 @@
 import React from "react";
 import "./Buttons.css";
 import ChatForm from "./ChatForm"
-// import ReplayIcon from '@mui/icons-material/Replay';
 import { useState } from "react";
 
  function Buttons({ dog, user, dogs, setDogs, comments, setComments}) {
@@ -13,14 +12,13 @@ import { useState } from "react";
             }
     
 
-        function handleDelete(e) {
-
-          fetch(`/dogs/${dog.id}`, {
-             method: "DELETE",
-           
-          })
-          let newdogs = dogs.filter((doggy) => doggy.id !== dog.id)
-          setDogs(newdogs)
+        function handleDelete() {
+                fetch(`/dogs/${dog.id}`, {
+                method: "DELETE",
+           })
+             let newdogs = dogs.filter((doggy) => doggy.id !== dog.id)
+            setDogs(newdogs)
+            console.log(newdogs)
         }
 
 
@@ -33,21 +31,15 @@ import { useState } from "react";
             }, 
             body: JSON.stringify({user_id: id, dog_id: dog.id})
         })
-        // .then((response) => response.json())
-        // .then((json) => {
-        //      console.log(json)
-        // })
         }
 
     return (
         <div id="buttons">
-             
-            <img src="back.png" alt="back" id="btnimg"></img>
+             <img src="back.png" alt="back" id="btnimg"></img>
             <img onClick={handleChat} src="chatnew.png" alt="back" id="btnimg"></img>
             <img onClick={handleDelete} src="delete.png" alt="back" id="btnimg"></img>
             <img onClick={handleLike} src="likeicon.png" alt="back" id="btnimg"></img>
-            
-            { toggle ? <ChatForm comments={comments} setComments={setComments} dog={dog} user={user} /> : null}
+             { toggle ? <ChatForm comments={comments} setComments={setComments} dog={dog} user={user} /> : null}
         </div>
     )
 }

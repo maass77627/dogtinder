@@ -37,3 +37,29 @@
 .swipe {
     position: absolute;
 }
+
+#swipeimg{
+    height: 200px;
+    width: 200px;
+   position: absolute;
+   z-index: 5;
+  right: 0px;
+   top:0px;
+}
+
+#swipeimgn{
+    height: 200px;
+    width: 200px;
+   position: absolute;
+   z-index: 5;
+  left: 0px;
+   top:0px;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.nothidden{
+    visibility: visible;
+}

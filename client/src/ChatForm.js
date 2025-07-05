@@ -3,17 +3,15 @@ import React from "react";
 import { useState } from "react";
 
 function ChatForm({ user, dog, comments, setComments }) {
-const [context, setContext] = useState("")
+            const [context, setContext] = useState("")
     
 
     
-    function handleSubmit(e) {
-        let id = user.id
-        let idtwo = dog.id
-        
-        e.preventDefault()
-        
-        fetch("/comments", {
+            function handleSubmit(e) {
+                    let id = user.id
+                    let idtwo = dog.id
+                e.preventDefault()
+            fetch("/comments", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -25,8 +23,7 @@ const [context, setContext] = useState("")
             let updatedcoms = [...comments, json]
             setComments(updatedcoms)
             console.log(json)})
-
-    }
+        }
 
 
     return (

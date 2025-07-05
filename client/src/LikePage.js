@@ -9,8 +9,8 @@ console.log(like)
     return(
         
         <div id="likepage">
-            <h1>{like.dog.name}</h1>
-            <img id="likeimage" src={like.dog.image} alt="dog"></img>
+            {like.dog ? <h1>{like.dog.name}</h1> : null }
+           {like.dog ? <img id="likeimage" src={like.dog.image} alt="dog"></img> : null }
         </div>
     )
 }

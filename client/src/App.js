@@ -13,20 +13,17 @@ import Owner from "./Owner";
 import DogForm from "./DogForm";
 import OwnerComments from "./OwnerComments";
 import Profile from "./Profile";
-// import Footer from "./Footer";
- 
 
 function App() {
 
   const [toggle, setToggle] = useState(false)
   const [toggler, setToggler] = useState(false)
-
   const [ user, setUser ] = useState(null);
   const [dogs, setDogs] = useState([])
   const [likes, setLikes] = useState([])
   const [comments, setComments] = useState([])
   const [role, setRole] = useState("")
-  // const [userdogs, setUserDogs] = useState([])
+  
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -64,24 +61,17 @@ function App() {
     })
   }, [])
 
-  console.log(dogs)
+  function handleSignup() {
+     setToggle(!toggle)
+  }
 
-  
-
-
-      function handleSignup() {
-         setToggle(!toggle)
-        }
-
-      function handleLogin() {
+  function handleLogin() {
          setToggler(!toggler)
-        }
+ }
 
-
-
-
-       function handleClick(e) {
-         fetch("/logout", {
+    
+ function handleClick() {
+        fetch("/logout", {
           method: "DELETE"
         })
        .then((response) => {
@@ -92,33 +82,33 @@ function App() {
         }
 
 
-const Home = () => (
-  
-  <div id="home"   style={{ backgroundImage: "url(/dogdaterdark.jpg)" }}>
-    <img id="logo" src="/tinderflame.png" alt="logo"></img>
-    <p id="logotext">Scoundrel</p>
-    <button onClick={handleLogin} id="homebtn2">Log in</button>
-      {user ? <h2 id="greet">Welcome, {user.username}! </h2> : null }
-      {user && user.role === "buyer" ? <NavLink id="links" to="/dogs">UserPage</NavLink> : null}
-      {user && user.role === "owner" ? <NavLink id="links" to="/owners">UserPage</NavLink> : null}
-      { toggler ? <Login setUser={setUser} /> : null}
-      <h1 id="title">Swipe Right.</h1>
-      <button onClick={handleSignup} id="homebutton">Create account</button>
-     { toggle ? <Signup role={role} setRole={setRole} setUser={setUser}></Signup> : null}
-    { user ? <button onClick={handleClick}>Logout</button> : null }
-  </div>
-);
+
+       
+        const Home = () => (
+              <div id="home"   style={{ backgroundImage: "url(/dogdaterdark.jpg)" }}>
+              <img id="logo" src="/tinderflame.png" alt="logo"></img>
+              <p id="logotext">Scoundrel</p>
+              <button onClick={handleLogin} id="homebtn2">Log in</button>
+              {user ? <h2 id="greet">Welcome, {user.username}! </h2> : null }
+              {user && user.role === "buyer" ? <NavLink id="links" to="/dogs">UserPage</NavLink> : null}
+              {user && user.role === "owner" ? <NavLink id="links" to="/owners">UserPage</NavLink> : null}
+              { toggler ? <Login setUser={setUser} /> : null}
+              <h1 id="title">Swipe Right.</h1>
+              <button onClick={handleSignup} id="homebutton">Create account</button>
+              { toggle ? <Signup role={role} setRole={setRole} setUser={setUser}></Signup> : null}
+              { user ? <button onClick={handleClick}>Logout</button> : null }
+              </div>
+          );
 
 
 
   return (
     <div className="App">
-        
        <BrowserRouter>
         <Routes>
             <Route path="/" element={Home()}/>
-            <Route path="/dogs" element={<DogContainer comments={comments} setComments={setComments} user={user} dogs={dogs} setDogs={setDogs}/>} />
-            <Route path="/owners" element={<Owner comments={comments} dogs={dogs} user={user} />} />
+            <Route path="/dogs" element={<DogContainer likes={likes} setLikes={setLikes} comments={comments} setComments={setComments} user={user} dogs={dogs} setDogs={setDogs}/>} />
+            <Route path="/owners" element={<Owner comments={comments} setDogs={setDogs}  dogs={dogs} user={user} />} />
             <Route path="/likes" element={<Likes user={user} likes={likes} />} />
             <Route path="/chat" element={<Chats setComments={setComments} user={user} comments={comments}/>}/>
             <Route path="/form" element={<DogForm user={user} />}/>
@@ -126,9 +116,6 @@ const Home = () => (
             <Route path="/profile" element={<Profile user={user} />}/>
         </Routes>
       </BrowserRouter>
-
-         
-      {/* <Footer></Footer> */}
     </div>
   );
 }

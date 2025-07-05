@@ -1,6 +1,6 @@
-
 import React from "react";
 import { useState } from "react";
+import "./Chats.css"
 
 
 function ReplyForm({user, comment, setComments, comments}) {
@@ -21,7 +21,7 @@ function ReplyForm({user, comment, setComments, comments}) {
         })
         .then((response) => response.json())
         .then((json) => {
-            comment.items.push(json)
+            // comment.items.push(json)
         let updatedcoms = [...comments, json]
         setComments(updatedcoms)
         console.log(json)})
