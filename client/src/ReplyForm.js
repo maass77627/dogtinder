@@ -12,8 +12,8 @@ function ReplyForm({user, comment, setComments, comments}) {
         console.log(comment)
         let idtwo = comment.dog.id
         console.log(e)
-        fetch("/comments", {
-            method: "POST",
+        fetch(`/comments/${comment.id}`, {
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -21,10 +21,13 @@ function ReplyForm({user, comment, setComments, comments}) {
         })
         .then((response) => response.json())
         .then((json) => {
-            // comment.items.push(json)
+         comment.items.push(json)
         let updatedcoms = [...comments, json]
         setComments(updatedcoms)
         console.log(json)})
+        console.log(comment)
+        console.log(comment.id)
+        console.log(comment.items)
     }
 
 

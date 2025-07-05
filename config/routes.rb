@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :dogs, only: [:show, :index, :create]
   end
 
-  
+  # post "comments/:id/reply", to: "comments#reply"
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
   get "/me", to: "users#show"

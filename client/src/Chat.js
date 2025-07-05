@@ -17,7 +17,7 @@ function Chat({comment, user}) {
              <h1 id="userchatname">{comment.user.username}</h1>  
             <p id="userchatcontext">{comment ? comment.context : null}</p> 
             <button onClick={handleClick}>reply</button> <button>edit</button> <button>delete</button>
-            {toggle ? <ReplyForm comment={comment} ></ReplyForm> : null}
+            {toggle ? <ReplyForm user={user} comment={comment} ></ReplyForm> : null}
         </div>
     )
 }
