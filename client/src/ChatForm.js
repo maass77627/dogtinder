@@ -8,6 +8,7 @@ function ChatForm({ user, dog, comments, setComments }) {
 
     
             function handleSubmit(e) {
+                console.log(e.target)
                     let id = user.id
                     let idtwo = dog.id
                 e.preventDefault()

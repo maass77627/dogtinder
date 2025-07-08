@@ -10,13 +10,13 @@ function Chats({ comments, user, setComments }) {
 
     let newcomments = comments.filter((commenty) => commenty.user_id = user.id)
     console.log(newcomments)
-
+        
     return(
         <div id="chats">
             <NavLink id="links" to="/">Home Page</NavLink>
             <h1>Chat Page</h1>
             
-                {user && newcomments ? newcomments.map((comment) => <Chat setComments={setComments} key={comment.id} user={user} comment={comment}></Chat>) : null} 
+                {user && newcomments ? newcomments.map((comment) => <Chat comments={comments} setComments={setComments} key={comment.id} user={user} comment={comment}></Chat>) : null} 
               
         </div>
     )

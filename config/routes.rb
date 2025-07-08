@@ -6,8 +6,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show] do 
     resources :dogs, only: [:show, :index, :create]
   end
-
-  # post "comments/:id/reply", to: "comments#reply"
+  # patch "comments/:id/reply", to: "comments#reply"  
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
@@ -15,6 +14,13 @@ Rails.application.routes.draw do
 
 
    resources :comments
+  #  resources :comments do
+  #   member do
+  #     post :add_reply
+  #   end
+  # end
+
+
    resources :likes
    resources :dogs
    resources :users

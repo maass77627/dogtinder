@@ -42,13 +42,11 @@ function DogContainer ({ dogs, user, setDogs, comments, setComments, likes, setL
                 setLikes(newlikes)
                 console.log(likes)
             })
-
-
-
-            console.log('You swiped: ' + direction)
+             console.log('You swiped: ' + direction)
          }
          }
 
+         
         return (
 
             <div id="background">

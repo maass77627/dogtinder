@@ -4,7 +4,7 @@ import "./Owner.css"
 import { NavLink } from "react-router-dom";
 import Footer from "./Footer";
 
-function Owner({ user, dogs, setDogs }) {
+function Owner({ user, dogs, setDogs, comments }) {
 
     let ownerdogs = dogs.filter((doggy) => doggy.user_id === user.id)
    

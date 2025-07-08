@@ -3,39 +3,39 @@ class CommentsController < ApplicationController
     def index
         comments = Comment.all
         render json: comments
-
     end
 
-    def update
-        comment = Comment.find_by(id: params[:id])
-        
-        comment.items << comment_params
-        byebug
-        comment.save
-        render json: comment
+#     def add_reply
+#     comment = Comment.find(params[:id])
+#     reply = comment_params
+    
+#     comment.items ||= [] 
+#     comment.items << reply
+#     # byebug
+#     if comment.save
+#       render json: { message: 'Reply added successfully', comment: comment }, status: :ok
+#     else
+#       render json: { error: 'Failed to add reply', details: comment.errors.full_messages }, status: :unprocessable_entity
+#     end
+#   end
+
+# def reply
+#     comment = Comment.find_by(id: params[:id])
+#     # Permit specific parameters from newitem and convert to a plain hash
+#     reply_params = comment_params.to_h
+#     comment.items << reply_params
+#     if comment.save
+#       render json: comment
+#     else
+#       render json: { errors: comment.errors.full_messages }, status: :unprocessable_entity
+#     end
+#         end
 
 
-    end
-
-    # def reply
-    #     comment = Comment.find_by(id: params[:id])
-    #     reply = comment_params
-    #     comment.items << reply
-    #     # byebug
-    #     #  comment.save
-    #      byebug
-        
-    #     render json: comment
-    #     # byebug
-    #     # comment.items << 
-
-
-    # end
-
+   
     def create
         comment = Comment.create(comment_params)
-        
-        if comment.save
+         if comment.save
         render json: comment 
          else
         render json: { errors: comment.errors.full_messages }, status: :unprocessable_entity
@@ -50,7 +50,7 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.permit(:context, :title, :user_id, :dog_id, :items, :user, :id, :comment)
+        params.permit(:context, :user_id, :dog_id, :items, :user, :id, :comment, :parent)
 
     end
 end
