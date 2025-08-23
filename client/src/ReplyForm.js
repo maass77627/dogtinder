@@ -1,26 +1,26 @@
 import React from "react";
 import { useState } from "react";
 import "./Chats.css"
+// import Chat from "./Chat";
 
 
 function ReplyForm({user, comment, setComments, comments}) {
-    console.log(comment.dog.id)
-    console.log(comment)
+    // console.log(comment.dog.id)
+    console.log(comment.id)
+    console.log(comment.items)
 
     const [reply, setReply] = useState("")
 
     function handleSubmit(e) {
         e.preventDefault()
         console.log(comment)
+        console.log(reply)
         let id = comment.id
         let idtwo = comment.dog.id
         console.log(comment.dog)
         
          fetch("/comments", {
-            // fetch(`/comments/${id}/reply`, {
-            // fetch(`/comments/${id}/add_reply`, {
              method: "POST",
-            // method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -28,13 +28,15 @@ function ReplyForm({user, comment, setComments, comments}) {
         })
         .then((response) => response.json())
         .then((json) => {
-         comment.items.push(json)
+            comment.items = [...comment.items, json]
+        //  comment.items.push(json)
          let updatedcoms = [...comments, json]
          setComments(updatedcoms)
         console.log(json)})
         
     }
 
+    console.log(comment.items)
 
     return(
 

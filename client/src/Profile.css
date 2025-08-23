@@ -12,3 +12,13 @@
     top: 200px;
     font-size: xx-large;
 }
+
+#profile{
+    margin: auto;
+    border-radius: 25px;
+    border-color: black;
+    border-width: 25px;
+    border-style: solid;
+    height: 800px;
+    width: 600px;
+}

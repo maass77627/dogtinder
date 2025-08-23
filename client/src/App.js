@@ -11,7 +11,7 @@ import Likes from "./Likes";
 import Chats from "./Chats";
 import Owner from "./Owner";
 import DogForm from "./DogForm";
-import OwnerComments from "./OwnerComments";
+// import OwnerComments from "./OwnerComments";
 import Profile from "./Profile";
 
 function App() {
@@ -112,7 +112,7 @@ function App() {
             <Route path="/likes" element={<Likes user={user} likes={likes} />} />
             <Route path="/chat" element={<Chats setComments={setComments} user={user} comments={comments}/>}/>
             <Route path="/form" element={<DogForm user={user} />}/>
-            <Route path="/ownerchat" element={<OwnerComments setComments={setComments} comments={comments} user={user} />}/>
+            <Route path="/ownerchat" element={<Chats setComments={setComments} comments={comments} user={user} />}/> 
             <Route path="/profile" element={<Profile user={user} />}/>
         </Routes>
       </BrowserRouter>
