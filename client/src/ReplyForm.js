@@ -28,10 +28,14 @@ function ReplyForm({user, comment, setComments, comments}) {
         })
         .then((response) => response.json())
         .then((json) => {
-            comment.items = [...comment.items, json]
+
+        let updatedcomments = comments.filter((com) => comment.id === com.id)
+        comment.items = [...comment.items, json]
+            // comment.items = [...comment.items, json]
         //  comment.items.push(json)
-         let updatedcoms = [...comments, json]
-         setComments(updatedcoms)
+        let moreupdatedcoms = [...updatedcomments, comment]
+        //  let updatedcoms = [...comments, json]
+         setComments(moreupdatedcoms)
         console.log(json)})
         
     }
