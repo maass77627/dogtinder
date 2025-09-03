@@ -4,6 +4,9 @@
     left: 700px;
     height: 250px;
     width: 400px;
-    background-color: rgb(99, 184, 144);
+    background-color: rgb(235, 247, 241);
     border-radius: 25px;
+    border-color: black;
+    /* border- */
+    border-style: solid;
 }

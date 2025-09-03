@@ -11,7 +11,6 @@ import Likes from "./Likes";
 import Chats from "./Chats";
 import Owner from "./Owner";
 import DogForm from "./DogForm";
-// import OwnerComments from "./OwnerComments";
 import Profile from "./Profile";
 
 function App() {

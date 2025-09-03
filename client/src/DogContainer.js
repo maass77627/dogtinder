@@ -9,7 +9,6 @@ import Buttons from "./Buttons"
 
 function DogContainer ({ dogs, user, setDogs, comments, setComments, likes, setLikes }) {
     
-    // const [hidden, setHidden] = useState(true)
    
     
 
