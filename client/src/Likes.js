@@ -18,6 +18,7 @@ function Likes({likes, user}) {
     return(
         <div id="likepagecont">
             <NavLink id="lin" to="/">Home Page</NavLink>
+            <h1 id="match">Your Matches</h1>
              { user && newlikes ? newlikes.map((like) => <LikePage key={like.id} like={like}/>) : <h1>"You currently have no likes"</h1> }
 
         </div>

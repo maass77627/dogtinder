@@ -4,7 +4,11 @@
     border-width: 2px;
 } */
 
-
+#background {
+    background-color: cadetblue;
+    height: 700px;
+    width: 700px;
+}
 
 #comment{
     position: relative;

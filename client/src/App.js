@@ -12,6 +12,7 @@ import Chats from "./Chats";
 import Owner from "./Owner";
 import DogForm from "./DogForm";
 import Profile from "./Profile";
+// import Replies from "./Replies";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
   const [likes, setLikes] = useState([])
   const [comments, setComments] = useState([])
   const [role, setRole] = useState("")
+  // const [replies, setReplies] = useState([])
   
 
   useEffect(() => {
@@ -31,6 +33,7 @@ function App() {
         }
     });
   }, []);
+
   
   useEffect(() => {
     fetch("/dogs")
@@ -46,19 +49,26 @@ function App() {
     .then((response) => response.json())
     .then((json) => {
       setLikes(json)
-      
-    })
-
+      })
   }, [])
+
 
   useEffect(() => {
     fetch("/comments")
     .then((response) => response.json())
     .then((json) => {
       setComments(json)
-      
     })
   }, [])
+
+  // useEffect(() => {
+  //   fetch("/replies")
+  //   .then((response) => response.json())
+  //   .then((json) => {
+  //     setReplies(json)
+      
+  //   })
+  // }, [])
 
   function handleSignup() {
      setToggle(!toggle)
@@ -86,7 +96,7 @@ function App() {
         const Home = () => (
               <div id="home"   style={{ backgroundImage: "url(/dogdaterdark.jpg)" }}>
               <img id="logo" src="/tinderflame.png" alt="logo"></img>
-              <p id="logotext">Scoundrel</p>
+              <p id="logotext">furfriend</p>
               <button onClick={handleLogin} id="homebtn2">Log in</button>
               {user ? <h2 id="greet">Welcome, {user.username}! </h2> : null }
               {user && user.role === "buyer" ? <NavLink id="links" to="/dogs">UserPage</NavLink> : null}

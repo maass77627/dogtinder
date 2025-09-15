@@ -7,7 +7,7 @@ function Signup({ setUser, setRole, role }) {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [image, setImage] = useState("")
-  // const [userType, setUserType] = useState("")
+
 
 
   function handleSubmit(e) {

@@ -15,7 +15,7 @@
   color: white;
   font-size: 40px;
   background-color: rgb(10, 10, 10); 
-  width: 500px;
+  width: 600px;
   margin: auto;
 }
 
@@ -33,7 +33,7 @@
   font-size: 30px;
   font-weight: lighter;
   background-color: rgb(10, 10, 10); 
-  width: 500px;
+  width: 600px;
   margin: auto;
 }
 
@@ -121,7 +121,7 @@
 #description {
   color: white;
   background-color: rgb(10, 10, 10);
-  width: 500px;
+  width: 600px;
   margin: auto;
   
 }

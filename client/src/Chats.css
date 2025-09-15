@@ -3,9 +3,9 @@
 .chat {
     position: relative;
     margin-bottom: 300px;;
-    border-width: 5px;
-    border-style: solid;
-    border-color: black;
+    border-width: 5px; 
+    border-style: solid; 
+    border-color: black; 
     border-radius: 25px;
     width: 400px;
     height: 100px;
@@ -13,6 +13,8 @@
     background-color: white;
 
 }
+
+
 
 #userchatimage{
     position: absolute;
@@ -40,8 +42,9 @@
 
 #reply{
     position: relative;
-    top: 50px;
+    top: 90px;
     left: 20px;
+    /* background-color: blue; */
 }
 
 .hidden{

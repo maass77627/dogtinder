@@ -28,3 +28,8 @@
     position: absolute;
     margin: auto;
 }
+
+#match{
+    position: absolute;
+    left: 100px;
+}

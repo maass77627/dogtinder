@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_07_07_180035) do
+ActiveRecord::Schema.define(version: 2025_09_12_000912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2025_07_07_180035) do
     t.string "context"
     t.string "title"
     t.integer "user_id"
-    t.integer "dog_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "items", default: [], array: true
@@ -37,11 +36,25 @@ ActiveRecord::Schema.define(version: 2025_07_07_180035) do
     t.integer "user_id"
   end
 
+  create_table "interests", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "dog_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.string "context"
+    t.integer "dog_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "comment_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,6 +65,7 @@ ActiveRecord::Schema.define(version: 2025_07_07_180035) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
     t.integer "role"
+    t.string "bio"
   end
 
 end

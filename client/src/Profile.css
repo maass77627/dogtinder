@@ -22,3 +22,10 @@
     height: 800px;
     width: 600px;
 }
+
+#editproform{
+    height: 500px;
+    width: 500px;
+    background-color: lightgreen;
+    margin: auto;
+}

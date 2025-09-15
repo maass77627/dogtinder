@@ -1,6 +1,7 @@
 
 import React from "react";
 import { useState } from "react";
+import "./Chats.css"
 
 function ChatForm({ user, dog, comments, setComments }) {
             const [context, setContext] = useState("")
@@ -29,7 +30,7 @@ function ChatForm({ user, dog, comments, setComments }) {
 
     return (
         <form id="chatform" onSubmit={handleSubmit}>
-            <input type="text" value={context} onChange={(e) => setContext(e.target.value)}></input>
+            <input type="textarea" value={context} onChange={(e) => setContext(e.target.value)}></input>
              <input type="submit" value="submit"></input>
         </form>
     )

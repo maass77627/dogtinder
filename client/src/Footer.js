@@ -21,8 +21,6 @@ function Footer({ user }) {
                 home
             </button>
             </Link>
-            {/* <button id="two">Explore</button> */}
-
             {user.role === "buyer" ? 
             <Link to="/likes">
             <button id="two">

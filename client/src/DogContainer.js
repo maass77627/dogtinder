@@ -3,13 +3,14 @@ import { NavLink } from "react-router-dom";
 import TinderCard from "react-tinder-card";
 import './TinderCards.css';
 import Footer from "./Footer";
-import Buttons from "./Buttons"
-
+import Buttons from "./Buttons";
+import { useState } from "react";
 
 
 function DogContainer ({ dogs, user, setDogs, comments, setComments, likes, setLikes }) {
     
-   
+   const [toggleLeft, setToggleLeft] = useState(false)
+   const [toggleRight, setToggleRight] = useState(false)
     
 
         function onSwipe(direction, dog, e) {
@@ -25,7 +26,9 @@ function DogContainer ({ dogs, user, setDogs, comments, setComments, likes, setL
 
              let newdogs = dogs.filter((doggy) => doggy.id !== newdog.id)
              setDogs(newdogs)
+             setToggleLeft(!toggleLeft)
              console.log('You swiped: ' + direction)
+             setToggleLeft(!toggleLeft)
 
          } else {
                 fetch(`/likes`, {
@@ -40,8 +43,10 @@ function DogContainer ({ dogs, user, setDogs, comments, setComments, likes, setL
                 let newlikes = [...likes, json]
                 setLikes(newlikes)
                 console.log(likes)
+                setToggleRight(!toggleRight)
             })
              console.log('You swiped: ' + direction)
+             setToggleRight(!toggleRight)
          }
          }
 
@@ -61,8 +66,8 @@ function DogContainer ({ dogs, user, setDogs, comments, setComments, likes, setL
                               onSwipe={(direction, e) => onSwipe(direction, dog, e)}
                               className="swipe" 
                             >
-                                <img id="swipeimg" className="hidden" src="yes.png" alt="yes"></img>
-                                <img id="swipeimgn" className="hidden" src="nope.png" alt="no"></img>
+                             { toggleRight ?  <img id="swipeimg" className="nothidden" src="yes.png" alt="yes"></img> : <img id="swipeimg" className="hidden" src="yes.png" alt="yes"></img> }
+                              { toggleLeft ?  <img id="swipeimgn" className="nothidden" src="nope.png" alt="no"></img> : <img id="swipeimgn" className="hidden" src="nope.png" alt="no"></img> }
                                 <div
         style={{ backgroundImage: `url(${dog.image})`}}
         className="card"
