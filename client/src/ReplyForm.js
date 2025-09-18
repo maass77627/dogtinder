@@ -12,6 +12,7 @@ function ReplyForm({user, comment, setComments, comments, replies, setReplies}) 
         let form = e.target
         form.className = "hidden"
         let id = comment.id
+        console.log(id)
          
     
         fetch(`/comments`, {
@@ -19,12 +20,13 @@ function ReplyForm({user, comment, setComments, comments, replies, setReplies}) 
             headers: {
                 "Content-Type": "application/json",
             },
-             body: JSON.stringify({context: reply, user_id: user.id, parent: id})
+             body: JSON.stringify({context: reply, user_id: user.id, parent_id: id})
         })
         .then((response) => response.json())
         .then((json) => {
-             let updatedcoms = [...comments, json]
-              setComments(updatedcoms)
+            console.log(json)
+            let updatedcoms = [...comments, json]
+             setComments(updatedcoms)
            
         })
         

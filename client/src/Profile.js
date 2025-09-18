@@ -16,7 +16,12 @@ function Profile({user}) {
 
 
     return(
+    
+             
+             
             <div id="profile">
+                <h1>Your Profile</h1>
+
                 <NavLink id="links" to="/">Home Page</NavLink>
                 <img id="profileimage" src="forest.png" alt="profile"></img> 
                  <h3 id="proname">{user.username}</h3>

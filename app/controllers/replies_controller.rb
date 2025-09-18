@@ -5,10 +5,14 @@ class RepliesController < ApplicationController
         render json: replies
     end
 
+    
+
     def create
+        # byebug
         reply = Reply.create(reply_params)
-         if comment.save
-        render json: reply
+        
+         if reply.save
+        render json: reply, status: :created
          else
         render json: { errors: reply.errors.full_messages }, status: :unprocessable_entity
          end
@@ -25,14 +29,14 @@ class RepliesController < ApplicationController
             reply.destroy
             head :no_content
         else
-            render json: {error: "Comment not Found"}, status: :not_found
+            render json: {error: "Reply not Found"}, status: :not_found
         end
 
     end
 
     private
     def reply_params
-    params.require().permit(:context, :user_id, :items, :user, :comment, :parent, :reply)
+    params.require(reply).permit(:context, :user_id, :parent)
 
     end
 end

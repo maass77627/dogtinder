@@ -14,13 +14,16 @@
 }
 
 #profile{
+    position: absolute;
+    top: 200px;
+    left: 300px;
     margin: auto;
     border-radius: 25px;
     border-color: black;
-    border-width: 25px;
+    border-width: 2px;
     border-style: solid;
     height: 800px;
-    width: 600px;
+    width: 1200px;
 }
 
 #editproform{

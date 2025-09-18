@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
     def create
         user = User.create(user_params)
+    #   byebug
         if user.valid?
             session[:user_id] = user.id
             render json: user, status: :created
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(user).permit(:username, :password, :password_confirmation, :role)
+        params.permit(:username, :password, :password_confirmation, :role, :bio, :image)
     end
 
     # def authorize

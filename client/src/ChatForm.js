@@ -12,6 +12,8 @@ function ChatForm({ user, dog, comments, setComments }) {
                 console.log(e.target)
                     let id = user.id
                     let idtwo = dog.id
+                    console.log(id)
+                    console.log(idtwo)
                 e.preventDefault()
             fetch("/comments", {
             method: "POST",
