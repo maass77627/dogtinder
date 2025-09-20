@@ -6,6 +6,8 @@ import { useState } from "react";
 function Chat({comment, user, setComments, comments}) {
     console.log(comment)
     console.log(comment.replies)
+    console.log(comments)
+    console.log(comment.parent_id)
 
     const [toggle, setToggle] = useState(false)
     
@@ -26,6 +28,9 @@ function Chat({comment, user, setComments, comments}) {
         }
        
     return(
+        <>
+         {comment.parent_id === null ? (
+
        
         <div id={comment.id} className="chat">
             <img id="userchatimage" src="forest.png" alt="profile"></img>
@@ -35,11 +40,13 @@ function Chat({comment, user, setComments, comments}) {
             { comment.user_id === user.id ?  <div><button>edit</button> <button onClick={ () => handleDelete(comment.id)}>delete</button></div> : null } 
             {toggle ? <ReplyForm  comments={comments} setComments={setComments} user={user} comment={comment} ></ReplyForm> : null}<br></br>
 
-           {comment.replies && comment.replies > 0 ? comment.replies.map((reply) => <div id="reply"> <Chat  key={reply.id} comment={reply}></Chat></div>) : null}
-         
+            {comment.replies && comment.replies.length > 0 ? comment.replies.map((reply) => <div id="reply"> <Chat  key={reply.id} comment={reply}></Chat></div>) : null} 
+         {comment.parent_id}
             {/* {comments.map((com) => com.parent === comment.id ? <div id="reply" > <Chat comments={comments} setComments={setComments} key={com.id} user={user} comment={com}></Chat> </div> : null )}  */}
         
         </div>
+      ) : (null)}
+        </>
        
      )
 }
@@ -47,10 +54,5 @@ function Chat({comment, user, setComments, comments}) {
 export default Chat
 
 
-// {comment.replies && comment.replies.length > 0 && (
-//       <div>
-//         {comment.replies.map((reply) => (
-//           <Comment key={reply.id} comment={reply} />
-//         ))}
 
 

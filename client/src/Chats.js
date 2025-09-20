@@ -6,7 +6,7 @@ import Chat from "./Chat";
 
 function Chats({ comments, user, setComments }) {
     console.log(comments)
-    console.log(user.id)
+    // console.log(user.id)
 
     
     return(

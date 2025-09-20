@@ -2,8 +2,39 @@ class CommentsController < ApplicationController
 
     def index
         comments = Comment.all
+        # sorted_comments = sort_comments(comments)
         render json: comments
     end
+
+
+    # def sort_comments(comments)
+    #    parents = comments.select{ |c| c.parent_id.nil? }
+    #    children = comments.group_by(&:parent_id)
+
+    #    ordered = []
+    #    parents.each do |parent|
+    #     parent.depth = 0 
+    #     ordered << parent
+    #     ordered.concat(fetch_children(parent.id, children, 1))
+    #    end
+
+    #    ordered
+    # end
+
+    # def fetch_children(parent_id, children_hash, depth)
+    #     return [] unless children_hash[parent_id]
+
+    #     children_hash[parent_id].flat_map do |child|
+    #         child.depth = depth
+    #         [child] + fetch_children(child.id, children_hash, depth+1) 
+    #     end
+    # end
+
+    # # def parent_with_depth(comment, depth)
+    # #    comment.depth = depth
+    # #    comment
+    # # end
+    
 
    def create
         comment = Comment.create(comment_params)
