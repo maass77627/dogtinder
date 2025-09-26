@@ -6,6 +6,7 @@ class CreateDogs < ActiveRecord::Migration[6.1]
       t.string :interests
       t.string :details
       t.string :image
+      t.integer :user_id
 
       t.timestamps
     end

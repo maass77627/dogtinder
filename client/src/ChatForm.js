@@ -11,16 +11,17 @@ function ChatForm({ user, dog, comments, setComments }) {
             function handleSubmit(e) {
                 console.log(e.target)
                     let id = user.id
-                    let idtwo = dog.id
+                    // let idtwo = dog.id
                     console.log(id)
-                    console.log(idtwo)
+                    // console.log(idtwo)
                 e.preventDefault()
             fetch("/comments", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({context: context, user_id: id, dog_id: idtwo})
+            // body: JSON.stringify({context: context, user_id: id, dog_id: idtwo})
+            body: JSON.stringify({context: context, user_id: id})
         })
          .then((response) => response.json())
          .then((json) => {
@@ -39,3 +40,4 @@ function ChatForm({ user, dog, comments, setComments }) {
 }
 
 export default ChatForm
+

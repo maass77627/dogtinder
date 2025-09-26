@@ -4,6 +4,9 @@ import "./Chats.css"
 import React from "react";
 function ReplyForm({user, comment, setComments, comments}) {
     const [reply, setReply] = useState("")
+    console.log(user)
+    // console.log(user.id)
+    console.log(comment.user_id)
     
 
     function handleSubmit(e) {
@@ -12,6 +15,7 @@ function ReplyForm({user, comment, setComments, comments}) {
         form.className = "hidden"
         let id = comment.id
         console.log(id)
+        console.log(user)
          
     
         fetch(`/comments`, {
@@ -19,16 +23,22 @@ function ReplyForm({user, comment, setComments, comments}) {
             headers: {
                 "Content-Type": "application/json",
             },
-             body: JSON.stringify({context: reply, user_id: user.id, parent_id: id})
+             body: JSON.stringify({context: reply, user_id: user.id, parent_id: id, user: user})
         })
         .then((response) => response.json())
         .then((json) => {
             console.log(json)
-            comment = {...comment, replies: [json]}
-            console.log(comment)
-            console.log(comment.replies)
-            let updatedcoms = [...comments, json, comment]
-             setComments(updatedcoms)
+            console.log(comments)
+            
+            // let filteredcomments = comments.filter((com) => com.id !== id)
+            // comment = {...comment, replies: [json]}
+            // console.log(comment)
+            //  console.log(comment.replies)
+            // let updatedcoms = [...filteredcomments, json, comment]
+            // console.log(updatedcoms)
+            // setComments(updatedcoms)
+            //  let newcomments = [...comments, json]
+              setComments((prevComments) => [...prevComments, json])
            
         })
         

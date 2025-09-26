@@ -54,11 +54,7 @@ function Edit ({ user, dog, dogs, setDogs}) {
 
     }
 
-    // const [name, setName] = useState("")
-    // const[age, setAge] = useState("")
-    // const[interests, setInterests] = useState("")
-    // const[details, setDetails] = useState("")
-    // const[image, setImage] = useState("")
+
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -93,12 +89,7 @@ function Edit ({ user, dog, dogs, setDogs}) {
                 <input type="text" value={dogData.details} placeholder={dog.details} onChange={handleDetailsChange}></input><br></br>
                 <input type="text" value={dogData.image} placeholder={dog.image} onChange={handleImageChange}></input><br></br>
                 <input type="submit" value="submit"></input>
-                {/* <input type="text" value={name} placeholder={dog.name} onChange={(e) => setName(e.target.value)}></input><br></br>
-                <input type="text" value={age} placeholder={dog.age} onChange={(e) => setAge(e.target.value)}></input><br></br>
-                <input type="text" value={interests} placeholder={dog.interests} onChange={(e) => setInterests(e.target.value)}></input><br></br>
-                <input type="text" value={details} placeholder={dog.details} onChange={(e) => setDetails(e.target.value)}></input><br></br>
-                <input type="text" value={image} placeholder={dog.image} onChange={(e) => setImage(e.target.value)}></input><br></br>
-                <input type="submit" value="submit"></input> */}
+                
             </form>
         </div>
     )
