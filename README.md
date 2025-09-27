@@ -1,9 +1,11 @@
-# Project Template: React/Rails API
+# Project Template: React/Rails API/DogTinder
 
 ## Description
 
 This project is scaffolded so that you can build a React frontend and Rails
 backend together, and easily deploy them to Render.
+
+This project was built to be a replica of the tinder dating app, substituting dogs for men. Users may go on sign up as a dog owner or a seeker of a new furr friend. Owners from anywhere, shelters, breeders, rehoming, fostering can add their dogs to the app by building them a profile. Then seekers can enter in to their side of the app to search through the database of dogs and swipe left for not like or right for like if they feel they match with this furr friends interests and details. While matching with dogs you can leave comments to the owner which they can then reply to to set up a perfect doggy human relationship. 
 
 **Note**: if you are not planning to deploy your app to Render and prefer to use
 SQLite, you will need to make the following changes in the project files:
