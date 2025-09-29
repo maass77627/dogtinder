@@ -2,7 +2,7 @@
 import { useState } from "react";
 import "./Chats.css"
 import React from "react";
-function ReplyForm({user, comment, setComments, comments}) {
+function ReplyForm({user, comment, setComments, comments, replyAdd}) {
     const [reply, setReply] = useState("")
     console.log(user)
     // console.log(user.id)
@@ -30,18 +30,25 @@ function ReplyForm({user, comment, setComments, comments}) {
             console.log(json)
             console.log(comments)
             
-            // let filteredcomments = comments.filter((com) => com.id !== id)
-            // comment = {...comment, replies: [json]}
-            // console.log(comment)
-            //  console.log(comment.replies)
-            // let updatedcoms = [...filteredcomments, json, comment]
-            // console.log(updatedcoms)
-            // setComments(updatedcoms)
+           replyAdd(id, reply)
             //  let newcomments = [...comments, json]
-              setComments((prevComments) => [...prevComments, json])
+
+    //         setComments((prevComments) =>
+    //   prevComments.map((com) =>
+    //     com.id === comment.id
+    //       ? {
+    //           ...comment,
+    //           replies: [...comment.replies, json],
+    //         }
+    //       : com
+    //   )
+    // );
+              
+            // setComments((prevComments) => [...prevComments, json])
+            
            
         })
-        
+        setReply("")
     }
 
     return(

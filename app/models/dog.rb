@@ -6,4 +6,6 @@ class Dog < ApplicationRecord
    belongs_to :user
    has_many :comments
    has_many :likes
+   has_many :dog_interests
+   has_many :interests, through: :dog_interests
 end

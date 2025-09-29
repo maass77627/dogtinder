@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
  import './LikePage.css';
 
-function Likes({likes, user}) {
+function Likes({likes, user, setLikes}) {
     console.log(likes)
     console.log(user)
     
@@ -19,7 +19,7 @@ function Likes({likes, user}) {
         <div id="likepagecont">
             <NavLink id="lin" to="/">Home Page</NavLink>
             <h1 id="match">Your Matches</h1>
-             { user && newlikes ? newlikes.map((like) => <LikePage key={like.id} like={like}/>) : <h1>"You currently have no likes"</h1> }
+             { user && newlikes ? newlikes.map((like) => <LikePage setLikes={setLikes} key={like.id} likes={likes} like={like}/>) : <h1>"You currently have no likes"</h1> }
 
         </div>
     )

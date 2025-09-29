@@ -5,7 +5,7 @@ import "./DogForm.css"
 import "./Owner.css"
 
 
-function DogForm({ user }) {
+function DogForm({ user, dogs, setDogs }) {
     
     const [name, setName] = useState("")
     const[age, setAge] = useState("")
@@ -24,7 +24,10 @@ function DogForm({ user }) {
             body: JSON.stringify({name: name, age: age, interests: interests, details: details, image: image, user_id: user.id})
         })
         .then((response) => response.json())
-        .then((json) => console.log((json)))
+        .then((json) => {
+        setDogs([...dogs, json])
+        console.log((json))})
+        
 
     }
 

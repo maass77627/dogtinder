@@ -12,7 +12,7 @@ import Chats from "./Chats";
 import Owner from "./Owner";
 import DogForm from "./DogForm";
 import Profile from "./Profile";
-// import Replies from "./Replies";
+
 
 function App() {
 
@@ -23,7 +23,7 @@ function App() {
   const [likes, setLikes] = useState([])
   const [comments, setComments] = useState([])
   const [role, setRole] = useState("")
-  // const [replies, setReplies] = useState([])
+  const [users, setUsers] = useState([])
   
 
   useEffect(() => {
@@ -61,14 +61,14 @@ function App() {
     })
   }, [])
 
-  // useEffect(() => {
-  //   fetch("/replies")
-  //   .then((response) => response.json())
-  //   .then((json) => {
-  //     setReplies(json)
+  useEffect(() => {
+    fetch("/users")
+    .then((response) => response.json())
+    .then((json) => {
+      setUsers(json)
       
-  //   })
-  // }, [])
+    })
+  }, [])
 
   function handleSignup() {
      setToggle(!toggle)
@@ -89,6 +89,32 @@ function App() {
        }
        })
         }
+
+
+
+        const replyAdd = (parentId, text) => {
+        const newComment = { id: Date.now(), text, replies: [] };
+        console.log(comments)
+
+        const addReplyRecursively = (comments) => {
+         console.log(comments)
+
+        
+          
+          return comments.map((comment) => {
+            if (comment.id === parentId) {
+              return { ...comment, replies: [...comment.replies, newComment] };
+            }
+            return { ...comment, replies: addReplyRecursively(comment.replies) };
+          });
+        };
+
+      setComments((prevComments) => addReplyRecursively(prevComments));
+
+     
+
+      };
+    
 
 
 
@@ -118,11 +144,11 @@ function App() {
             <Route path="/" element={Home()}/>
             <Route path="/dogs" element={<DogContainer likes={likes} setLikes={setLikes} comments={comments} setComments={setComments} user={user} dogs={dogs} setDogs={setDogs}/>} />
             <Route path="/owners" element={<Owner comments={comments} setDogs={setDogs}  dogs={dogs} user={user} />} />
-            <Route path="/likes" element={<Likes user={user} likes={likes} />} />
-            <Route path="/chat" element={<Chats setComments={setComments} user={user} comments={comments}/>}/>
-            <Route path="/form" element={<DogForm user={user} />}/>
-            <Route path="/ownerchat" element={<Chats setComments={setComments} comments={comments} user={user} />}/> 
-            <Route path="/profile" element={<Profile user={user} />}/>
+            <Route path="/likes" element={<Likes setLikes={setLikes} user={user} likes={likes} />} />
+            <Route path="/chat" element={<Chats replyAdd={replyAdd} setComments={setComments} user={user} comments={comments}/>}/>
+            <Route path="/form" element={<DogForm dogs={dogs} setDogs={setDogs} user={user} />}/>
+            <Route path="/ownerchat" element={<Chats replyAdd={replyAdd} setComments={setComments} comments={comments} user={user} />}/> 
+            <Route path="/profile" element={<Profile users={users} setUsers={setUsers} user={user} />}/>
         </Routes>
       </BrowserRouter>
     </div>

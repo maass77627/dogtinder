@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
   resources :interests
-  resources :user_dogs
-  # resources :owners
+  # resources :user_dogs
+  
   resources :users, only: [:show] do 
   resources :dogs, only: [:show, :index, :create]
   end
@@ -17,4 +17,5 @@ Rails.application.routes.draw do
    resources :likes
    resources :dogs
    resources :users
+   resources :interests
 end
