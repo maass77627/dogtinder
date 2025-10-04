@@ -2,26 +2,55 @@ import React from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./DogForm.css"
-import "./Owner.css"
+// import "./Owner.css"
+import Interest from "./Interest";
 
 
-function DogForm({ user, dogs, setDogs }) {
+function DogForm({ user, dogs, setDogs, interests, interest }) {
+    console.log(interests)
     
     const [name, setName] = useState("")
     const[age, setAge] = useState("")
-    const[interests, setInterests] = useState("")
+    const[doginterests, setDogInterests] = useState([])
     const[details, setDetails] = useState("")
     const[image, setImage] = useState("")
+    const[gender, setGender] = useState("")
+    const[interestedin, setInterestedin] = useState("")
+    const[lookingfor, setLookingfor] = useState("")
+
+    // function handleNameChange(e){
+    //     setDogData({
+    //         ...dogData, 
+    //         name: e.target.value
+    //     })
+
+    // }
+
+    function handleInterestClick(event, interest) {
+        console.log(event)
+        console.log(interest)
+        event.target.style.backgroundColor = 'purple';
+        // event.target.style.background-color: blue
+        setDogInterests([
+            ...doginterests, 
+            interest
+
+        ])
+        
+    }
 
 
     function handleSubmit(e) {
        e.preventDefault()
+       console.log(doginterests)
+       console.log(gender)
+
          fetch(`/users/${user.id}/dogs`, {
             method: "POST", 
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({name: name, age: age, interests: interests, details: details, image: image, user_id: user.id})
+            body: JSON.stringify({name: name, age: age, details: details, image: image, user_id: user.id, gender: gender, interests: doginterests})
         })
         .then((response) => response.json())
         .then((json) => {
@@ -38,16 +67,32 @@ function DogForm({ user, dogs, setDogs }) {
             <NavLink id="links" to="/owners">Home Page</NavLink>
             <h2>Add your Pet</h2>
             <form  onSubmit={handleSubmit}>
-                <label>Name: </label>
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)}></input> <br></br>
-                <label>Age: </label>
-                <input type="text" value={age} onChange={(e) => setAge(e.target.value)}></input> <br></br>
-                <label>Interests: </label>
-                <input type="text" value={interests} onChange={(e) => setInterests(e.target.value)}></input> <br></br>
-                <label>Details: </label>
-                <input type="text" value={details} onChange={(e) => setDetails(e.target.value)}></input> <br></br>
-                <label>Image: </label>
-                <input type="text" value={image} onChange={(e) => setImage(e.target.value)}></input><br></br>
+                <label id="label">Name </label><br></br>
+                <input id="input" type="text" value={name} onChange={(e) => setName(e.target.value)}></input> <br></br>
+                <label id="label">Age </label><br></br>
+                <input id="input" type="text" value={age} onChange={(e) => setAge(e.target.value)}></input> <br></br>
+                <label id="label">Gender</label><br></br>
+                {/* <input id="input" type="radio" value={gender} onChange={(e) => setGender(e.target.value)}></input> <br></br> */}
+                <br></br>
+                <label>male</label>
+                <input type="radio" value="male" checked={gender === "male"} onChange={(e) => setGender(e.target.value)}></input>
+                <label>female</label>
+                <input type="radio" value="female" checked={gender === "female"} onChange={(e) => setGender(e.target.value)}></input><br></br>
+
+
+                <label id="label">Interests</label><br></br>
+                <br></br>
+                <br></br>
+                {interests.map((interest) => <Interest key={interest.id} interest={interest} handleInterestClick={handleInterestClick}></Interest>)}<br></br>
+                {/* <input id="input" type="radio" value={interestedin} onChange={(e) => setInterestedin(e.target.value)}></input> <br></br> */}
+                <label id="label">Looking For</label><br></br>
+                <input id="input" type="text" value={lookingfor} onChange={(e) => setLookingfor(e.target.value)}></input> <br></br>
+                {/* <label id="label">Interests: </label><br></br> */}
+                {/* <input id="input" type="text" value={interests} onChange={(e) => setInterests(e.target.value)}></input> <br></br> */}
+                <label id="label">Details </label><br></br>
+                <input id="input" type="text" value={details} onChange={(e) => setDetails(e.target.value)}></input> <br></br>
+                <label id="label">Profile photos </label><br></br>
+                <input id="input" type="text" value={image} onChange={(e) => setImage(e.target.value)}></input><br></br>
                 {/* <label>UserId: </label> */}
                 {/* <input type="text" value={formData.user_id} onChange={((e) => handleIdChange(e))}></input><br></br> */}
                 <input type="submit" value="submit" ></input>

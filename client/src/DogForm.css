@@ -1,12 +1,56 @@
 #dogform{
-    position: absolute;
-    top: 50px;
-    left: 700px;
-    height: 250px;
-    width: 400px;
+   
+    position: absolute; 
+    /* margin: auto; */
+    top: 100px;
+    left: 400px;
+    
+    height: 850px;
+    width: 900px;
     background-color: rgb(235, 247, 241);
     border-radius: 25px;
     border-color: black;
-    /* border- */
+   
     border-style: solid;
 }
+
+/* #label{
+    position: absolute;
+    left: 200px;
+
+} */
+
+#input{
+    width: 500px;
+    height: 55px;
+    border-radius: 10px;
+}
+
+.hvr-back-pulse {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    overflow: hidden;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-property: color, background-color;
+    transition-property: color, background-color;
+  }
+  .hvr-back-pulse:hover, .hvr-back-pulse:focus, .hvr-back-pulse:active {
+    -webkit-animation-name: hvr-back-pulse;
+    animation-name: hvr-back-pulse;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    background-color: #2098D1;
+    background-color: #2098d1;
+    color: white;
+  }
+  

@@ -29,8 +29,8 @@ function ReplyForm({user, comment, setComments, comments, replyAdd}) {
         .then((json) => {
             console.log(json)
             console.log(comments)
-            
-           replyAdd(id, reply)
+            replyAdd(id, json)
+        //    replyAdd(id, reply)
             //  let newcomments = [...comments, json]
 
     //         setComments((prevComments) =>

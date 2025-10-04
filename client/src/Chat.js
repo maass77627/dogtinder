@@ -43,16 +43,17 @@ function Chat({comment, user, setComments, comments, replyAdd}) {
         //  const removeCommentFromState = (comments, commentId) => {
           console.log(comments)
           console.log(commentId)
-           if (comments > 0) {
+          // if (comments > 0) {
           return comments.filter(comment => comment.id !== commentId)
             .map(comment => ({
               ...comment,
               replies: removeCommentFromState(comment.replies, commentId),
             }));
-          } else {
-            return comments
+        //    } else {
+        //     // return comments
+        //     console.log("no comments")
 
-          }
+        //  }
           
          
         };

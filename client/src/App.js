@@ -24,6 +24,7 @@ function App() {
   const [comments, setComments] = useState([])
   const [role, setRole] = useState("")
   const [users, setUsers] = useState([])
+  const [interests, setInterests] = useState([])
   
 
   useEffect(() => {
@@ -49,6 +50,14 @@ function App() {
     .then((response) => response.json())
     .then((json) => {
       setLikes(json)
+      })
+  }, [])
+
+  useEffect(() => {
+    fetch("/interests")
+    .then((response) => response.json())
+    .then((json) => {
+      setInterests(json)
       })
   }, [])
 
@@ -92,8 +101,9 @@ function App() {
 
 
 
-        const replyAdd = (parentId, text) => {
-        const newComment = { id: Date.now(), text, replies: [] };
+        const replyAdd = (parentId, reply) => {
+          console.log(reply)
+        const newComment = { id: Date.now(), context: reply.context, replies: [], user_id: reply.user_id, parent_id: parentId };
         console.log(comments)
 
         const addReplyRecursively = (comments) => {
@@ -146,7 +156,7 @@ function App() {
             <Route path="/owners" element={<Owner comments={comments} setDogs={setDogs}  dogs={dogs} user={user} />} />
             <Route path="/likes" element={<Likes setLikes={setLikes} user={user} likes={likes} />} />
             <Route path="/chat" element={<Chats replyAdd={replyAdd} setComments={setComments} user={user} comments={comments}/>}/>
-            <Route path="/form" element={<DogForm dogs={dogs} setDogs={setDogs} user={user} />}/>
+            <Route path="/form" element={<DogForm interests={interests} dogs={dogs} setDogs={setDogs} user={user} />}/>
             <Route path="/ownerchat" element={<Chats replyAdd={replyAdd} setComments={setComments} comments={comments} user={user} />}/> 
             <Route path="/profile" element={<Profile users={users} setUsers={setUsers} user={user} />}/>
         </Routes>

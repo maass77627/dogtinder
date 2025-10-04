@@ -28,7 +28,7 @@ function DogContainer ({ dogs, user, setDogs, comments, setComments, likes, setL
              setDogs(newdogs)
              setToggleLeft(!toggleLeft)
              console.log('You swiped: ' + direction)
-             setToggleLeft(!toggleLeft)
+            //  setToggleLeft(!toggleLeft)
 
          } else {
                 fetch(`/likes`, {
@@ -48,6 +48,7 @@ function DogContainer ({ dogs, user, setDogs, comments, setComments, likes, setL
              console.log('You swiped: ' + direction)
              setToggleRight(!toggleRight)
          }
+       
          }
 
          

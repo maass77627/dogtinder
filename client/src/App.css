@@ -92,8 +92,10 @@
 }
 
 #login {
+  /* display: flex;
+  align-items: center; */
   background-color: antiquewhite;
-  height: 200px;
+  height: 220px;
   width: 300px;
   border-radius: 25px;
   position: absolute;
@@ -104,7 +106,15 @@
 }
 
 #label {
-  font-weight: bold;
+  position: relative;
+  
+   top: 30px; 
+  /* text-align: left; */
+  
+  /* position: fixed; */
+  /* position: ; */
+  font-weight: bold; 
+  left: 0px; 
 }
 
 #signup {
@@ -169,3 +179,15 @@
   height: 100px;
 }
 
+#interest{
+  display: inline-block;
+  height: 50px;
+  width: 120px;
+  background-color: rgb(69, 105, 68);
+  border-radius: 25px;
+  border-color: black;
+  border-width: 1px;
+  font-weight: bold;
+  font-size: larger;
+  
+}

@@ -31,7 +31,7 @@ function Login({ setUser }) {
         <div id="login">
          <form onSubmit={handleSubmit}>
          <h1>Login</h1>
-        <label id="label" >Username </label> 
+        <label id="label" >Username </label> <br></br>
         <input
           type="text"
           id="username"
@@ -39,7 +39,7 @@ function Login({ setUser }) {
           onChange={(e) => setUsername(e.target.value)}
         /> <br></br>
         
-        <label id="label" htmlFor="password">Password </label> 
+        <label id="label" htmlFor="password">Password </label> <br></br>
         <input
           type="password"
           id="password"

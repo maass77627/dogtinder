@@ -10,7 +10,9 @@ class InterestsController < ApplicationController
     if interest.save
         render json: :interest
     else 
-        render json: {interest.errors.full_messages}, status :unprocessable_entity
+        render json: { errors: interest.errors.full_messages }, status: :unprocessable_entity
+        
+        
     end
     end
 
