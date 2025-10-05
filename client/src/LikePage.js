@@ -3,6 +3,7 @@ import "./LikePage.css";
 
 function LikePage({ like, likes, setLikes }) {
 console.log(like)
+console.log(likes)
 
 
 

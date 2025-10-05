@@ -15,7 +15,7 @@ function DogForm({ user, dogs, setDogs, interests, interest }) {
     const[details, setDetails] = useState("")
     const[image, setImage] = useState("")
     const[gender, setGender] = useState("")
-    const[interestedin, setInterestedin] = useState("")
+    // const[interestedin, setInterestedin] = useState("")
     const[lookingfor, setLookingfor] = useState("")
 
     // function handleNameChange(e){
@@ -29,6 +29,7 @@ function DogForm({ user, dogs, setDogs, interests, interest }) {
     function handleInterestClick(event, interest) {
         console.log(event)
         console.log(interest)
+        console.log(doginterests)
         event.target.style.backgroundColor = 'purple';
         // event.target.style.background-color: blue
         setDogInterests([
@@ -44,8 +45,8 @@ function DogForm({ user, dogs, setDogs, interests, interest }) {
        e.preventDefault()
        console.log(doginterests)
        console.log(gender)
-
-         fetch(`/users/${user.id}/dogs`, {
+    //    fetch(`/dogs`, {
+          fetch(`/users/${user.id}/dogs`, {
             method: "POST", 
             headers: {
                 "Content-Type": "application/json",

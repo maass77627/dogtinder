@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
     def index
         comments = Comment.where(parent_id: nil).includes(:replies)
         render json: comments.as_json(include: { replies: { include: :replies } })
+        # render json: @posts.as_json(include: :user)
       end
     
  def create

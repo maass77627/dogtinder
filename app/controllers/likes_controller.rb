@@ -7,7 +7,7 @@ class LikesController < ApplicationController
 
         def create
             like = Like.create(like_params)
-            byebug
+          #   byebug
             if like.save
             render json: like
              else

@@ -113,9 +113,9 @@ function App() {
           
           return comments.map((comment) => {
             if (comment.id === parentId) {
-              return { ...comment, replies: [...comment.replies, newComment] };
+              return { ...comment, replies: [...(comment.replies || []), newComment] };
             }
-            return { ...comment, replies: addReplyRecursively(comment.replies) };
+            return { ...comment, replies: comment.replies ? addReplyRecursively(comment.replies) : [] };
           });
         };
 
