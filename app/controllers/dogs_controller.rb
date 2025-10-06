@@ -1,6 +1,9 @@
 
 class DogsController < ApplicationController
 
+    
+  
+
     def index
         if params[:user_id]
           user = User.find(params[:user_id])
@@ -8,7 +11,7 @@ class DogsController < ApplicationController
         else
           dogs = Dog.all
         end
-        render json: dogs, include: :user
+        render json: dogs, include: [:user, :interests]
     end 
 
       
@@ -26,14 +29,14 @@ class DogsController < ApplicationController
    
 
     def create
-        # byebug
+        #  byebug
         if params[:user_id]
             user = User.find(params[:user_id])
             dog =  user.dogs.new(dog_params)
             dog.save
         else
-        dog = Dog.create!(dog_params)
-        # byebug
+        dog = Dog.create!(params)
+        #  byebug
         end
 
         render json: dog
@@ -57,7 +60,7 @@ class DogsController < ApplicationController
     private
 
     def dog_params
-        params.permit(:id, :name, :age, :interests, :details, :image, :user_id, :gender, :lookingfor, :interestedin)
+        params.permit(:id, :name, :age, :details, :image, :user_id, :gender, :lookingfor, interest_ids: [], dog_interests_attributes: [:id, :name])
     end
 
 end

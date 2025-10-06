@@ -1,9 +1,4 @@
 class Comment < ApplicationRecord
-    
-    # attr_accessor :replies
-    # attr_accessor :parent_id
-    # attr_accessor :user
-
 
     
     belongs_to :user

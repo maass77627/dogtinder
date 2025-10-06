@@ -109,8 +109,6 @@ function App() {
         const addReplyRecursively = (comments) => {
          console.log(comments)
 
-        
-          
           return comments.map((comment) => {
             if (comment.id === parentId) {
               return { ...comment, replies: [...(comment.replies || []), newComment] };

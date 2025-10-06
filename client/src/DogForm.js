@@ -15,16 +15,10 @@ function DogForm({ user, dogs, setDogs, interests, interest }) {
     const[details, setDetails] = useState("")
     const[image, setImage] = useState("")
     const[gender, setGender] = useState("")
+    const[interestIds, setInterestIds] = useState([])
     // const[interestedin, setInterestedin] = useState("")
     const[lookingfor, setLookingfor] = useState("")
 
-    // function handleNameChange(e){
-    //     setDogData({
-    //         ...dogData, 
-    //         name: e.target.value
-    //     })
-
-    // }
 
     function handleInterestClick(event, interest) {
         console.log(event)
@@ -37,6 +31,11 @@ function DogForm({ user, dogs, setDogs, interests, interest }) {
             interest
 
         ])
+
+        setInterestIds([
+            ...interestIds,
+            interest.id
+        ])
         
     }
 
@@ -44,6 +43,7 @@ function DogForm({ user, dogs, setDogs, interests, interest }) {
     function handleSubmit(e) {
        e.preventDefault()
        console.log(doginterests)
+       console.log(interestIds)
        console.log(gender)
     //    fetch(`/dogs`, {
           fetch(`/users/${user.id}/dogs`, {
@@ -51,7 +51,7 @@ function DogForm({ user, dogs, setDogs, interests, interest }) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({name: name, age: age, details: details, image: image, user_id: user.id, gender: gender, interests: doginterests})
+            body: JSON.stringify({name: name, age: age, details: details, image: image, user_id: user.id, gender: gender, lookingfor: lookingfor, interests_attributes: doginterests, interest_ids: interestIds})
         })
         .then((response) => response.json())
         .then((json) => {
@@ -73,7 +73,6 @@ function DogForm({ user, dogs, setDogs, interests, interest }) {
                 <label id="label">Age </label><br></br>
                 <input id="input" type="text" value={age} onChange={(e) => setAge(e.target.value)}></input> <br></br>
                 <label id="label">Gender</label><br></br>
-                {/* <input id="input" type="radio" value={gender} onChange={(e) => setGender(e.target.value)}></input> <br></br> */}
                 <br></br>
                 <label>male</label>
                 <input type="radio" value="male" checked={gender === "male"} onChange={(e) => setGender(e.target.value)}></input>
@@ -85,17 +84,14 @@ function DogForm({ user, dogs, setDogs, interests, interest }) {
                 <br></br>
                 <br></br>
                 {interests.map((interest) => <Interest key={interest.id} interest={interest} handleInterestClick={handleInterestClick}></Interest>)}<br></br>
-                {/* <input id="input" type="radio" value={interestedin} onChange={(e) => setInterestedin(e.target.value)}></input> <br></br> */}
+                
                 <label id="label">Looking For</label><br></br>
                 <input id="input" type="text" value={lookingfor} onChange={(e) => setLookingfor(e.target.value)}></input> <br></br>
-                {/* <label id="label">Interests: </label><br></br> */}
-                {/* <input id="input" type="text" value={interests} onChange={(e) => setInterests(e.target.value)}></input> <br></br> */}
+               
                 <label id="label">Details </label><br></br>
                 <input id="input" type="text" value={details} onChange={(e) => setDetails(e.target.value)}></input> <br></br>
                 <label id="label">Profile photos </label><br></br>
                 <input id="input" type="text" value={image} onChange={(e) => setImage(e.target.value)}></input><br></br>
-                {/* <label>UserId: </label> */}
-                {/* <input type="text" value={formData.user_id} onChange={((e) => handleIdChange(e))}></input><br></br> */}
                 <input type="submit" value="submit" ></input>
             </form>
 
