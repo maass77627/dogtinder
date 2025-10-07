@@ -8,7 +8,7 @@
     width: 700px;
     padding: 20px;
     max-width: 85vw;
-    height: 60vh;
+    height: 70vh;
     border-radius: 20px;
     background-size: cover;
     background-position: center;
@@ -24,12 +24,16 @@
     margin-top: 5vh;
 }
 
-/* #info {
+#info {
     position: absolute;
-    left: 140px;
-    margin-bottom: 10px;
-    color: white;
-} */
+    /* top: 1200px; */
+    background-color: white;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: 90px;
+
+}
+   
 
 #description {
     color: white;
@@ -42,9 +46,35 @@
 
 #name {
     font-weight: bold;
+    left: 0px;
 }
 
 #age {
+    font-weight: bold;
+}
+
+#gender{ 
+    margin-top: 0px;
+    width: 600px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* height: 100px; */
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+#interesttinder{
+    margin-top: -20px;
+    /* position: absolute; */
+    margin-bottom: 2px;
+    float: right;
+    margin-right: 5px;
+    height: 30px;
+    width: 70px;
+    border-radius: 25px;
+    background-color: #e2312b;
+    color: black;
     font-weight: bold;
 }
 
