@@ -29,16 +29,13 @@ class DogsController < ApplicationController
    
 
     def create
-        #  byebug
         if params[:user_id]
             user = User.find(params[:user_id])
             dog =  user.dogs.new(dog_params)
             dog.save
         else
         dog = Dog.create!(params)
-        #  byebug
         end
-
         render json: dog
     end
 

@@ -2,9 +2,10 @@ import React from "react";
 import ReplyForm from "./ReplyForm";
 import "./Chats.css"
 import { useState } from "react";
-// import ChatForm from "./ChatForm";
 
-function Chat({comment, user, setComments, comments, replyAdd}) {
+
+function Chat({users, comment, user, setComments, comments, replyAdd}) {
+  console.log(users)
    
     let commentId = comment.id
 
@@ -38,10 +39,7 @@ function Chat({comment, user, setComments, comments, replyAdd}) {
          };
         
         
-        
        
-    //  let username = comment.user
-        
 
 
 
@@ -50,7 +48,8 @@ function Chat({comment, user, setComments, comments, replyAdd}) {
          <div  className="chat">
 
         <img id="userchatimage" src="forest.png" alt="profile"></img>
-        <h1 id="userchatname">{user.username}</h1>
+       
+         <h1 id="userchatname">{comment.user.name}</h1> 
           
          { comment.context ? <p id="userchatcontext">{comment.context}</p> : null } 
          { comment.user_id && comment.user_id !== user.id ? <button onClick={handleClick}>reply</button> : null }   

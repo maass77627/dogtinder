@@ -83,10 +83,15 @@ function Edit ({ user, dog, dogs, setDogs}) {
         <div id="edit">
             <form id="editform" onSubmit={handleSubmit}>
                <h3>Edit Dog</h3>
+               <label>Name:</label>
                <input type="text" value={dogData.name} placeholder={dog.name} onChange={handleNameChange}></input><br></br>
+               <label>Age:</label>
                 <input type="text" value={dogData.age} placeholder={dog.age} onChange={handleAgeChange}></input><br></br>
+                <label>Interests:</label>
                 <input type="text" value={dogData.interests} placeholder={dog.interests} onChange={handleInterestsChange}></input><br></br>
+                <label>Details:</label>
                 <input type="text" value={dogData.details} placeholder={dog.details} onChange={handleDetailsChange}></input><br></br>
+                <label>Image:</label>
                 <input type="text" value={dogData.image} placeholder={dog.image} onChange={handleImageChange}></input><br></br>
                 <input type="submit" value="submit"></input>
                 

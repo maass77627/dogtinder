@@ -2,6 +2,7 @@
 
 class Dog < ApplicationRecord
    before_save :capitalize_name
+   
    validates :name, presence: true, uniqueness: true;
    validates :image, presence: true 
    belongs_to :user

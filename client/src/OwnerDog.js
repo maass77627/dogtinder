@@ -23,6 +23,10 @@ function OwnerDog({dog, user, setDogs, dogs}) {
         setToggle(!toggle)
     }
 
+    const capitalizeFirstLetter = (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+        };
+
     return(
 
 
@@ -34,7 +38,7 @@ function OwnerDog({dog, user, setDogs, dogs}) {
             <p id="ogender">{dog.gender}</p>
         {dog.interests ? dog.interests.slice(0,8).map((int) => <div id="ointerest">{int.name}</div>) : null} <br></br>
         <br></br>
-            <p id="p">{dog.details}</p>
+            <p id="p">{capitalizeFirstLetter(dog.details)}</p>
             <button id="button2" onClick={handleEdit}>edit</button><button id="button" onClick={handleDelete}>delete</button>
             { toggle ? <Edit setDogs={setDogs} dogs={dogs} dog={dog} user={user}></Edit> : null } 
         </div>

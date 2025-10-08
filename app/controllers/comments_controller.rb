@@ -1,11 +1,32 @@
 class CommentsController < ApplicationController
 
-
     def index
-        comments = Comment.where(parent_id: nil).includes(:replies)
-        render json: comments.as_json(include: { replies: { include: :replies } })
-       
+        comments = Comment.where(parent_id: nil)
+                          .includes(:user, replies: [:user, replies: :user])
+      
+        render json: comments.as_json(
+          include: {
+            user: { only: [:id, :name] }, # customize the fields
+            replies: {
+              include: {
+                user: { only: [:id, :name] },
+                replies: {
+                  include: {
+                    user: { only: [:id, :name] }
+                  }
+                }
+              }
+            }
+          }
+        )
       end
+
+
+    # def index
+    #     comments = Comment.where(parent_id: nil).includes(:replies)
+    #     render json: comments.as_json(include: { replies: { include: :replies } })
+       
+    #   end
     
  def create
         comment = Comment.create(comment_params)

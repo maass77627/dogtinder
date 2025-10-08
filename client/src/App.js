@@ -153,9 +153,9 @@ function App() {
             <Route path="/dogs" element={<DogContainer likes={likes} setLikes={setLikes} comments={comments} setComments={setComments} user={user} dogs={dogs} setDogs={setDogs}/>} />
             <Route path="/owners" element={<Owner comments={comments} setDogs={setDogs}  dogs={dogs} user={user} />} />
             <Route path="/likes" element={<Likes setLikes={setLikes} user={user} likes={likes} />} />
-            <Route path="/chat" element={<Chats replyAdd={replyAdd} setComments={setComments} user={user} comments={comments}/>}/>
+            <Route path="/chat" element={<Chats users={users} replyAdd={replyAdd} setComments={setComments} user={user} comments={comments}/>}/>
             <Route path="/form" element={<DogForm interests={interests} dogs={dogs} setDogs={setDogs} user={user} />}/>
-            <Route path="/ownerchat" element={<Chats replyAdd={replyAdd} setComments={setComments} comments={comments} user={user} />}/> 
+            <Route path="/ownerchat" element={<Chats users={users} replyAdd={replyAdd} setComments={setComments} comments={comments} user={user} />}/> 
             <Route path="/profile" element={<Profile users={users} setUsers={setUsers} user={user} />}/>
         </Routes>
       </BrowserRouter>
