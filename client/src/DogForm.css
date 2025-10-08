@@ -1,24 +1,15 @@
 #dogform{
-   
     position: absolute; 
-    /* margin: auto; */
     top: 100px;
     left: 400px;
-    
     height: 850px;
     width: 900px;
     background-color: rgb(235, 247, 241);
     border-radius: 25px;
     border-color: black;
-   
     border-style: solid;
 }
 
-/* #label{
-    position: absolute;
-    left: 200px;
-
-} */
 
 #input{
     width: 500px;
