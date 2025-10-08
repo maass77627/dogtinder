@@ -22,12 +22,12 @@
  Interest.create!(name: "eating")
  Interest.create!(name: "treats")
  Interest.create!(name: "hunting")
- Interest.create!(name: "lap sitting")
+ Interest.create!(name: "sitting")
  Interest.create!(name: "cuddling")
- Interest.create!(name: "going for walks")
+ Interest.create!(name: "walks")
  Interest.create!(name: "napping")
  Interest.create!(name: "car rides")
  Interest.create!(name: "tug-o-war")
- Interest.create!(name: "squeaky toys")
+ Interest.create!(name: "toys")
 
  

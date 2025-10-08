@@ -1,6 +1,8 @@
 
 
-
+#edit{
+        z-index: 100;
+}
 
 
 #editform {
@@ -10,5 +12,5 @@
         width: 300px;
         background-color: rgb(6, 61, 61);
         border-radius: 25px;
-        z-index: 10;
+        z-index: 500;
 }

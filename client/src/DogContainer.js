@@ -78,7 +78,7 @@ function DogContainer ({ dogs, user, setDogs, comments, setComments, likes, setL
         <h3 id="name">{dog.name}</h3>
         <p id="age">{dog.age}</p>
         <p id="gender">{dog.gender}</p>
-        {dog.interests ? dog.interests.map((int) => <span id="interesttinder">{int.name}</span>) : null}
+        {dog.interests ? dog.interests.slice(0,8).map((int) => <span id="interesttinder">{int.name}</span>) : null}
         <p id="description">{dog.details}</p>
         </div>
             <Buttons dog={dog} dogs={dogs} user={user} setDogs={setDogs} comments={comments} setComments={setComments} ></Buttons>

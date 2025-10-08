@@ -40,7 +40,7 @@ function Chat({comment, user, setComments, comments, replyAdd}) {
         
         
        
-
+    //  let username = comment.user
         
 
 
@@ -50,7 +50,8 @@ function Chat({comment, user, setComments, comments, replyAdd}) {
          <div  className="chat">
 
         <img id="userchatimage" src="forest.png" alt="profile"></img>
-          {comment.user ? <h1 id="userchatname">{comment.user.username}</h1> : null } 
+        <h1 id="userchatname">{user.username}</h1>
+          
          { comment.context ? <p id="userchatcontext">{comment.context}</p> : null } 
          { comment.user_id && comment.user_id !== user.id ? <button onClick={handleClick}>reply</button> : null }   
          { comment.user_id === user.id ?  <div><button>edit</button> <button onClick={ () => handleDelete(comment.id)}>delete</button></div> : null }  

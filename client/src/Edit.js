@@ -80,7 +80,7 @@ function Edit ({ user, dog, dogs, setDogs}) {
 
 
     return (
-        <div>
+        <div id="edit">
             <form id="editform" onSubmit={handleSubmit}>
                <h3>Edit Dog</h3>
                <input type="text" value={dogData.name} placeholder={dog.name} onChange={handleNameChange}></input><br></br>

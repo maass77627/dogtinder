@@ -31,8 +31,9 @@ function OwnerDog({dog, user, setDogs, dogs}) {
             <img id="ownerdogimg" src={dog.image} alt="dog"></img>
             <p id="p">{dog.age}</p>
             {/* <p id="p">{dog.interests.charAt(0).toUpperCase() + dog.interests.slice(1)}</p> */}
-            <p id="gender">{dog.gender}</p>
-        {dog.interests ? dog.interests.map((int) => <span id="interest">{int.name}</span>) : null}
+            <p id="ogender">{dog.gender}</p>
+        {dog.interests ? dog.interests.slice(0,8).map((int) => <div id="ointerest">{int.name}</div>) : null} <br></br>
+        <br></br>
             <p id="p">{dog.details}</p>
             <button id="button2" onClick={handleEdit}>edit</button><button id="button" onClick={handleDelete}>delete</button>
             { toggle ? <Edit setDogs={setDogs} dogs={dogs} dog={dog} user={user}></Edit> : null } 

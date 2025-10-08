@@ -3,7 +3,7 @@
    
     height: 200px;
     width: 200px;
-    margin-left: 70px;
+    margin-left: 20px;
     
 }
 
@@ -11,6 +11,8 @@
 #owner {
     display: inline-flex;
     justify-content: center;
+    margin-top: 100px;
+    /* background-color: aqua; */
     }
 
 
@@ -24,9 +26,9 @@
     /* padding: 10px; */
     margin-right: 70px; 
     margin-top: 100px; 
-    display: flex;  
-    flex-direction: column;
-    justify-content: space-evenly;
+    /* display: flex;   */
+    /* flex-direction: column;  */
+    /* justify-content: space-evenly; */
     border-style: solid;
     border-color: black;
     border-width: 25px;
@@ -35,18 +37,27 @@
 }
 
 
-/* #interest{
-    position: absolute;
-    /* top: 300px; */
-    /* padding: 50px; */
-/* }  */
+#ointerest{
+    position: relative; 
+    margin-right: 5px; 
+    margin-bottom: 5px;
+    float: right; 
+    /* margin: 5px;  */
+    height: 30px;
+    width: 70px;
+    border-radius: 25px;;
+    background-color: rgb(214, 31, 31);
+    /* display: inline-block; 
+    justify-content: space-between;   */
+    
+}
 
 
 #button {
     position: relative; 
     /* left: 30px; */
-    margin-left: 250px;  
-    bottom: 32px;
+    margin-right: 50px;  
+    bottom: 0px;
     height: 30px;
     width: 70px;
 }
@@ -69,3 +80,9 @@
 
 }
 
+#ogender{
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    font-size: large;
+}
