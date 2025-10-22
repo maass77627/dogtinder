@@ -52,19 +52,19 @@ function Profile({ user, users, setUsers }) {
 
   return (
     <div className="profile-page">
-      {/* Profile Card */}
+      
       <div className="profile-card">
-        {/* Profile Image */}
+        
         <img
           className="profile-avatar"
           src={user.image || "default-profile.png"}
           alt={user.username}
         />
 
-        {/* Username */}
+       
         <h2 className="profile-username">{user.username}</h2>
 
-        {/* User Info */}
+        
         <div className="profile-info">
           <h3>Your Profile</h3>
           <NavLink className="home-link" to="/">Home Page</NavLink>
@@ -73,12 +73,12 @@ function Profile({ user, users, setUsers }) {
           <h4>Bio: {user.bio || "No bio provided."}</h4>
         </div>
 
-        {/* Edit Button */}
+       
         <button className="edit-btn" onClick={handleEdit}>
           {toggle ? "Close Edit" : "Edit Profile"}
         </button>
 
-        {/* Edit Form */}
+        
         {toggle && (
           <div className="edit-form-container">
             <ProfileEditForm user={user} users={users} setUsers={setUsers} />
