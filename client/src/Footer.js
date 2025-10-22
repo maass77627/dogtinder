@@ -4,13 +4,8 @@ import { Link } from "react-router-dom";
 
 
 function Footer({ user }) {
-    console.log(user)
-    console.log(user.role)
+    
 
-    // function handleClick(e) {
-    //     // console.log(e.target.parentNode.parentNode.parentNode)
-
-    // }
 
 
     return(

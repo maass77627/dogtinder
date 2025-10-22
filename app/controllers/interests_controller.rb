@@ -1,7 +1,7 @@
 class InterestsController < ApplicationController
 
     def index
-    interests = Interest.all
+    interests = Interest.distinct
     render json: interests
     end
 
@@ -11,8 +11,6 @@ class InterestsController < ApplicationController
         render json: :interest
     else 
         render json: { errors: interest.errors.full_messages }, status: :unprocessable_entity
-        
-        
     end
     end
 
@@ -21,7 +19,6 @@ private
 
 def interest_params
     params.require(:interest).permit(:name)
-
 end
 
 

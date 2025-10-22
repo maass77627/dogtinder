@@ -64,13 +64,11 @@ function Edit ({ user, dog, dogs, setDogs}) {
             headers: {
                 "Content-Type": "application/json",
             },
-            // body: JSON.stringify({name: name, age: age, interests: interests, details: details, image: image})
             body: JSON.stringify(dogData)
 
         })
         .then((response) => response.json())
         .then((json) => {
-            console.log(json)
              let newdogs = dogs.map((doggy) => doggy.id === id ? json : doggy)
              setDogs(newdogs)
         })
@@ -94,7 +92,6 @@ function Edit ({ user, dog, dogs, setDogs}) {
                 <label>Image:</label>
                 <input type="text" value={dogData.image} placeholder={dog.image} onChange={handleImageChange}></input><br></br>
                 <input type="submit" value="submit"></input>
-                
             </form>
         </div>
     )

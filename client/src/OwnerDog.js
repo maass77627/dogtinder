@@ -27,6 +27,11 @@ function OwnerDog({dog, user, setDogs, dogs}) {
         return str.charAt(0).toUpperCase() + str.slice(1);
         };
 
+        const uniqueInterests = dog.interests.filter(
+            (record, index, self) =>
+              index === self.findIndex(r => r.name === record.name)
+          );
+
     return(
 
 
@@ -36,7 +41,7 @@ function OwnerDog({dog, user, setDogs, dogs}) {
             <p id="p">{dog.age}</p>
             {/* <p id="p">{dog.interests.charAt(0).toUpperCase() + dog.interests.slice(1)}</p> */}
             <p id="ogender">{dog.gender}</p>
-        {dog.interests ? dog.interests.slice(0,8).map((int) => <div id="ointerest">{int.name}</div>) : null} <br></br>
+        {dog.interests ? uniqueInterests.slice(0,8).map((int) => <div key="interest.id" id="ointerest">{int.name}</div>) : null} <br></br>
         <br></br>
             <p id="p">{capitalizeFirstLetter(dog.details)}</p>
             <button id="button2" onClick={handleEdit}>edit</button><button id="button" onClick={handleDelete}>delete</button>

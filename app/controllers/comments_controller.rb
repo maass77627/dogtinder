@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
       
         render json: comments.as_json(
           include: {
-            user: { only: [:id, :name] }, # customize the fields
+            user: { only: [:id, :name] }, 
             replies: {
               include: {
                 user: { only: [:id, :name] },

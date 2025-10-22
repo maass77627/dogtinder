@@ -22,7 +22,7 @@ function DogForm({ user, dogs, setDogs, interests, interest }) {
     function handleInterestClick(event, interest) {
        
         event.target.style.backgroundColor = 'purple';
-        // event.target.style.background-color: blue
+        
         setDogInterests([
             ...doginterests, 
             interest
@@ -55,6 +55,11 @@ function DogForm({ user, dogs, setDogs, interests, interest }) {
 
     }
 
+    const uniqueInterests = interests.filter(
+        (record, index, self) =>
+          index === self.findIndex(r => r.name === record.name)
+      );
+
     return(
 
 
@@ -72,16 +77,12 @@ function DogForm({ user, dogs, setDogs, interests, interest }) {
                 <input type="radio" value="male" checked={gender === "male"} onChange={(e) => setGender(e.target.value)}></input>
                 <label>female</label>
                 <input type="radio" value="female" checked={gender === "female"} onChange={(e) => setGender(e.target.value)}></input><br></br>
-
-
                 <label id="label">Interests</label><br></br>
                 <br></br>
                 <br></br>
-                {interests.map((interest) => <Interest key={interest.id} interest={interest} handleInterestClick={handleInterestClick}></Interest>)}<br></br>
-                
+                {uniqueInterests.map((interest) => <Interest key={interest.id} interest={interest} handleInterestClick={handleInterestClick}></Interest>)}<br></br>
                 <label id="label">Looking For</label><br></br>
                 <input id="input" type="text" value={lookingfor} onChange={(e) => setLookingfor(e.target.value)}></input> <br></br>
-               
                 <label id="label">Details </label><br></br>
                 <input id="input" type="text" value={details} onChange={(e) => setDetails(e.target.value)}></input> <br></br>
                 <label id="label">Profile photos </label><br></br>

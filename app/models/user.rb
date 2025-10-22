@@ -15,5 +15,5 @@ class User < ApplicationRecord
     def capitalize_name
         self.name = name.titleize if name.present?
      
-       end
+    end
 end

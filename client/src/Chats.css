@@ -3,14 +3,12 @@
 .chat {
     position: relative;
     margin-bottom: 300px;;
-    border-width: 5px; 
-    border-style: solid; 
-    border-color: black; 
+    
     border-radius: 25px;
     width: 400px;
     height: 100px;
     left: 100px;
-    background-color: white;
+    background-color: rgb(194, 189, 189);
 
 }
 #buttonstwo{
@@ -47,9 +45,7 @@
     position: relative;
     top: 60px;
     left: 20px;
-    /* height: 300px;
-    width: 400px; */
-    /* background-color: blue;  */
+
 }
 
 .hidden{
@@ -59,3 +55,5 @@
 .visible{
     visibility: visible;
 }
+
+
