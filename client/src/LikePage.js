@@ -1,50 +1,46 @@
-// import React from "react";
-// import "./LikePage.css";
-
-// function LikePage({ like, likes, setLikes }) {
-// console.log(like)
-// console.log(likes)
 
 
 
-// function handleDelete(id) {
-
-//     fetch(`/likes/${id}`, {
-//         method: "DELETE"
-//     })
-//       let newlikes = likes.filter((lik) => lik.id !== id)
-//       setLikes(newlikes)
-
-// }
-
-//     return(
-//         <div id="likepage">
-//            {like.dog ? <h1>{like.dog.name}</h1> : null }
-//            {like.dog ? <img id="likeimage" src={like.dog.image} alt="dog"></img> : null }
-//            <button onClick={() =>handleDelete(like.id)}>delete</button>
-//         </div>
-//     )
-// }
-
-// export default LikePage
-
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./LikePage.css";
+import ChatForm from "./ChatForm";
+import { useState } from "react";
 
-function LikePage({ likes, setLikes }) {
+function LikePage({ likes, setLikes, comments, setComments, user }) {
+  const containerRef = useRef(null);
+  const [toggle, setToggle] = useState(false)
+  console.log(comments)
 
   function handleDelete(id) {
     fetch(`/likes/${id}`, { method: "DELETE" });
-    setLikes(prevLikes => prevLikes.filter(l => l.id !== id));
+    setLikes((prevLikes) => prevLikes.filter((l) => l.id !== id));
   }
 
+  function handleChat() {
+     setToggle(!toggle)
+  }
+
+  
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.scrollTo({
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [likes]);
+
+  
   if (!likes || likes.length === 0) {
-    return <p style={{ textAlign: "center", marginTop: "50px" }}>You have no liked dogs yet!</p>;
+    return (
+      <p style={{ textAlign: "center", marginTop: "50px" }}>
+        You have no liked dogs yet!
+      </p>
+    );
   }
 
-  // Deduplicate dogs by ID (keep first occurrence)
   const dogMap = {};
-  likes.forEach(like => {
+  likes.forEach((like) => {
     if (like.dog && !dogMap[like.dog.id]) {
       dogMap[like.dog.id] = { ...like.dog, likeId: like.id };
     }
@@ -52,28 +48,43 @@ function LikePage({ likes, setLikes }) {
   const uniqueDogs = Object.values(dogMap);
 
   return (
-    <div id="likepagecontainer">
-      {uniqueDogs.map(dog => (
-        <div className="like-card" key={dog.id}>
-          <img className="like-image" src={dog.image} alt={dog.name} />
+    <div className="likes-page">
+      <div className="likes-container" ref={containerRef}>
+        {uniqueDogs.map((dog) => (
+          <div className="like-card" key={dog.id}>
+            <img className="like-image" src={dog.image} alt={dog.name} />
 
-          {/* Overlay appears on hover */}
-          <div className="overlay">
-            <h2 className="dog-name">{dog.name}</h2>
-            <p className="dog-meta">{dog.age} • {dog.gender}</p>
-            {dog.interests && (
-              <div className="dog-interests">
-                {dog.interests.slice(0, 5).map(int => (
-                  <span key={int.name} className="interest-tag">{int.name}</span>
-                ))}
-              </div>
-            )}
-            <button className="delete-btn" onClick={() => handleDelete(dog.likeId)}>
-              Remove
-            </button>
+            <div className="overlay">
+              <h2 className="dog-name">{dog.name}</h2>
+              <p className="dog-meta">
+                {dog.age} • {dog.gender}
+              </p>
+              {dog.interests && (
+                <div className="dog-interests">
+                  {dog.interests.slice(0, 5).map((int) => (
+                    <span key={int.name} className="interest-tag">
+                      {int.name}
+                    </span>
+                  ))}
+                </div>
+              )}
+              <button
+                className="delete-btn"
+                onClick={() => handleDelete(dog.likeId)}
+              >
+                Remove
+              </button>
+              <button
+                className="message-btn"
+                onClick={() => handleChat()}
+              >
+                Message Owner
+              </button>
+              {toggle && <ChatForm user={user} dog={dog} comments={comments} setComments={setComments}/>}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

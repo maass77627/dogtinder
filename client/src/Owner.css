@@ -1,72 +1,156 @@
 
-#ownerdogimg{
-   
-    height: 200px;
-    width: 200px;
-    margin-left: 20px;
-    z-index: 4;
-    
-}
-
-
 #owner {
-    display: inline-flex;
-    justify-content: center;
-    margin-top: 100px;
-    }
-
-
-#ownerdog{
-    font-weight: bold;
-    width: 400px;
-    height: 550px;
-    margin-right: 70px; 
-    margin-top: 100px; 
-    border-style: solid;
-    border-color: black;
-    border-width: 25px;
-    border-radius: 25px;
+  display: flex;
+  flex-direction: row;       
+  overflow-x: auto;          
+  gap: 30px;
+  padding: 70px 20px 40px 20px; 
+  scrollbar-width: none;    
+  scroll-snap-type: x mandatory; 
 }
 
 
-#ointerest{
-    position: relative; 
-    margin-right: 5px; 
-    margin-bottom: 5px;
-    float: right; 
-    height: 30px;
-    width: 100px;
-    border-radius: 25px;;
-    background-color: rgb(214, 31, 31);
+#owner::-webkit-scrollbar {
+  display: none;
+}
+
+.dog-card {
+  flex: 0 0 auto;            
+  width: 400px;
+  height: 600px;
+  background-color: #fefefe;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(44, 44, 41, 0.15);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  scroll-snap-align: start;  
+}
+
+.dog-card:hover {
+  transform: scale(1.02);
 }
 
 
-#button {
-    position: relative; 
-    margin-right: 50px;  
-    bottom: 0px;
-    height: 30px;
-    width: 70px;
+.dog-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #0c0c0c;
 }
 
-#button2 {
-    position: relative;
-    bottom: 0px;
-    margin-left: 50px;  
-    height: 30px;
-    width: 70px;
-}
 
-#dogform{
-    position: absolute;
-    left: 200px;
-    top: 300px;
+.dog-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover; 
+  border-radius: 10px;
+  margin-bottom: 15px;
 
 }
 
-#ogender{
-    background-color: white;
-    color: black;
-    font-weight: bolder;
-    font-size: large;
+
+.dog-info p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #383636;
+}
+
+.dog-gender {
+  font-weight: bold;
+  color: black;
+}
+
+.dog-details {
+  margin-top: 10px;
+  font-style: italic;
+  color: #534f4f;
+}
+
+
+.dog-interests {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 5px;
+}
+
+.interest-chip {
+  background-color: #ef4444;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+
+.dog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-btn {
+  border-style: solid;
+  border-width: thin;
+  border-color: #0c0c0c;
+  background-color: #faf8f8; 
+  color: rgb(248, 7, 7);
+}
+
+.edit-btn:hover {
+  transform: scale(1.05);
+}
+
+.delete-btn {
+  border-style: solid;
+  border-color:#0c0c0c;
+  background-color: #faf8f8; 
+  color: rgb(248, 7, 7);
+}
+
+.delete-btn:hover {
+  background-color: #5a5555;
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+  #owner {
+    padding: 120px 10px 20px 10px;
+  }
+
+  .dog-card {
+    width: 80%;
+    height: auto;
+  }
+
+  .dog-name {
+    font-size: 1.5rem;
+    
+  }
+
+  .interest-chip {
+    font-size: 0.8rem;
+  }
+
+  .btn {
+    padding: 8px 15px;
+  }
+}
+
+#ownername {
+  position: absolute;
+  top: 0px;
 }

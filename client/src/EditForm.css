@@ -1,14 +1,136 @@
 
 
-
-
-#editform {
-        position: absolute;
-        margin-left: 40px;
-        margin-top: -450px;
-        height: 250px;
-        width: 300px;
-        background-color: rgb(6, 61, 61);
+       .edit-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; 
+        margin-top: 40px;
+        z-index: 5;
+      }
+      
+      
+      .edit-form {
+        background: #fefefe;
+        border: 2px solid #ccc;
+        border-radius: 20px;
+        padding: 20px 30px;
+        width: 420px;
+        max-height: 60vh;        
+        overflow-y: auto;        
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.3s ease-in-out;
+      }
+      
+      
+      .edit-form h2 {
+        text-align: center;
+        color: #ef4444;
+        margin-bottom: 20px;
+      }
+      
+      
+      .edit-form label {
+        display: block;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 6px;
+        margin-top: 10px;
+        font-size: 0.95rem;
+      }
+      
+      
+      .edit-form input,
+      .edit-form textarea {
+        width: 100%;
+        padding: 8px 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 0.95rem;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      
+      .edit-form input:focus,
+      .edit-form textarea:focus {
+        border-color: #ef4444;
+      }
+      
+     
+      .edit-submit-btn {
+        background-color: #ef4444;
+        color: white;
+        border: none;
         border-radius: 25px;
-        z-index: 999;
-}
+        padding: 12px 20px;
+        font-weight: bold;
+        font-size: 1rem;
+        width: 100%;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .edit-submit-btn:hover {
+        background-color: #dc2626;
+        transform: scale(1.03);
+      }
+      
+      
+      .interest-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+        max-height: 120px;       
+        overflow-y: auto;        
+        padding-right: 4px;
+      }
+      
+      .interest-tag {
+        background-color: #fcd5ce;
+        color: #ef4444;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+      }
+      
+      .interest-tag:hover {
+        background-color: #ef4444;
+        color: white;
+      }
+      
+      .no-interests {
+        font-size: 0.9rem;
+        color: #777;
+      }
+      
+      
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      
+      
+      .edit-form::-webkit-scrollbar {
+        width: 6px;
+      }
+      
+      .edit-form::-webkit-scrollbar-thumb {
+        background: #ef4444;
+        border-radius: 3px;
+      }
+      
+      .edit-form::-webkit-scrollbar-track {
+        background: #f0f0f0;
+        border-radius: 3px;
+      }

@@ -1,54 +1,63 @@
-import React from "react";
-import "./Owner.css"
-import { useState } from "react";
+
+
+
+import React, { useState } from "react";
+import "./Owner.css";
 import Edit from "./Edit";
 
-function OwnerDog({dog, user, setDogs, dogs}) {
-    console.log(dogs)
+function OwnerDog({ dog, user, dogs, setDogs }) {
+  const [toggle, setToggle] = useState(false);
 
-    const [toggle, setToggle] = useState(false)
+  const handleDelete = () => {
+    fetch(`/dogs/${dog.id}`, { method: "DELETE" });
+    setDogs(dogs.filter((d) => d.id !== dog.id));
+  };
 
+  const handleEdit = () => setToggle(!toggle);
 
-    function handleDelete() {
-        let id = dog.id
-        fetch(`/dogs/${id}`, {
-            method: "DELETE"
-        })
-        let newdogs = dogs.filter((doggy) => doggy.id !== dog.id)
-        setDogs(newdogs)
-    }
+  const capitalizeFirstLetter = (str) =>
+    str.charAt(0).toUpperCase() + str.slice(1);
 
+  const uniqueInterests = dog.interests?.filter(
+    (record, index, self) => index === self.findIndex((r) => r.name === record.name)
+  );
 
-    function handleEdit() {
-        setToggle(!toggle)
-    }
-
-    const capitalizeFirstLetter = (str) => {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-        };
-
-        const uniqueInterests = dog.interests.filter(
-            (record, index, self) =>
-              index === self.findIndex(r => r.name === record.name)
-          );
-
-    return(
-
-
-        <div id="ownerdog">
-            <h1 id="dogname">{dog.name}</h1>
-            <img id="ownerdogimg" src={dog.image} alt="dog"></img>
-            <p id="p">{dog.age}</p>
-            {/* <p id="p">{dog.interests.charAt(0).toUpperCase() + dog.interests.slice(1)}</p> */}
-            <p id="ogender">{dog.gender}</p>
-        {dog.interests ? uniqueInterests.slice(0,8).map((int) => <div key="interest.id" id="ointerest">{int.name}</div>) : null} <br></br>
-        <br></br>
-            <p id="p">{capitalizeFirstLetter(dog.details)}</p>
-            <button id="button2" onClick={handleEdit}>edit</button><button id="button" onClick={handleDelete}>delete</button>
-            { toggle ? <Edit setDogs={setDogs} dogs={dogs} dog={dog} user={user}></Edit> : null } 
+  return (
+    <div className="dog-card">
+      <h2 className="dog-name">{dog.name}</h2>
+      <img className="dog-image" src={dog.image} alt={dog.name} />
+      <div className="dog-info">
+        <p className="dog-age">{dog.age} years old</p>
+        <p className="dog-gender">{dog.gender}</p>
+        <p className="dog-details">{capitalizeFirstLetter(dog.details)}</p>
+        <div className="dog-interests">
+          {uniqueInterests?.slice(0, 8).map((int) => (
+            <span key={int.name} className="interest-chip">
+              {int.name}
+            </span>
+          ))}
         </div>
-        
-    )
+      </div>
+      <div className="dog-actions">
+        <button className="btn delete-btn" onClick={handleEdit}>
+          {toggle ? "Close Edit" : "Edit"}
+        </button>
+        <button className="btn delete-btn" onClick={handleDelete}>
+          Delete
+        </button>
+      </div>
+
+      
+      {toggle && (
+        <Edit
+          dog={dog}
+          dogs={dogs}
+          setDogs={setDogs}
+          onClose={() => setToggle(false)}
+        />
+      )}
+    </div>
+  );
 }
 
-export default OwnerDog
+export default OwnerDog;

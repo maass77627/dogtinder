@@ -1,13 +1,16 @@
-#one {
+/* #one {
     width: 50px; 
     height: 50px;
     border-radius: 50%;
-    }
+    } */
 
-#buttons {
+/* #buttons {
+    background-color: chartreuse;
      position: absolute;
+     height: 50px;
      left: 110px;
-     top: 640px;
+     top: 40px;
+     z-index: 20;
 }
 
 #btnimg{
@@ -16,4 +19,5 @@
     padding: 10px;
     height: 70px;
     width: 70px;
-}
+    z-index: 20;
+} */

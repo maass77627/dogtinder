@@ -1,6 +1,21 @@
 .App {
-  text-align: center;
+  /* text-align: center;
+  margin: 0;
   background-color: white;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+
+  text-align: center;
+  margin: 0;
+  align-items: center; 
+  background-color: white;
+  width: 100%;
+  height: 100%;
+ 
 }
 
 #active{
@@ -19,15 +34,6 @@
   margin: auto;
 }
 
-#logo{
-  position: absolute;
-  top: 20px;
-  left: 0px;
-  width: 100px;
-  height: 100px;
- 
-}
-
 #age{
   color: white;
   font-size: 30px;
@@ -44,103 +50,8 @@
 
 }
 
-#homebtn2 {
-  position: absolute;
-  font-size: large;
-  font-weight: bolder;
-  right: 0;
-  border-radius: 25px;
-  height: 50px;
-  width: 100px;
-}
-
-#title {
-   position: absolute;
-   top: 200px;
-   left: 450px;
-   color: white;
-   font-size: 200px; 
-   font-weight: bolder;
-   border-radius: 25px;
-}
-
-#homebutton {
-  position: absolute;
-  left: 900px;
-  top: 800px;
-  background-color: rgb(212, 93, 93);
-  border-radius: 25px;
-  height: 50px;
-  width: 200px;
-  font-size: large;
-  color: white;
-  font-weight: bolder;
-
-}
-
-#greet {
-  color: white;
-}
-
-#logotext {
-  position: absolute;
-  top: 0px;
-  left: 100px;
-  font-weight: bolder;
-  font-size: 50px;
-  color: rgb(206, 44, 44);
-}
-
-#login {
-  /* display: flex;
-  align-items: center; */
-  background-color: antiquewhite;
-  height: 320px;
-  width: 300px;
-  border-radius: 25px;
-  position: absolute;
-  left: 820px;
-  top: 200px;
-  z-index: 1;
-
-}
-
-#label {
-  position: relative;
-  
-   top: 30px; 
-  /* text-align: left; */
-  
-  /* position: fixed; */
-  /* position: ; */
-  font-weight: bold; 
-  left: 0px; 
-}
-
-#signup {
-  background-color: antiquewhite;
-  height: 400px;
-  width: 300px;
-  border-radius: 25px;
-  position: absolute;
-  left: 800px;
-  top: 300px;
-}
 
 
-/* #description {
-  color: white;
-  background-color: rgb(10, 10, 10);
-  width: 600px;
-  margin: auto;
-  
-} */
-
-#home {
-  height: 900px;
-  width: 2000px;
-  background-color: aquamarine;
-}
 
 .hidden {
   visibility: hidden;
@@ -191,3 +102,4 @@
   font-size: larger;
   
 }
+

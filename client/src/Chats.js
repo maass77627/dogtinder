@@ -1,21 +1,31 @@
+
+
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./Chats.css"
+import "./Chats.css";
 import Chat from "./Chat";
 
-
 function Chats({ comments, user, setComments, replyAdd, users }) {
-    console.log(comments)
-    // console.log(user.id)
+  return (
+    <div className="chats-container">
+      <NavLink className="chats-link" to="/">Home Page</NavLink>
+      <h1 className="chats-title">Chat Page</h1>
 
-    
-    return(
-        <div id="chats">
-            <NavLink id="links" to="/">Home Page</NavLink>
-            <h1>Chat Page</h1>
-            {user && comments ? comments.map((comment) => <Chat users={users} replyAdd={replyAdd} comments={comments} setComments={setComments} key={comment.id} user={user} comment={comment}></Chat>) : null} 
-        </div>
-    )
+      {user && comments
+        ? comments.map((comment) => (
+            <Chat
+              key={comment.id}
+              users={users}
+              replyAdd={replyAdd}
+              comments={comments}
+              setComments={setComments}
+              user={user}
+              comment={comment}
+            />
+          ))
+        : null}
+    </div>
+  );
 }
 
-export default Chats
+export default Chats;

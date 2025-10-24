@@ -1,0 +1,182 @@
+.home-page {
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+ 
+  .home-page .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .home-page .logotext {
+    position: absolute;
+    top: 35px;
+    left: 120px;
+    font-weight: bolder;
+    font-size: 48px;
+    color: rgb(206, 44, 44);
+  }
+  
+  
+  .home-page .title {
+    color: white;
+    font-size: 7rem;
+    font-weight: bolder;
+    margin-top: 120px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+  }
+  
+  
+  .home-page .homebtn2 {
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    font-size: 1rem;
+    font-weight: bolder;
+    border-radius: 25px;
+    height: 45px;
+    width: 100px;
+    border: none;
+    background-color: rgb(204, 40, 40);
+    cursor: pointer;
+  }
+  
+  .home-page .homebutton {
+    margin-top: 60px;
+    background-color: rgb(212, 93, 93);
+    border-radius: 25px;
+    height: 50px;
+    width: 200px;
+    font-size: large;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .home-page .homebutton:hover,
+  .home-page .homebtn2:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+  }
+  
+  
+  .home-page .greet {
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 20px;
+  }
+  
+  
+  .home-page .links {
+    display: inline-block;
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 10px 20px;
+  }
+  
+  .home-page .links:hover {
+    background-color: white;
+    color: black;
+    transition: all 0.3s ease;
+  }
+  
+  
+  .home-page .logout-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgba(175, 54, 54, 0.8);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  
+  .home-page .signup {
+    background-color: antiquewhite;
+    border-radius: 25px;
+    padding: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 350px;
+    width: 90%;
+    z-index: 10;
+  }
+  
+  
+  @media (max-width: 1024px) {
+    .home-page .title {
+      font-size: 5rem;
+      margin-top: 100px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .home-page .title {
+      font-size: 3.5rem;
+      margin-top: 80px;
+    }
+  
+    .home-page .logotext {
+      font-size: 36px;
+      top: 25px;
+      left: 100px;
+    }
+  
+    .home-page .homebtn2 {
+      right: 15px;
+      top: 20px;
+    }
+  
+    .home-page .homebutton {
+      margin-top: 40px;
+      width: 160px;
+      font-size: medium;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .home-page .title {
+      font-size: 2.5rem;
+      margin-top: 60px;
+    }
+  
+    .home-page .logotext {
+      font-size: 28px;
+      left: 90px;
+    }
+  
+    .home-page .homebtn2 {
+      width: 80px;
+      height: 40px;
+      font-size: 0.9rem;
+    }
+  
+    .home-page .homebutton {
+      width: 140px;
+      height: 45px;
+    }
+  }

@@ -5,6 +5,7 @@ import "./Chats.css"
 
 function ChatForm({ user, dog, comments, setComments }) {
             const [context, setContext] = useState("")
+            console.log(comments)
     
 
     

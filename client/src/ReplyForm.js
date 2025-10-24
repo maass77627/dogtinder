@@ -5,7 +5,7 @@ import React from "react";
 function ReplyForm({user, comment, setComments, comments, replyAdd}) {
     const [reply, setReply] = useState("")
     console.log(user)
-    // console.log(user.id)
+    
     console.log(comment.user_id)
     
 
@@ -30,22 +30,6 @@ function ReplyForm({user, comment, setComments, comments, replyAdd}) {
             console.log(json)
             console.log(comments)
             replyAdd(id, json)
-        //    replyAdd(id, reply)
-            //  let newcomments = [...comments, json]
-
-    //         setComments((prevComments) =>
-    //   prevComments.map((com) =>
-    //     com.id === comment.id
-    //       ? {
-    //           ...comment,
-    //           replies: [...comment.replies, json],
-    //         }
-    //       : com
-    //   )
-    // );
-              
-            // setComments((prevComments) => [...prevComments, json])
-            
            
         })
         setReply("")
@@ -53,10 +37,10 @@ function ReplyForm({user, comment, setComments, comments, replyAdd}) {
 
     return(
 
-        <div id="replyform">
+        <div className="replyform">
             <form onSubmit={handleSubmit}>
                 <input type="text" value={reply} onChange={(e) => setReply(e.target.value)}></input>
-                <input type="submit" value="Reply"></input>
+                <input className="submit" type="submit" value="Reply"></input>
              </form>
         </div>
     )

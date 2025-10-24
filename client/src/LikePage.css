@@ -1,40 +1,6 @@
 
+
 /* #likepagecontainer {
-    height: 900px;
-    width: 2000px;
-    background-color: aquamarine;
-}
-
-
-#likepage {
-    position: relative;
-    border-width: 25px;
-    border-color:  black;
-    border-style: solid;
-    border-radius: 25px;
-    top: 100px;
-    left: 150px;
-    margin-right: 20px; 
-    padding: 10px;
-    float: left;
-}
-
-#likeimage {
-    width: 400px;
-    height: 400px;
-}
-
-#lin {
-    position: absolute;
-    margin: auto;
-}
-
-#match{
-    position: absolute;
-    left: 100px;
-} */
-
-#likepagecontainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -45,7 +11,7 @@
     box-sizing: border-box;
   }
   
-  /* Single like card */
+ 
   .like-card {
     position: relative;
     background-color: #fff;
@@ -134,7 +100,7 @@
     font-weight: 600;
   }
   
-  /* Delete button in overlay */
+  
   .overlay .delete-btn {
     margin-top: 10px;
     padding: 8px 20px;
@@ -152,7 +118,7 @@
     transform: scale(1.05);
   }
   
-  /* Responsive adjustments */
+  
   @media (max-width: 480px) {
     .like-card {
       width: 90%;
@@ -171,4 +137,321 @@
       padding: 3px 6px;
     }
   }
+   */
+
+
+
+
+
+
+
+
+    /* #likepagecontainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;           
+    overflow-x: auto;            
+    overflow-y: hidden;          
+    gap: 20px;
+    padding: 40px 20px;
+    background: linear-gradient(180deg, #ffe3ec 0%, #ffd6d6 100%);
+    min-height: 100vh;
+    box-sizing: border-box;
+    scrollbar-width: none;       
+    scroll-snap-type: x mandatory; 
+  }
   
+  #likepagecontainer::-webkit-scrollbar {
+    display: none;              
+  }
+  
+  
+  .like-card {
+    flex: 0 0 auto;            
+    position: relative;
+    background-color: #fff;
+    border-radius: 25px;
+    height: 500px;
+    width: 400px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-snap-align: start;
+  }
+  
+  .like-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  }
+  
+  
+  .like-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+    border-radius: 20px 20px 0 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .like-card:hover .like-image {
+    transform: scale(1.03);
+  }
+  
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    background: rgba(0,0,0,0.65);
+    color: #fff;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 20px;
+    border-radius: 25px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .like-card:hover .overlay {
+    opacity: 1;
+  }
+  
+  
+  .overlay .dog-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 5px 0;
+  }
+  
+  .overlay .dog-meta {
+    font-size: 14px;
+    opacity: 0.9;
+  }
+  
+  .overlay .dog-interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  
+  .overlay .interest-tag {
+    background-color: #ffe3ec;
+    color: #e2312b;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  
+  .overlay .delete-btn {
+    margin-top: 10px;
+    padding: 8px 20px;
+    border-radius: 25px;
+    border: none;
+    background-color: #e2312b;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  
+  .overlay .delete-btn:hover {
+    background-color: #ff4d4d;
+    transform: scale(1.05);
+  }
+  
+  
+  @media (max-width: 480px) {
+    .like-card {
+      width: 90%;
+    }
+  
+    .like-image {
+      height: 200px;
+    }
+  
+    .overlay .dog-name {
+      font-size: 18px;
+    }
+  
+    .overlay .interest-tag {
+      font-size: 11px;
+      padding: 3px 6px;
+    }
+  }  */
+
+
+  
+
+
+  .likes-page {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, #c04d3e 0%, #ffd6d6 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  /* Horizontal scroll container */
+  .likes-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 20px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    scrollbar-width: none; /* hide scrollbar */
+    scroll-snap-type: x mandatory;
+  }
+  
+  .likes-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Card */
+  .like-card {
+    flex: 0 0 auto;
+    position: relative;
+    background-color: #fff;
+    border-radius: 25px;
+    height: 500px;
+    width: 400px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-snap-align: start;
+  }
+  
+  .like-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Image */
+  .like-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center 40%;
+    border-radius: 20px 20px 0 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .like-card:hover .like-image {
+    transform: scale(1.03);
+  }
+  
+  /* Overlay */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 20px;
+    border-radius: 25px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .like-card:hover .overlay {
+    opacity: 1;
+  }
+  
+  /* Overlay content */
+  .overlay .dog-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 5px 0;
+  }
+  
+  .overlay .dog-meta {
+    font-size: 14px;
+    opacity: 0.9;
+  }
+  
+  .overlay .dog-interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  
+  .overlay .interest-tag {
+    background-color: #ffe3ec;
+    color: #e2312b;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  /* Button */
+  .overlay .delete-btn {
+    margin-top: 10px;
+    padding: 8px 20px;
+    border-radius: 25px;
+    border: none;
+    background-color: #e2312b;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  
+  .overlay .delete-btn:hover {
+    background-color: #ff4d4d;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive */
+  @media (max-width: 480px) {
+    .like-card {
+      width: 90%;
+    }
+  
+    .like-image {
+      height: 200px;
+    }
+  
+    .overlay .dog-name {
+      font-size: 18px;
+    }
+  
+    .overlay .interest-tag {
+      font-size: 11px;
+      padding: 3px 6px;
+    }
+  }

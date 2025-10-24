@@ -1,62 +1,65 @@
+
+
 import { useState } from "react";
 import React from "react";
+import "./Login.css"; 
 
 function Login({ setUser }) {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [visible, setVisible] = useState(true)
 
-    function handleSubmit(e) {
-      console.log(e.target)
-      let form = e.target.parentNode
-      form.className = "hidden"
+  function handleSubmit(e) {
+    e.preventDefault();
 
-        e.preventDefault();
-        console.log(username)
-        console.log(password)
-        fetch("/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ username, password }),
-        }).then((r) => {
-          if (r.ok) {
-            r.json().then((user) => setUser(user));
-            
-          }
-        });
+    setVisible(!visible)
+   
+
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
       }
+    });
+  }
 
-    return (
-        <div id="login">
-         <form onSubmit={handleSubmit}>
-         <h1>Login</h1>
-        <label id="label" >Username </label> <br></br>
-        <br></br>
+
+  if (!visible) return null;
+
+  return (
+    
+    <div id="login">
+      <form onSubmit={handleSubmit}>
+        <h1>Login</h1>
+
+        <label htmlFor="username">Username</label>
         <input
           type="text"
           id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-        /> <br></br>
-        
-        <label id="label" htmlFor="password">Password </label> <br></br>
-        <br></br>
+          required
+        />
+
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
-        <br></br>
+
         <button type="submit">Login</button>
       </form>
     </div>
-
-    )
-
-
-
+    
+  );
 }
 
-export default Login
+export default Login;

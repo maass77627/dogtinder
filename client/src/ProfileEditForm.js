@@ -59,7 +59,7 @@ function ProfileEditForm({user, setUsers, users}) {
             headers: {
                 "Content-Type": "application/json",
             },
-            // body: JSON.stringify({name: name, age: age, interests: interests, details: details, image: image})
+           
             body: JSON.stringify(userData)
 
         })

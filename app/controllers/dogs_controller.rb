@@ -14,19 +14,17 @@ class DogsController < ApplicationController
         render json: dogs, include: [:user, :interests]
     end 
 
-      
-      def update
-        dog = Dog.find_by(id: params[:id])
-        if dog
-            dog.update(dog_params)
-            render json: dog
-        else
-            render json: { error: "Dog not found"}, status: :not_found
 
+    def update
+        dog = Dog.find(params[:id])
+    # byebug
+        if dog.update(dog_params)
+          render json: dog, include: :interests, status: :ok
+        else
+          render json: { errors: dog.errors.full_messages }, status: :unprocessable_entity
         end
       end
-
-   
+      
 
     def create
         if params[:user_id]
@@ -57,7 +55,18 @@ class DogsController < ApplicationController
     private
 
     def dog_params
-        params.permit(:id, :name, :age, :details, :image, :user_id, :gender, :lookingfor, interest_ids: [], dog_interests_attributes: [:id, :name])
+        params.require(:dog).permit(
+      :id,
+      :name,
+      :age,
+      :details,
+      :image,
+      :user_id,
+      :gender,
+      :lookingfor,
+      interest_ids: [] 
+    )
+        params.require(:dog).permit(:id, :name, :age, :details, :image, :user_id, :gender, :lookingfor, interest_ids: [])   
     end
 
 end

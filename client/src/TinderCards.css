@@ -1,162 +1,44 @@
-/* #background{
-    height: 2000px;
-    width: 2000px;
-    background-color: pink;
-}
-.card {
-    position: relative;
-    width: 700px;
-    padding: 20px;
-    max-width: 85vw;
-    height: 60vh;
-    border-radius: 20px;
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0px 18px 80px 50px rgba(0, 0, 0, 0.3);
-    background-color: white;
-}
 
-.tinderCards_cardContainer {
-    position: absolute;
-    left: 650px;
-    display: flex;
-    justify-content: center;
-    margin-top: 5vh;
-}
 
-#info {
-    position: absolute;
-    /* top: 1200px; */
-    /* background-color: black;  */
-    /* margin-top: 100px;
-    margin-left: auto;
-    margin-right: 90px;
-
-} */
-   
-
-/* #description {
-    color: white;
-    background-color: black;
-    width: 500px;
-    height: 60px;
-    margin: auto;
-    top: 400px;
-    
-  }
-
-#name {
-    font-weight: bold;
-    left: 0px;
-    background-color: black;
-}
-
-#age {
-    font-weight: bold;
-    background-color: black;
-}
-
-#gender{ 
-    margin-top: 0px;
-    width: 600px;
-    margin-left: 10px;
-    margin-right: 10px;
-    /* height: 100px; */
-    /* background-color: black; */
-    /* color: white; */
-    /* font-weight: bold; */
-/* } */
-
-/* #interesttinder{ */
-    /* margin-top: -20px; */
-    /* position: absolute; */
-    /* margin-bottom: 2px; */
-    /* float: right; */
-    /* margin-right: 5px; */
-    /* height: 30px; */
-    /* width: 100px; */
-    /* border-radius: 25px; */
-    /* background-color: #e2312b; */
-    
-    /* color: black; */
-    /* font-weight: bold; */
-/* } */ 
-
-/* .swipe {
-    position: absolute;
-}
-
-#swipeimg{
-    height: 200px;
-    width: 200px;
-   position: absolute;
-   z-index: 5;
-  right: 0px;
-   top:0px;
-}
-
-#swipeimgn{
-    height: 200px;
-    width: 200px;
-   position: absolute;
-   z-index: 5;
-  left: 0px;
-   top:0px;
-}
-
-.hidden{
-    visibility: hidden;
-}
-
-.nothidden{
-    visibility: visible;
-}  */
-
-body, html, #root {
+  .dogcontainer-page {
     margin: 0;
     padding: 0;
-    height: 100%;
-    background: linear-gradient(180deg, #ffe3ec 0%, #ffd6d6 100%);
+    min-height: 100vh;
+    background: linear-gradient(180deg, #c04d3e 0%, #ffd6d6 100%);
     font-family: 'Inter', sans-serif;
-  }
-  
-  
-  .tinder-page {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    min-height: 100vh;
   }
   
   
-  .tinder-header {
+  .dogcontainer-header {
     text-align: center;
     padding: 20px;
   }
   
-  .home-link {
+  .dogcontainer-home-link {
     text-decoration: none;
     color: #e2312b;
     font-weight: bold;
     font-size: 22px;
   }
   
-  
-  .tinder-container {
-    
+ 
+  .dogcontainer-tinder {
     position: relative;
-    width: 95vw; 
+    width: 95vw;
     max-width: 1000px;
-    height: 100vh; 
+    height: 100vh;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
   }
   
- 
-  .swipe {
+  .dogcontainer-swipe {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -164,12 +46,11 @@ body, html, #root {
   }
   
   
-  .dog-card {
+  .dogcontainer-card {
     position: relative;
     background-size: cover;
-    background-position: center;
+    background-position: center 40%;
     width: 800px;
-    
     height: 700px;
     border-radius: 25px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
@@ -180,12 +61,12 @@ body, html, #root {
     transition: transform 0.3s ease;
   }
   
-  .dog-card:hover {
+  .dogcontainer-card:hover {
     transform: scale(1.03);
   }
   
-  
-  .dog-info {
+ 
+  .dogcontainer-info {
     background: rgba(0, 0, 0, 0.65);
     color: #fff;
     padding: 24px;
@@ -193,31 +74,32 @@ body, html, #root {
     border-bottom-right-radius: 25px;
   }
   
-  .dog-info h3 {
+  .dogcontainer-info h3 {
     margin: 5px 0;
     font-size: 28px;
     font-weight: 700;
   }
   
-  .status {
+  .dogcontainer-status {
     color: #ffd1dc;
     font-size: 14px;
     margin-bottom: 5px;
   }
   
-  .meta {
+  .dogcontainer-meta {
     font-size: 16px;
     opacity: 0.9;
   }
   
-  .interests {
+  
+  .dogcontainer-interests {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin: 10px 0;
   }
   
-  .interests span {
+  .dogcontainer-interests span {
     background: #fff;
     color: #e2312b;
     padding: 6px 12px;
@@ -226,14 +108,14 @@ body, html, #root {
     font-size: 13px;
   }
   
-  .details {
+  .dogcontainer-details {
     font-size: 15px;
     line-height: 1.4;
     margin-top: 8px;
   }
   
   
-  .swipe-overlay {
+  .dogcontainer-overlay {
     position: absolute;
     top: 40px;
     width: 150px;
@@ -242,31 +124,45 @@ body, html, #root {
     z-index: 10;
   }
   
-  .swipe-overlay.right {
+  .dogcontainer-overlay.right {
     right: 30px;
   }
   
-  .swipe-overlay.left {
+  .dogcontainer-overlay.left {
     left: 30px;
   }
   
- 
-  footer {
-    margin: 20px 0;
+  .overlay-symbol {
+    font-size: 120px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .approve {
+    color: limegreen;
+  }
+  
+  .reject {
+    color: red;
   }
   
  
   @media (max-width: 768px) {
-    .tinder-container {
+    .dogcontainer-tinder {
       height: 75vh;
       max-width: 90vw;
     }
   
-    .dog-info h3 {
+    .dogcontainer-card {
+      width: 90%;
+      height: 500px;
+    }
+  
+    .dogcontainer-info h3 {
       font-size: 22px;
     }
   
-    .details {
+    .dogcontainer-details {
       font-size: 13px;
     }
   }

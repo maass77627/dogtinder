@@ -1,100 +1,121 @@
-import React from "react";
-import { useState } from "react";
+
+
+import React, { useState } from "react";
 import "./EditForm.css";
-// import { SecurityUpdateGoodSharp } from "@mui/icons-material";
 
-function Edit ({ user, dog, dogs, setDogs}) {
-    console.log(user)
-    console.log(dog)
-    const [dogData, setDogData] = useState({
-        name: dog.name,
-        age: dog.age,
-        interests: dog.interests,
-        details: dog.details,
-        image: dog.image
+function Edit({ user, dog, dogs, setDogs }) {
+  const [dogData, setDogData] = useState({
+    name: dog.name,
+    age: dog.age,
+    interests: dog.interests ? [...dog.interests] : [],
+    details: dog.details,
+    image: dog.image,
+  });
+
+  const [visible, setVisible] = useState(true);
+
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setDogData({ ...dogData, [name]: value });
+  };
+
+  
+  const handleRemoveInterest = (id) => {
+    setDogData({
+      ...dogData,
+      interests: dogData.interests.filter((i) => i.id !== id),
+    });
+  };
+
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const id = dog.id;
+
+   
+    const payload = {
+      ...dogData,
+      interests: undefined, 
+      interest_ids: dogData.interests.map((i) => i.id),
+    };
+
+    fetch(`/dogs/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ dog: payload }), 
     })
+      .then((r) => r.json())
+      .then((updatedDog) => {
+        const newDogs = dogs.map((d) => (d.id === id ? updatedDog : d));
+        setDogs(newDogs);
+        setVisible(false); 
+      })
+      .catch((err) => console.error("Error updating dog:", err));
+  };
 
-    function handleNameChange(e){
-        setDogData({
-            ...dogData, 
-            name: e.target.value
-        })
+  if (!visible) return null;
 
-    }
+  return (
+    <div className="edit-container">
+      <form className="edit-form" onSubmit={handleSubmit}>
+        <h2>Edit Dog Profile</h2>
 
-    function handleAgeChange(e) {
-        setDogData({
-            ...dogData, 
-           age: e.target.value
-        })
+        <label>Name</label>
+        <input
+          name="name"
+          type="text"
+          value={dogData.name}
+          onChange={handleChange}
+        />
 
-    }
+        <label>Age</label>
+        <input
+          name="age"
+          type="text"
+          value={dogData.age}
+          onChange={handleChange}
+        />
 
-    function handleInterestsChange(e) {
-        setDogData({
-            ...dogData, 
-           interests: e.target.value
-        })
+        <label>Details</label>
+        <textarea
+          name="details"
+          value={dogData.details}
+          onChange={handleChange}
+          rows="3"
+        />
 
-    }
+        <label>Image URL</label>
+        <input
+          name="image"
+          type="text"
+          value={dogData.image}
+          onChange={handleChange}
+        />
 
-    function handleDetailsChange(e) {
-        setDogData({
-            ...dogData, 
-           details: e.target.value
-        })
-
-    }
-
-    function handleImageChange(e) {
-        setDogData({
-            ...dogData, 
-           image: e.target.value
-        })
-
-    }
-
-
-
-    function handleSubmit(e) {
-        e.preventDefault()
-        let id= dog.id
-        fetch(`/dogs/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(dogData)
-
-        })
-        .then((response) => response.json())
-        .then((json) => {
-             let newdogs = dogs.map((doggy) => doggy.id === id ? json : doggy)
-             setDogs(newdogs)
-        })
-
-    }
-
-
-
-    return (
-        <div id="edit">
-            <form id="editform" onSubmit={handleSubmit}>
-               <h3>Edit Dog</h3>
-               <label>Name:</label>
-               <input type="text" value={dogData.name} placeholder={dog.name} onChange={handleNameChange}></input><br></br>
-               <label>Age:</label>
-                <input type="text" value={dogData.age} placeholder={dog.age} onChange={handleAgeChange}></input><br></br>
-                <label>Interests:</label>
-                <input type="text" value={dogData.interests} placeholder={dog.interests} onChange={handleInterestsChange}></input><br></br>
-                <label>Details:</label>
-                <input type="text" value={dogData.details} placeholder={dog.details} onChange={handleDetailsChange}></input><br></br>
-                <label>Image:</label>
-                <input type="text" value={dogData.image} placeholder={dog.image} onChange={handleImageChange}></input><br></br>
-                <input type="submit" value="submit"></input>
-            </form>
+        <label>Interests</label>
+        <div className="interest-tags">
+          {dogData.interests.length > 0 ? (
+            dogData.interests.map((interest) => (
+              <span
+                key={interest.id || interest.name}
+                className="interest-tag"
+                onClick={() => handleRemoveInterest(interest.id)}
+              >
+                {interest.name} ✕
+              </span>
+            ))
+          ) : (
+            <p className="no-interests">No interests listed</p>
+          )}
         </div>
-    )
+
+        <button type="submit" className="edit-submit-btn">
+          Save Changes
+        </button>
+      </form>
+    </div>
+  );
 }
 
-export default Edit
+export default Edit;
