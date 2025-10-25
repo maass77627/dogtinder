@@ -1,5 +1,7 @@
 
 
+ 
+
   .chats-container {
     background-color: #f7f7f7;
     min-height: 100vh;
@@ -19,10 +21,10 @@
     font-weight: 500;
     transition: background-color 0.2s ease;
   }
-  
   .chats-container .chats-link:hover {
     background-color: #c74d4d;
   }
+  
   
   .chats-container .chats-title {
     text-align: center;
@@ -31,60 +33,99 @@
   }
   
   
-  .chats-container .chat {
+  .chat-bubble {
     position: relative;
-    margin: 1rem auto;
-    background-color: #ffffff;
-    border-radius: 20px;
-    width: 400px;
-    min-height: 100px;
-    padding: 1rem;
-    padding-bottom: 3.5rem; 
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    overflow-wrap: break-word;
+    max-width: 70%;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: bubbleIn 0.25s ease-out both;
+    transition: transform 0.15s ease;
   }
   
   
-  .chats-container .userchatimage {
+  .chat-bubble:hover {
+    transform: scale(1.02);
+  }
+  
+  
+  .chat-bubble.user {
+    background-color: #f04a4a;
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+  }
+  
+  
+  .chat-bubble.other {
+    background-color: #e6e6e6;
+    color: #111827;
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+  }
+  
+  
+  .chat-bubble.user::after,
+  .chat-bubble.other::after {
+    content: "";
     position: absolute;
-    left: 10px;
-    top: 10px;
-    height: 80px;
-    width: 80px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+  }
+  
+  .chat-bubble.user::after {
+    right: -10px;
+    border-left-color: #f04a4a;
+    border-right: 0;
+    border-bottom: 0;
+  }
+  
+  .chat-bubble.other::after {
+    left: -10px;
+    border-right-color: #e6e6e6;
+    border-left: 0;
+    border-bottom: 0;
+  }
+  
+  
+  .chat-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+  }
+  
+  .userchatimage {
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     object-fit: cover;
   }
   
-  
-  .chats-container .userchatname {
-    position: absolute;
-    top: 10px;
-    left: 110px;
+  .userchatname {
     font-weight: 600;
-    color: #111827;
-    font-size: 1rem;
+    color: inherit;
   }
   
   
-  .chats-container .userchatcontext {
-    position: relative;
-    margin-left: 110px;
-    margin-top: 50px;
-    font-size: 0.95rem;
-    color: #333;
-    line-height: 1.4;
-    word-wrap: break-word;
-    padding-right: 1rem;
+  .userchatcontext {
+    margin: 5px 0 10px 0;
+    white-space: pre-wrap;
   }
   
   
-  .chats-container .buttonsreply {
-    position: absolute;
-    bottom: 10px;
-    left: 110px;
-    background-color: #db4848;
-    width: 100px;
-    color: white;
+  .chat-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .chat-buttons button {
     border: none;
     border-radius: 8px;
     padding: 0.4rem 0.8rem;
@@ -93,87 +134,75 @@
     transition: background-color 0.2s ease;
   }
   
-  .chats-container .buttonsreply:hover {
+  .reply-btn {
+    background-color: #db4848;
+    color: white;
+  }
+  .reply-btn:hover {
     background-color: #aa4e4e;
   }
   
-  
-  .chats-container .buttonstwo {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+  .delete-btn {
+    background-color: #7a7a7a;
+    color: white;
+  }
+  .delete-btn:hover {
+    background-color: #555;
   }
   
-  .chats-container .buttonstwo button {
-    background-color: #db4848;
-    width: 100px;
+  
+  .replyform {
+    margin-top: 10px;
+  }
+  
+  .replyform input[type="text"] {
+    width: 80%;
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .replyform .submit {
+    background-color: #f04a4a;
     color: white;
     border: none;
     border-radius: 8px;
     padding: 0.4rem 0.8rem;
-    margin: 0.25rem;
-    font-weight: 500;
+    margin-left: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease;
   }
   
-  .chats-container .buttonstwo button:hover {
-    background-color: #aa4e4e;
+  .replyform .submit:hover {
+    background-color: #c74d4d;
   }
   
   
-  .chats-container .replyform {
-    position: relative;
-    margin-top: 1rem;
-    margin-left: 120px; 
-  }
-  
-  .chats-container .replyform .submit {
-    width: 100px;
-    padding: 5px;
+  .reply {
+    margin-left: 40px;
+    margin-top: 10px;
   }
   
   
-  .chats-container .reply {
-    position: relative;
-    margin-top: 1rem;
-    margin-left: 50px;
-    width: calc(100% - 50px);
-    border-left: 2px solid #e0e0e0; 
-    padding-left: 15px;
-  }
-  
-  
-  .chats-container .hidden {
-    visibility: hidden;
-  }
-  
-  .chats-container .visible {
-    visibility: visible;
-  }
-  
-  
-  @media (max-width: 600px) {
-    .chats-container .chat {
-      width: 90%;
-      left: 0;
-      padding-bottom: 2.5rem;
+  @keyframes bubbleIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
     }
-  
-    .chats-container .userchatimage {
-      height: 60px;
-      width: 60px;
+    60% {
+      opacity: 1;
+      transform: translateY(-2px) scale(1.02);
     }
-  
-    .chats-container .userchatcontext {
-      margin-left: 90px;
-    }
-  
-    .chats-container .replyform {
-      margin-left: 90px;
-    }
-  
-    .chats-container .reply {
-      margin-left: 30px;
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
   }
+  
+  
+  .chat-bubble:nth-child(1) { animation-delay: 0.05s; }
+  .chat-bubble:nth-child(2) { animation-delay: 0.1s; }
+  .chat-bubble:nth-child(3) { animation-delay: 0.15s; }
+  .chat-bubble:nth-child(4) { animation-delay: 0.2s; }
+  

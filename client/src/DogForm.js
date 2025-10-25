@@ -29,14 +29,17 @@ function DogForm({ user, dogs, setDogs, interests }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        name,
-        age,
-        details,
-        image,
-        user_id: user.id,
-        gender,
-        lookingfor: lookingFor,
-        interest_ids: interestIds,
+        dog: {
+          name,
+          age,
+          details,
+          image,
+          user_id: user.id,
+          gender,
+          lookingfor: lookingFor,
+          interest_ids: interestIds,
+        },
+        
       }),
     })
       .then((r) => r.json())

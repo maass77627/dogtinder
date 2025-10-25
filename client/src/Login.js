@@ -7,7 +7,7 @@ import "./Login.css";
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(false)
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -29,7 +29,7 @@ function Login({ setUser }) {
   }
 
 
-  if (!visible) return null;
+  if (visible) return null;
 
   return (
     

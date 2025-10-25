@@ -1,12 +1,12 @@
-import Login from "./Login";
-import Signup from "./Signup";
+// import Login from "./Login";
+// import Signup from "./Signup";
 import DogContainer from "./DogContainer";
 import React from "react";
 import './App.css';
 import { useState } from "react";
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import Likes from "./Likes";
 import Chats from "./Chats";
 import Owner from "./Owner";
@@ -127,13 +127,12 @@ function App() {
       const replyAdd = (parentId, reply) => {
         console.log("Reply received:", reply);
       
-        // ✅ Include user so username shows up right away
         const newComment = {
           id: reply.id || Date.now(),
           context: reply.context,
           replies: [],
           user_id: reply.user_id,
-          user: reply.user,     // <-- Add this line
+          user: reply.user,     
           parent_id: parentId,
         };
       

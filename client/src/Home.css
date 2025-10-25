@@ -23,8 +23,8 @@
   
   .home-page .logotext {
     position: absolute;
-    top: 35px;
-    left: 120px;
+    top: -10px;
+    left: 100px;
     font-weight: bolder;
     font-size: 48px;
     color: rgb(206, 44, 44);

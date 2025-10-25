@@ -8,10 +8,10 @@ class Dog < ApplicationRecord
    belongs_to :user
    has_many :comments
    has_many :likes
-   has_many :dog_interests
+   has_many :dog_interests, dependent: :destroy
    has_many :interests, through: :dog_interests
 
-   accepts_nested_attributes_for :dog_interests
+  # accepts_nested_attributes_for :dog_interests
 
    private
 

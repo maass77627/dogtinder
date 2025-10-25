@@ -1,5 +1,4 @@
 
-
 import React, { useState } from "react";
 import ReplyForm from "./ReplyForm";
 import "./Chats.css";
@@ -7,7 +6,6 @@ import "./Chats.css";
 function Chat({ users, comment, user, setComments, comments, replyAdd }) {
   const [toggle, setToggle] = useState(false);
   const commentId = comment.id;
-  console.log(comment)
 
   function handleClick() {
     setToggle(!toggle);
@@ -33,29 +31,36 @@ function Chat({ users, comment, user, setComments, comments, replyAdd }) {
       }));
   }
 
+
+  const isUser = comment.user_id === user.id;
+
   return (
-    <div className="chat">
-      <img className="userchatimage" src="forest.png" alt="profile" />
-      <h4 className="userchatname">
-        {comment.user ? comment.user.name : null}
-      </h4>
+    <div className={`chat-bubble ${isUser ? "user" : "other"}`}>
+      <div className="chat-header">
+        <img className="userchatimage" src="forest.png" alt="profile" />
+        <h4 className="userchatname">
+          {comment.user ? comment.user.name : "Unknown"}
+        </h4>
+      </div>
 
-      {comment.context ? (
+      {comment.context && (
         <p className="userchatcontext">{comment.context}</p>
-      ) : null}
+      )}
 
-      {comment.user_id && comment.user_id !== user.id ? (
-        <button className="buttonsreply" onClick={handleClick}>Reply</button>
-      ) : null}
+      <div className="chat-buttons">
+        {!isUser && (
+          <button className="reply-btn" onClick={handleClick}>
+            Reply
+          </button>
+        )}
+        {isUser && (
+          <button className="delete-btn" onClick={() => handleDelete(comment.id)}>
+            Delete
+          </button>
+        )}
+      </div>
 
-      {comment.user_id === user.id ? (
-        <div className="buttonstwo">
-          
-          <button onClick={() => handleDelete(comment.id)}>Delete</button>
-        </div>
-      ) : null}
-
-      {toggle ? (
+      {toggle && (
         <ReplyForm
           replyAdd={replyAdd}
           comments={comments}
@@ -63,7 +68,7 @@ function Chat({ users, comment, user, setComments, comments, replyAdd }) {
           user={user}
           comment={comment}
         />
-      ) : null}
+      )}
 
       {comment.replies &&
         comment.replies.map((reply) => (
@@ -82,6 +87,3 @@ function Chat({ users, comment, user, setComments, comments, replyAdd }) {
 }
 
 export default Chat;
-
-
-
